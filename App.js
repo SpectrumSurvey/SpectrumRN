@@ -6,8 +6,8 @@
  * @flow
  */
 
-import React from 'react';
-import {StatusBar, Image} from 'react-native';
+import React, {useEffect} from 'react';
+import { ActivityIndicator, Image, View, Text } from 'react-native';
 import {Provider} from 'react-redux';
 import models from './_app/models';
 import {navigationRef} from './_app/utils/NavigationService';
@@ -20,16 +20,29 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
+const HomeStack = createStackNavigator();
 
 import Home from './_app/pages/home';
 import Msg from './_app/pages/msg';
 import Mine from './_app/pages/mine';
 import Login from './_app/pages/login';
 import Answer from './_app/pages/answer';
+import MyReport from './_app/pages/mine/report';
+import MyTask from './_app/pages/mine/task';
+import {connect} from 'react-redux';
+
+if (__DEV__) {
+  require('./_app/utils/network.inspect');
+}
 
 const app = DvaInstance.instance;
 app.start();
 const store = app._store;
+
+// 检查登录状态
+store.dispatch({
+  type: 'auth/checkLogin',
+});
 
 window.__cached_model__ = window.__cached_model__ || {};
 
@@ -41,44 +54,78 @@ models.forEach(model => {
   }
 });
 
+/**
+ * @return {null}
+ */
+function StackNavigator(props) {
+  const {authStore} = props;
+
+  if (!authStore?.init) {
+    // 未初始化完成
+    return (
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <ActivityIndicator
+          size={'large'}
+          style={{
+            marginBottom: 16,
+          }}
+        />
+        <Text>加载中...</Text>
+      </View>
+    );
+  }
+
+  return (
+    <NavigationNativeContainer ref={navigationRef}>
+      <Stack.Navigator
+        headerMode="none"
+        screenOptions={{
+          headerTintColor: 'white',
+          headerShown: false,
+          headerStyle: {backgroundColor: 'tomato'},
+        }}>
+        {!authStore.token ? (
+          <Stack.Screen name="Login" component={Login} />
+        ) : (
+          <React.Fragment>
+            <Stack.Screen name="Root" component={renderBottomTab} />
+            <Stack.Screen name="Answer" component={Answer} />
+            <Stack.Screen name="task" component={MyTask} />
+            <Stack.Screen name="report" component={MyReport} />
+          </React.Fragment>
+        )}
+      </Stack.Navigator>
+    </NavigationNativeContainer>
+  );
+}
+
+function mapStateToProps(state) {
+  return {
+    authStore: state.auth,
+  };
+}
+
+const ConnectStackNavigator = connect(mapStateToProps)(StackNavigator);
+
 const Tabs = createBottomTabNavigator();
 
 const App: () => React$Node = () => {
+  useEffect(() => {
+    store.dispatch({
+      type: 'auth/checkLogin',
+    });
+  }, []);
+
   return (
     <Provider store={store}>
       <AntdProvider>
-        <NavigationNativeContainer ref={navigationRef}>
-          <Stack.Navigator
-            initialRouteName="Login"
-            headerMode="screen"
-            screenOptions={{
-              headerTintColor: 'white',
-              headerShown: false,
-              headerStyle: {backgroundColor: 'tomato'},
-            }}>
-            <Stack.Screen
-              name="Login"
-              component={Login}
-              options={{
-                title: 'Awesome app',
-              }}
-            />
-            <Stack.Screen
-              name="Root"
-              component={renderBottomTab}
-              options={{
-                title: 'Root',
-              }}
-            />
-            <Stack.Screen
-              name="Answer"
-              component={Answer}
-              options={{
-                title: 'Answer',
-              }}
-            />
-          </Stack.Navigator>
-        </NavigationNativeContainer>
+        <ConnectStackNavigator />
       </AntdProvider>
     </Provider>
   );

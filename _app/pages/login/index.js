@@ -4,19 +4,28 @@
  * @Date: 2020/1/5 17:15
  * @Email: middle2021@gmail.com
  */
-import React, { useRef, useState } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import React, {useRef, useState, useEffect} from 'react';
+import {SafeAreaView, Text, View} from 'react-native';
 import Header from '../../components/header';
-import { Input, Button } from 'react-native-elements';
+import {Input, Button} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import DialogBox from 'react-native-dialogbox';
-import { showToast } from '../../utils/utils';
-import { Toast } from '@ant-design/react-native';
+import {Toast} from '@ant-design/react-native';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
+import {connect} from 'react-redux';
+import { handleCatch } from '../../utils/utils';
 
-function Index (props) {
-
+function Index(props) {
   const dialogRef = useRef(null);
   const [code, setCode] = useState('');
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // props.navigation.replace('Root');
+    }, []),
+  );
+
+  useEffect(() => {}, []);
 
   return (
     <View
@@ -35,8 +44,7 @@ function Index (props) {
       <SafeAreaView
         style={{
           flex: 1,
-        }}
-      >
+        }}>
         <Text style={styles.welcome}>Hi,欢迎加入我们的调查</Text>
 
         <Text style={styles.welcome2}>请输入您的登录码</Text>
@@ -44,8 +52,7 @@ function Index (props) {
         <View
           style={{
             paddingHorizontal: 16,
-          }}
-        >
+          }}>
           <Input
             placeholder={'请输入登录码'}
             inputContainerStyle={{
@@ -71,28 +78,34 @@ function Index (props) {
             buttonStyle={styles.button}
             linearGradientProps={{
               colors: ['#499EF3', '#336DF6', '#5346F7'],
-              start: { x: 0, y: 0.5 },
-              end: { x: 1, y: 0.5 },
+              start: {x: 0, y: 0.5},
+              end: {x: 1, y: 0.5},
             }}
             ViewComponent={LinearGradient}
           />
         </View>
       </SafeAreaView>
-      <DialogBox ref={dialogRef}/>
+      <DialogBox ref={dialogRef} />
     </View>
   );
 
-  function onInput (value) {
-    setCode(value)
+  function onInput(value) {
+    setCode(value);
   }
 
-  function go () {
+  function go() {
     if (!code) {
       Toast.info('请输入登录码');
       return;
     }
-    console.log(code);
-    // props.navigation.replace('Root');
+    props
+      .dispatch({
+        type: 'auth/login',
+        payload: {
+          loginCode: code,
+        },
+      })
+      .catch(handleCatch);
   }
 }
 
@@ -116,4 +129,4 @@ const styles = {
   },
 };
 
-export default Index;
+export default connect()(Index);

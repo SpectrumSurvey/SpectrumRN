@@ -4,36 +4,25 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import {
-  SafeAreaView,
-  Text,
-  ImageBackground,
-  StatusBar,
-  Platform,
-  ScrollView,
-  View,
-} from 'react-native';
-import {connect} from 'react-redux';
-import React, {useEffect, useState} from 'react';
+import { Text, ImageBackground, View, FlatList, Image } from 'react-native';
+import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
-import {useFocusEffect} from '@react-navigation/native';
 import moment from 'moment';
-import {useAppState} from '../../utils/hooks.utils';
+import { useAppState } from '../../utils/hooks.utils';
+import { handleCatch } from '../../utils/utils';
+import { Button } from 'react-native-elements';
+import LinearGradient from 'react-native-linear-gradient';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import { useFocusEffect } from '@react-navigation/native';
 
 const WEEKS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 
-function Index(props) {
-  const [now, setNow] = useState(moment());
+function Index (props) {
 
-  useFocusEffect(
-    React.useCallback(() => {
-      // 更新当前界面
-      setNow(moment());
-      StatusBar.setBarStyle('light-content');
-      // android
-      Platform.OS === 'android' && StatusBar.setBackgroundColor('#558FFB');
-    }, []),
-  );
+  const { appHomeQuestionnaire, monthEn, week, year, day, motto, quotes } = props.info;
+
+  const [now, setNow] = useState(moment());
 
   const appState = useAppState();
 
@@ -42,35 +31,263 @@ function Index(props) {
     setNow(moment());
   }, [appState]);
 
-  return (
-    <ImageBackground
-      style={{
-        width: '100%',
-        height: 450,
-        flex: 1,
-      }}
-      source={require('../../asset/images/home_bg.png')}>
-      <Header
-        title={'今日问答'}
-        color={'transparent'}
-        statusBarProps={{
-          barStyle: 'light-content',
-          translucent: true,
-          backgroundColor: '#6769FB',
-        }}
-      />
-      <SafeAreaView
-        style={{
-          flex: 1,
-        }}>
-        <ScrollView>{renderTop()}</ScrollView>
-      </SafeAreaView>
-    </ImageBackground>
+  useFocusEffect(
+    React.useCallback(() => {
+      fetchData();
+    }, []),
   );
 
-  function renderTop() {
+  function fetchData () {
+    props
+      .dispatch({
+        type: 'home/loadData',
+      })
+      .catch(handleCatch);
+  }
+
+  function renderCards () {
     return (
-      <View>
+      <FlatList
+        style={{
+          flex: 1,
+          marginTop: 30,
+          paddingHorizontal: 18,
+        }}
+        data={appHomeQuestionnaire}
+        renderItem={renderItem}
+        ItemSeparatorComponent={() => {
+          return (
+            <View
+              style={{
+                width: 1,
+                height: 19,
+              }}
+            />
+          );
+        }}
+        keyExtractor={(item) => `${item.questionnaireId}`}
+      />
+    );
+  }
+
+  function renderItem ({ item }) {
+    // 是否已经完成
+    const isEnd = item.userQuestionnaireStatus === 2;
+
+    const extraProps = isEnd ? {} : {
+      linearGradientProps: {
+        colors: ['#499EF3', '#336DF6', '#5346F7'],
+        start: { x: 0, y: 0.5 },
+        end: { x: 1, y: 0.5 },
+      },
+      ViewComponent: LinearGradient,
+      raised: true,
+      onPress: () => {
+        props.navigation.navigate('Answer', { ...item });
+      },
+    };
+
+    return (
+      <View
+        style={{
+          borderRadius: 8,
+          paddingHorizontal: 15,
+          paddingTop: 15,
+          paddingBottom: 19,
+          shadowOpacity: 0.85,
+          shadowRadius: 5,
+          shadowColor: '#999999',
+          backgroundColor: 'white',
+          shadowOffset: { height: 0, width: 0 },
+        }}
+      >
+
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: 'row' }}>
+              {
+                isEnd ? (
+                  <Text
+                    style={{
+                      color: '#b7b7b7',
+                      borderRadius: 5,
+                      borderWidth: 0.5,
+                      borderColor: '#b7b7b7',
+                      paddingHorizontal: 5,
+                      paddingVertical: 3,
+                      marginRight: 8,
+                      flexShrink: 0
+                    }}
+                  >
+                    已完成
+                  </Text>
+                ) : null
+              }
+              <Text
+                style={{
+                  fontSize: 17,
+                  color: '#000000',
+                  flex: 1
+                }}
+                numberOfLines={1}
+                ellipsizeMode={'tail'}
+              >
+                {item.questionnaireName}开发渡劫司法鉴定所付款及看得见风科室点击付款讲的是付款及SDK
+              </Text>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: 12.5,
+                alignItems: 'center',
+              }}
+            >
+              <Image
+                source={
+                  isEnd ?
+                    require('../../asset/images/icon_question_end.png') :
+                    require('../../asset/images/icon_question_num.png')
+                }
+                style={{ width: 14, height: 14 }}
+              />
+              <Text style={{ fontSize: 14, color: '#999999', marginHorizontal: 15 }}>题目数</Text>
+              <Text style={{ fontSize: 14, color: isEnd ? '#999999' : '#1f1e1e' }}>
+                {item.subjectNum ?? ''}
+              </Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: 18,
+                alignItems: 'center',
+              }}
+            >
+              <Image
+                source={
+                  isEnd ?
+                    require('../../asset/images/icon_time_end.png') :
+                    require('../../asset/images/icon_time.png')
+                }
+                style={{ width: 14, height: 14 }}
+              />
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: '#999999',
+                  marginHorizontal: 15,
+                }}>
+                {isEnd ? '完成于' : '发布于'}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: isEnd ? '#999999' : '#1f1e1e',
+                }}>
+                {moment(item.sendTime).format('YYYY-MM-DD HH:mm:ss')}
+              </Text>
+            </View>
+          </View>
+
+          {
+            !isEnd ? (
+              <AnimatedCircularProgress
+                size={60}
+                width={3}
+                fill={parseInt(item.completePercentage.replace('%'))}
+                rotation={0}
+                tintColor="#6257FB"
+                style={{
+                  flexShrink: 0
+                }}
+                onAnimationComplete={() => console.log('onAnimationComplete')}
+                backgroundColor="#D7E7FE"
+                children={() => {
+                  return (
+                    <Text style={{ fontSize: 19, color: '#6257FB' }}>
+                      {item.completePercentage}
+                    </Text>
+                  );
+                }}
+              />
+            ) : null
+          }
+
+        </View>
+
+        <Button
+          title={isEnd ? '该问卷已完成' : '进入答题'}
+          containerStyle={{
+            marginTop: 18,
+          }}
+          buttonStyle={{
+            backgroundColor: isEnd ? '#e7e7e7' : '#405DF6',
+            height: 40,
+            borderRadius: 25,
+          }}
+          titleStyle={{
+            fontSize: 17,
+            color: isEnd ? '#aeaeae' : '#fff',
+          }}
+          {...extraProps}
+        />
+
+      </View>
+    );
+  }
+
+  return (
+    <View
+      style={{
+        flex: 1,
+        position: 'relative',
+      }}>
+      <ImageBackground
+        style={{
+          width: '100%',
+          height: 400,
+        }}
+        source={require('../../asset/images/home_bg.png')}
+      />
+
+      <View
+        style={{
+          width: '100%',
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          height: '100%',
+        }}>
+        <Header
+          title={'今日问卷'}
+          color={'transparent'}
+          statusBarProps={{
+            barStyle: 'light-content',
+            translucent: true,
+            backgroundColor: '#6769FB',
+          }}
+          containerStyle={{
+            flexShrink: 0,
+          }}
+        />
+        {renderTop()}
+        {renderCards()}
+      </View>
+    </View>
+  );
+
+  function renderTop () {
+    return (
+      <View
+        style={{
+          flexShrink: 0,
+        }}
+      >
         <View style={styles.topDate}>
           <Text style={styles.dateTxt}>{now.format('YYYY')}</Text>
           <Text style={styles.dateTxt}>/</Text>
@@ -86,14 +303,12 @@ function Index(props) {
       </View>
     );
   }
-
-  function Answer() {
-    props.navigation.navigate('Answer');
-  }
 }
 
-function mapStateToProps(state) {
-  return state;
+function mapStateToProps (state) {
+  return {
+    info: state?.home?.info,
+  };
 }
 
 const styles = {

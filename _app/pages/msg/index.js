@@ -13,14 +13,6 @@ import {useFocusEffect} from '@react-navigation/native';
 
 function Index(props) {
 
-  useFocusEffect(
-    React.useCallback(() => {
-      StatusBar.setBarStyle('dark-content');
-      // android
-      Platform.OS === 'android' && StatusBar.setBackgroundColor('#fff');
-    }, []),
-  );
-
   return (
     <View>
       <Header
@@ -31,6 +23,7 @@ function Index(props) {
         )}
         statusBarProps={{
           barStyle: 'dark-content',
+          backgroundColor: 'white'
         }}
       />
       <SafeAreaView>
