@@ -7,6 +7,7 @@
 import produce from 'immer';
 import {ApiService} from '../http/APIService';
 import _ from 'lodash';
+import { SUBJECT_ENUM } from '../utils/constant';
 
 const initState = {
   info: {},
@@ -55,6 +56,21 @@ const model = {
         options[_index]._checked = _checked;
       });
     },
+
+    /**
+     * 填空题更新答案
+     * @param state
+     * @param payload
+     */
+    updateOptionsByInput (state, { payload }) {
+      return produce(state, draft => {
+        const value = payload;
+        // 更新填空题
+        const options = draft.info.questionnaire.subjects[draft.curIndex].options;
+        options[0].optionKey = value
+      });
+    },
+
     /**
      * 更新选项
      * @param state
@@ -140,7 +156,7 @@ const model = {
     ],
 
     answer: [
-      function*({payload}, {call, put, select}) {
+      function*({payload}, {call}) {
         /*eslint prettier/prettier:0*/
 
         const { curItem, userQuestionnaireId, questionnaireId } = payload;
@@ -149,8 +165,8 @@ const model = {
           userQuestionnaireId,
           questionnaireId,
           subjectId: curItem.subjectId,
-          answerOptionJson: processAnswerOptions(curItem.options),
-        }
+          answerOptionJson: processAnswerOptions(curItem.subjectType, curItem.options),
+        };
         const [error, data] = yield call(ApiService.answer, params);
         if (error) {
           return Promise.reject(error);
@@ -162,17 +178,37 @@ const model = {
   },
 };
 
-function processAnswerOptions (options) {
-  const result = options.filter(v => v._checked).reduce((pre, cur) => {
-    pre.push({
-      optionId: cur.optionId,
-      optionKey: cur.optionKey,
-      fillingValue: cur.fillingValue,
-    });
-    return pre
-  }, []);
+function processAnswerOptions (subjectType, options) {
+  if ([
+    SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE,
+    SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE,
+    SUBJECT_ENUM.SINGLE_CHOICE,
+    SUBJECT_ENUM.MULTIPLE_CHOICE
+  ].includes(subjectType)) {
+    const result = options.filter(v => v._checked).reduce((pre, cur) => {
+      pre.push({
+        optionId: cur.optionId,
+        optionKey: cur.optionKey,
+        fillingValue: cur.fillingValue,
+      });
+      return pre
+    }, []);
 
-  return JSON.stringify(result)
+    return JSON.stringify(result)
+  }
+
+  if (
+    subjectType === SUBJECT_ENUM.COMPLETION
+  ) {
+    // 填空题
+    return JSON.stringify({
+      optionId: options[0].optionId,
+      // 填空题结果
+      optionKey: options[0].optionKey,
+      fillingValue: null,
+    })
+  }
+
 }
 
 export default model;

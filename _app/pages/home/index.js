@@ -250,7 +250,7 @@ function Index (props) {
       <ImageBackground
         style={{
           width: '100%',
-          height: 400,
+          height: 450,
         }}
         source={require('../../asset/images/home_bg.png')}
       />

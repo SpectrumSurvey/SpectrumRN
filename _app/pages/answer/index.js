@@ -15,6 +15,7 @@ import { Progress, Modal } from '@ant-design/react-native';
 import { SUBJECT_ENUM } from '../../utils/constant';
 import ListOptions from './components/ListOptions';
 import { goBack } from '../../utils/NavigationService';
+import InputComponent from './components/InputComponent';
 
 function Index(props) {
 
@@ -163,7 +164,9 @@ function Index(props) {
         );
       case SUBJECT_ENUM.COMPLETION:
         return (
-          <Text>填空题</Text>
+          <InputComponent
+            options={curItem.options}
+          />
         );
       case SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE:
         return (

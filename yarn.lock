@@ -7,7 +7,7 @@
   resolved "https://registry.yarnpkg.com/@ant-design/icons-react-native/-/icons-react-native-1.0.2.tgz#28648eacb808a1fae0ad59d691bbb472a6ffc26e"
   integrity sha512-cpTHdeGdxS+kp59rrtHZw6guXJQyDKzvLxGUf2qXeTlua5nKLG1kVoSMtW5tIPep21RcL6gVdwQl5+/mUMk9/w==
 
-"@ant-design/react-native@^3.2.2":
+"@ant-design/react-native@3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@ant-design/react-native/-/react-native-3.2.2.tgz#b15782f388a815c14226d33da6cf31fb878bd4b7"
   integrity sha512-f8RCLOL2Pq2ARegc+eq9jmUMQuYC+b76BZlLxOeop8YNQM2SCXr1vskAX306DuS/OUwl6fRGKvALTsR6XM+cWw==
@@ -876,7 +876,7 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@react-native-community/async-storage@^1.7.1":
+"@react-native-community/async-storage@1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.7.1.tgz#ef2104d865de61ad91bba66613e57e689ff4e6a1"
   integrity sha512-/oX/x+EU4xNaqIaC/epVKzO8XghzImPA7l8cLz3USEFmtFiXFjBbTeeIFjjEm/u4/cv38Wi1xMEa10PHIWygRg==
@@ -3662,6 +3662,11 @@ istanbul-reports@^2.2.6:
   dependencies:
     handlebars "^4.1.2"
 
+jcore-react-native@1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/jcore-react-native/-/jcore-react-native-1.7.5.tgz#bac30edca51d0072d59c1d9582fc2aabdda42869"
+  integrity sha512-8IQ2MAes87KUF5dFs+bp7NUCn4dI4+YJC18xGHcGYHCG+7Z/gTHAzcMQy6LvHPHE1QHwUiaRE/RLW1v2tnXwlA==
+
 jest-changed-files@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-24.9.0.tgz#08d8c15eb79a7fa3fc98269bc14b451ee82f8039"
@@ -4025,6 +4030,11 @@ jetifier@^1.6.2, jetifier@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.5.tgz#ea87324a4230bef20a9651178ecab978ee54a8cb"
   integrity sha512-T7yzBSu9PR+DqjYt+I0KVO1XTb1QhAfHnXV5Nd3xpbXM6Xg4e3vP60Q4qkNU8Fh6PHC2PivPUNN3rY7G2MxcDQ==
+
+jpush-react-native@2.7.5:
+  version "2.7.5"
+  resolved "https://registry.yarnpkg.com/jpush-react-native/-/jpush-react-native-2.7.5.tgz#3d6666ba5d8062f79a6c5ae5fee3d29dc8a11027"
+  integrity sha512-8WjYki/Q+JU482/Gi4mO8JYYBPGxCJh9rBVsj1A7wixces8DMJG9/Kh/tYHoPsHiSDoeDNrwnOhBBGv7zPQMZQ==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -5486,7 +5496,7 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-native-circular-progress@^1.3.4:
+react-native-circular-progress@1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/react-native-circular-progress/-/react-native-circular-progress-1.3.4.tgz#91b8aed6ff5ecb8841d2a5a9089af41a5d962087"
   integrity sha512-gch73x1qcx7vQewXdY7GdDgvgFSXZHVJ7hp4lXpOWT4Vo7ZnSAeeXYW11sMg2VkFpfA2gu6F+JRQLefDpMzcWQ==
@@ -5536,7 +5546,7 @@ react-native-iphone-x-helper@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
 
-react-native-linear-gradient@^2.5.6:
+react-native-linear-gradient@2.5.6:
   version "2.5.6"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
   integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
@@ -5596,7 +5606,7 @@ react-native-screens@2.0.0-alpha.22:
   dependencies:
     debounce "^1.2.0"
 
-react-native-sensors@^5.3.3:
+react-native-sensors@5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/react-native-sensors/-/react-native-sensors-5.3.3.tgz#5d7fed1f4e6a50114ddd1e1d9cf9d33a0c857ca9"
   integrity sha512-gcOI1de/LfGaMvri9qg3f+Thadr1iyeTVI9yr8kNKubHGyUKNcu/HE41VasSbqL5ELh43zwUN3L/9s16Aec6Yg==
@@ -5608,7 +5618,7 @@ react-native-status-bar-height@^2.2.0:
   resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.4.0.tgz#de8cee4bb733a196167210d2d0bc1fa10acba3e3"
   integrity sha512-pWvZFlyIHiuxLugLioq97vXiaGSovFXEyxt76wQtbq0gxv4dGXMPqYow46UmpwOgeJpBhqL1E0EKxnfJRrFz5w==
 
-react-native-svg@^10.0.0:
+react-native-svg@10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-10.0.0.tgz#085072f492a06a8ad40f1277c89293308d7efa61"
   integrity sha512-7x56ji3oP8+Bh1jVuBtrq/JGxqLBAVf43BCuAbPMKaBlq78TXCMuln7fiBxCUOD4Z5hoZZaVkILhrJPPszfENA==

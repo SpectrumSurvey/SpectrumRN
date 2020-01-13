@@ -20,7 +20,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
-const HomeStack = createStackNavigator();
 
 import Home from './_app/pages/home';
 import Msg from './_app/pages/msg';
