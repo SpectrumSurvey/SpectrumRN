@@ -6,18 +6,18 @@
  * @flow
  */
 
-import React, {useEffect} from 'react';
-import { ActivityIndicator, Image, View, Text } from 'react-native';
-import {Provider} from 'react-redux';
+import React, { useEffect } from 'react';
+import { ActivityIndicator, Image, View, Text, Platform } from 'react-native';
+import { Provider } from 'react-redux';
 import models from './_app/models';
-import {navigationRef} from './_app/utils/NavigationService';
-import {Provider as AntdProvider} from '@ant-design/react-native';
+import { navigationRef } from './_app/utils/NavigationService';
+import { Provider as AntdProvider } from '@ant-design/react-native';
 
-import {DvaInstance} from './_app/utils/dva';
-import {NavigationNativeContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { DvaInstance } from './_app/utils/dva';
+import { NavigationNativeContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
@@ -28,7 +28,8 @@ import Login from './_app/pages/login';
 import Answer from './_app/pages/answer';
 import MyReport from './_app/pages/mine/report';
 import MyTask from './_app/pages/mine/task';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import JPush from 'jpush-react-native';
 
 if (__DEV__) {
   require('./_app/utils/network.inspect');
@@ -43,6 +44,11 @@ store.dispatch({
   type: 'auth/checkLogin',
 });
 
+if (Platform.OS === 'android') {
+  // 请求权限
+  JPush.requestPermission();
+}
+
 window.__cached_model__ = window.__cached_model__ || {};
 
 models.forEach(model => {
@@ -56,8 +62,8 @@ models.forEach(model => {
 /**
  * @return {null}
  */
-function StackNavigator(props) {
-  const {authStore} = props;
+function StackNavigator (props) {
+  const { authStore } = props;
 
   if (!authStore?.init) {
     // 未初始化完成
@@ -66,7 +72,7 @@ function StackNavigator(props) {
         style={{
           flex: 1,
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
       >
         <ActivityIndicator
@@ -87,16 +93,16 @@ function StackNavigator(props) {
         screenOptions={{
           headerTintColor: 'white',
           headerShown: false,
-          headerStyle: {backgroundColor: 'tomato'},
+          headerStyle: { backgroundColor: 'tomato' },
         }}>
         {!authStore.token ? (
-          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Login" component={Login}/>
         ) : (
           <React.Fragment>
-            <Stack.Screen name="Root" component={renderBottomTab} />
-            <Stack.Screen name="Answer" component={Answer} />
-            <Stack.Screen name="task" component={MyTask} />
-            <Stack.Screen name="report" component={MyReport} />
+            <Stack.Screen name="Root" component={renderBottomTab}/>
+            <Stack.Screen name="Answer" component={Answer}/>
+            <Stack.Screen name="task" component={MyTask}/>
+            <Stack.Screen name="report" component={MyReport}/>
           </React.Fragment>
         )}
       </Stack.Navigator>
@@ -104,7 +110,7 @@ function StackNavigator(props) {
   );
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     authStore: state.auth,
   };
@@ -115,22 +121,30 @@ const ConnectStackNavigator = connect(mapStateToProps)(StackNavigator);
 const Tabs = createBottomTabNavigator();
 
 const App: () => React$Node = () => {
+
+  function initJPush () {
+    // 初始化
+    JPush.init();
+  }
+
   useEffect(() => {
     store.dispatch({
       type: 'auth/checkLogin',
     });
+
+    initJPush();
   }, []);
 
   return (
     <Provider store={store}>
       <AntdProvider>
-        <ConnectStackNavigator />
+        <ConnectStackNavigator/>
       </AntdProvider>
     </Provider>
   );
 };
 
-function renderBottomTab() {
+function renderBottomTab () {
   return (
     <Tabs.Navigator
       backBehavior={'none'}
@@ -149,11 +163,11 @@ function renderBottomTab() {
         component={Home}
         options={{
           tabBarLabel: '首页',
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             const icon = focused
               ? require('./_app/asset/images/tab_home_active.png')
               : require('./_app/asset/images/tab_home.png');
-            return <Image style={styles.iconStyle} source={icon} />;
+            return <Image style={styles.iconStyle} source={icon}/>;
           },
         }}
       />
@@ -162,11 +176,11 @@ function renderBottomTab() {
         component={Msg}
         options={{
           tabBarLabel: '消息',
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             const icon = focused
               ? require('./_app/asset/images/tab_msg_active.png')
               : require('./_app/asset/images/tab_msg.png');
-            return <Image style={styles.iconStyle} source={icon} />;
+            return <Image style={styles.iconStyle} source={icon}/>;
           },
         }}
       />
@@ -175,11 +189,11 @@ function renderBottomTab() {
         component={Mine}
         options={{
           tabBarLabel: '我的',
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({ focused }) => {
             const icon = focused
               ? require('./_app/asset/images/tab_mine_active.png')
               : require('./_app/asset/images/tab_mine.png');
-            return <Image style={styles.iconStyle} source={icon} />;
+            return <Image style={styles.iconStyle} source={icon}/>;
           },
         }}
       />

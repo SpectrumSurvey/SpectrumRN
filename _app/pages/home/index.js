@@ -4,14 +4,14 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { Text, ImageBackground, View, FlatList, Image } from 'react-native';
+import { Text, ImageBackground, View, FlatList, Image, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import moment from 'moment';
 import { useAppState } from '../../utils/hooks.utils';
 import { handleCatch } from '../../utils/utils';
-import { Button } from 'react-native-elements';
+import { Button, Card } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { useFocusEffect } from '@react-navigation/native';
@@ -53,6 +53,36 @@ function Index (props) {
           marginTop: 30,
           paddingHorizontal: 18,
         }}
+        ListEmptyComponent={() => {
+          return (
+            <Card
+              containerStyle={{
+                height: 169,
+                borderRadius: 6,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Image
+                style={{
+                  width: 81,
+                  height: 71.5,
+                  alignSelf: 'center',
+                  marginBottom: 20,
+                  backgroundColor: 'lightgray'
+                }}
+              />
+              <Text
+                style={{
+                  fontSize: 15,
+                  color: '#d1d1d1'
+                }}
+              >
+                任务待启动，请耐心等待
+              </Text>
+            </Card>
+          );
+        }}
         data={appHomeQuestionnaire}
         renderItem={renderItem}
         ItemSeparatorComponent={() => {
@@ -70,7 +100,7 @@ function Index (props) {
     );
   }
 
-  function renderItem ({ item }) {
+  function renderItem ({ item, index }) {
     // 是否已经完成
     const isEnd = item.userQuestionnaireStatus === 2;
 
@@ -99,6 +129,8 @@ function Index (props) {
           shadowColor: '#999999',
           backgroundColor: 'white',
           shadowOffset: { height: 0, width: 0 },
+          // 最后一条下边距
+          marginBottom: (index === appHomeQuestionnaire.length -1) ? 15 : 0
         }}
       >
 
@@ -121,7 +153,7 @@ function Index (props) {
                       paddingHorizontal: 5,
                       paddingVertical: 3,
                       marginRight: 8,
-                      flexShrink: 0
+                      flexShrink: 0,
                     }}
                   >
                     已完成
@@ -132,12 +164,12 @@ function Index (props) {
                 style={{
                   fontSize: 17,
                   color: '#000000',
-                  flex: 1
+                  flex: 1,
                 }}
                 numberOfLines={1}
                 ellipsizeMode={'tail'}
               >
-                {item.questionnaireName}开发渡劫司法鉴定所付款及看得见风科室点击付款讲的是付款及SDK
+                {item.questionnaireName}
               </Text>
             </View>
             <View
@@ -199,18 +231,23 @@ function Index (props) {
               <AnimatedCircularProgress
                 size={60}
                 width={3}
+                lineCap={'round'}
                 fill={parseInt(item.completePercentage.replace('%'))}
                 rotation={0}
                 tintColor="#6257FB"
                 style={{
-                  flexShrink: 0
+                  flexShrink: 0,
                 }}
-                onAnimationComplete={() => console.log('onAnimationComplete')}
                 backgroundColor="#D7E7FE"
                 children={() => {
                   return (
-                    <Text style={{ fontSize: 19, color: '#6257FB' }}>
-                      {item.completePercentage}
+                    <Text
+                      style={{
+                        fontSize: 17,
+                        color: '#6257FB',
+                      }}
+                    >
+                      {parseInt(item.completePercentage.replace('%'))}%
                     </Text>
                   );
                 }}
@@ -253,6 +290,18 @@ function Index (props) {
           height: 450,
         }}
         source={require('../../asset/images/home_bg.png')}
+      />
+
+
+      <ImageBackground
+        style={{
+          width: 200,
+          height: 40,
+          alignSelf: 'center',
+          position: 'absolute',
+          bottom: 50,
+        }}
+        source={require('../../asset/images/home_logo.png')}
       />
 
       <View

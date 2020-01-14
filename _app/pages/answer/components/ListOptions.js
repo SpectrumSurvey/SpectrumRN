@@ -5,9 +5,11 @@
  * @Email: middle2021@gmail.com
  */
 import React from 'react';
-import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import AnswerInput from '../../../components/input';
+import TouchComponent from '../../../components/touch';
 
 function ListOptions (props) {
 
@@ -37,8 +39,7 @@ function ListOptions (props) {
   function renderItem ({ item, index }) {
 
     return (
-      <TouchableOpacity
-        activeOpacity={0.7}
+      <TouchComponent
         onPress={() => {
 
           if (isSingle) {
@@ -46,7 +47,7 @@ function ListOptions (props) {
               type: 'answer/updateOptionsSingle',
               payload: {
                 _index: index,
-                _checked: !item._checked,
+                _checked: true,
               },
             });
           } else {
@@ -60,27 +61,60 @@ function ListOptions (props) {
           }
         }}
       >
-        <View
-          style={{
-            height: 50,
-            borderWidth: item._checked ? 0 : 0.5,
-            borderColor: '#d7dce5',
-            borderRadius: 8,
-            paddingHorizontal: 15,
-            justifyContent: 'center',
-            backgroundColor: item._checked ? '#68d686' : '#fff'
-          }}
-        >
-          <Text
+        <View>
+
+          <View
             style={{
-              color: item._checked ? '#fff' : '#333333',
-              fontSize: 15,
+              height: 50,
+              borderWidth: item._checked ? 0 : 0.5,
+              borderColor: '#d7dce5',
+              borderRadius: 8,
+              paddingHorizontal: 15,
+              justifyContent: 'center',
+              backgroundColor: item._checked ? '#68d686' : '#fff'
             }}
           >
-            {`${item.optionKey}、 ${item.optionValue}`}
-          </Text>
+            <Text
+              style={{
+                color: item._checked ? '#fff' : '#333333',
+                fontSize: 15,
+              }}
+            >
+              {`${item.optionKey}、 ${item.optionValue}`}
+            </Text>
+          </View>
+          {
+            (item._checked && item.filling) ? (
+              <AnswerInput
+                placeholder={'请输入'}
+                value={item.fillingValue}
+                onChange={(value) => {
+                  if (isSingle) {
+                    props.dispatch({
+                      type: 'answer/updateOptionsSingle',
+                      payload: {
+                        _index: index,
+                        _checked: item._checked,
+                        fillingValue: value
+                      },
+                    });
+                  } else {
+                    props.dispatch({
+                      type: 'answer/updateOptions',
+                      payload: {
+                        _index: index,
+                        _checked: item._checked,
+                        fillingValue: value
+                      },
+                    });
+                  }
+                }}
+              />
+            ) : null
+          }
+
         </View>
-      </TouchableOpacity>
+      </TouchComponent>
     )
   }
 }

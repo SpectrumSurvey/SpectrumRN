@@ -13,7 +13,7 @@ const initState = {
   info: {},
   // 当前位于第几题
   curIndex: 0,
-
+  startTime: 0,
   // 是否完成全部答题
   isSuccessfully: false,
 };
@@ -25,6 +25,7 @@ const model = {
     updateInfo(state, {payload}) {
       return produce(state, draft => {
         draft.info = payload;
+        draft.startTime = new Date().getTime();
       });
     },
     reset (state) {
@@ -37,23 +38,36 @@ const model = {
         draft.curIndex = payload;
       });
     },
+    /**
+     * 更新多选选项
+     * @param state
+     * @param payload
+     */
     updateOptions (state, { payload }) {
       return produce(state, draft => {
-        const { _index, _checked } = payload;
+        const { _index, ...values } = payload;
         // 更新多选题
-        draft.info.questionnaire.subjects[draft.curIndex].options[_index]._checked = _checked;
+        const _option = draft.info.questionnaire.subjects[draft.curIndex].options[_index];
+        Object.assign(_option, values);
       });
     },
+    /**
+     * 更新单选
+     * @param state
+     * @param payload
+     */
     updateOptionsSingle (state, { payload }) {
       return produce(state, draft => {
-        const { _index, _checked } = payload;
+        const { _index, ...values } = payload;
         // 更新单选题
         const options = draft.info.questionnaire.subjects[draft.curIndex].options;
 
         options.forEach(v => {
           v._checked = false;
+          v.fillingValue = '';
         });
-        options[_index]._checked = _checked;
+
+        Object.assign(options[_index], values);
       });
     },
 
@@ -105,7 +119,7 @@ const model = {
           return Promise.reject(error);
         }
 
-        const { feedback } = data
+        const { feedback } = data;
 
         if (feedback) {
           const { feedbackSubjectNum } = feedback;
@@ -144,7 +158,7 @@ const model = {
         yield put({
           type: 'updateOptionsByFeedBack',
           payload: data
-        })
+        });
 
         yield put({
           type: 'updateCurIndex',
@@ -207,6 +221,16 @@ function processAnswerOptions (subjectType, options) {
       optionKey: options[0].optionKey,
       fillingValue: null,
     })
+  }
+
+  if (subjectType === SUBJECT_ENUM.SCALE) {
+    // 量表题
+    const cur = options.filter(v => v._checked)[0];
+    return JSON.stringify([{
+      optionId: cur.optionId,
+      optionKey: cur.optionKey,
+      fillingValue: cur.fillingValue,
+    }])
   }
 
 }

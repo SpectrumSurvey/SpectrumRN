@@ -7,6 +7,7 @@
 import React, { useState } from 'react';
 import { Image, TextInput, View } from 'react-native';
 import { connect } from 'react-redux'
+import AnswerInput from '../../../components/input';
 
 function InputComponent (props) {
 
@@ -18,41 +19,16 @@ function InputComponent (props) {
       }}
     >
 
-      <View
-        style={{
-          borderWidth: 1,
-          borderRadius: 2,
-          borderColor: '#dfdfdf',
-          height: 44,
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingHorizontal: 14,
+      <AnswerInput
+        value={props.options[0].optionKey}
+        placeholder={'请输入'}
+        onChange={(value) => {
+          props.dispatch({
+            type: 'answer/updateOptionsByInput',
+            payload: value
+          });
         }}
-      >
-        <Image
-          source={require('../../../asset/images/icon_edit.png')}
-          style={{
-            width: 15,
-            height: 15,
-          }}
-        />
-        <TextInput
-          style={{
-            flex: 1,
-            fontSize: 15,
-            marginLeft: 8,
-          }}
-          value={props.options[0].optionKey}
-          onChangeText={value => {
-            props.dispatch({
-              type: 'answer/updateOptionsByInput',
-              payload: value
-            });
-          }}
-          placeholderTextColor={'#dfdfdf'}
-          placeholder={'点击输入血型'}
-        />
-      </View>
+      />
 
     </View>
   );

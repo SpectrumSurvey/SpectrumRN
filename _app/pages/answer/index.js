@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import {SafeAreaView, Text, View} from 'react-native';
+import { Image, SafeAreaView, Text, View } from 'react-native';
 import {connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import Header from '../../components/header'
@@ -16,6 +16,8 @@ import { SUBJECT_ENUM } from '../../utils/constant';
 import ListOptions from './components/ListOptions';
 import { goBack } from '../../utils/NavigationService';
 import InputComponent from './components/InputComponent';
+import moment from 'moment'
+import ScaleComponent from './components/ScaleComponent';
 
 function Index(props) {
 
@@ -125,6 +127,27 @@ function Index(props) {
                   }}
                 >
                   {
+                    curItem.subjectImage ? (
+                      <View
+                        style={{
+                          paddingHorizontal: 22.5
+                        }}
+                      >
+                        <Image
+                          style={{
+                            width: '100%',
+                            height: 145,
+                            backgroundColor: 'lightgray',
+                            alignSelf: 'center',
+                            marginTop: 20,
+                            borderRadius: 8
+                          }}
+                          source={curItem.subjectImage}
+                        />
+                      </View>
+                    ) : null
+                  }
+                  {
                     renderContent()
                   }
                 </View>
@@ -140,12 +163,52 @@ function Index(props) {
   );
 
   function renderSuccessfully () {
+
+    const du = moment.duration(moment() - moment(answerStore.startTime), 'ms');
+    const mins = du.get('minutes');
+    const ss = du.get('seconds');
+
     return (
-      <View>
-        <Text>感谢完成问卷</Text>
+      <View
+        style={{
+          alignItems: 'center',
+          paddingTop: 60
+        }}
+      >
+        <Image
+          style={{
+            width: 103,
+            height: 90,
+            marginBottom: 34
+          }}
+          source={require('../../asset/images/icon_successfully.png')}
+        />
+        <Text
+          style={{
+            fontSize: 15,
+            lineHeight: 23,
+            color: '#c4cbcd',
+            width: 200,
+            textAlign: 'center'
+          }}
+        >
+          {`恭喜完成问卷！感恩今天的${mins}分${ss}秒与您共同度过。`}
+        </Text>
         <Button
+          buttonStyle={{
+            width: 240,
+            marginTop: 61,
+            backgroundColor: '#fff',
+            borderWidth: 0.5,
+            borderColor: '#959394',
+            borderRadius: 23.5
+          }}
+          titleStyle={{
+            fontSize: 15,
+            color: '#111111'
+          }}
           title={'返回首页'}
-          onPress={() => goBack()}
+          onPress={goBack}
         />
       </View>
     )
@@ -162,10 +225,12 @@ function Index(props) {
             subjectType={curItem?.subjectType}
           />
         );
-      case SUBJECT_ENUM.COMPLETION:
+      case SUBJECT_ENUM.MULTIPLE_CHOICE:
         return (
-          <InputComponent
+          <ListOptions
             options={curItem.options}
+            type={'multiple'}
+            subjectType={curItem?.subjectType}
           />
         );
       case SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE:
@@ -184,21 +249,30 @@ function Index(props) {
             subjectType={curItem?.subjectType}
           />
         );
+      case SUBJECT_ENUM.COMPLETION:
+        return (
+          <InputComponent
+            options={curItem.options}
+          />
+        );
       case SUBJECT_ENUM.GUIDE:
         return (
-          <Text>引导题</Text>
-        );
-      case SUBJECT_ENUM.MULTIPLE_CHOICE:
-        return (
-          <ListOptions
-            options={curItem.options}
-            type={'multiple'}
-            subjectType={curItem?.subjectType}
-          />
+          <View
+            style={{
+              paddingHorizontal: 22.5,
+              paddingTop: 30
+            }}
+          >
+            <Text>
+              {curItem.guide}
+            </Text>
+          </View>
         );
       case SUBJECT_ENUM.SCALE:
         return (
-          <Text>量表题</Text>
+          <ScaleComponent
+            options={curItem.options}
+          />
         );
     }
   }
@@ -214,12 +288,13 @@ function Index(props) {
           percent={((curIndex + 1) / subjects?.length) * 100}
           unfilled={true}
           style={{
-            width: '100%',
             marginHorizontal: 10,
-            marginTop: 10
+            marginTop: 10,
+            height: 7.5
           }}
           barStyle={{
-            height: 7.5,
+            borderRadius: 4,
+            height: '100%',
             backgroundColor: '#e2ecff',
           }}
         />
@@ -305,9 +380,10 @@ function Index(props) {
                   [
                     SUBJECT_ENUM.MULTIPLE_CHOICE, SUBJECT_ENUM.SINGLE_CHOICE,
                     SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE, SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE,
+                    SUBJECT_ENUM.SCALE
                   ].includes(curItem.subjectType)) {
 
-                  const noChecked = _.every(curItem.options, (v) => !v._checked)
+                  const noChecked = _.every(curItem.options, (v) => !v._checked);
 
                   if (noChecked) {
                     showToast('请选择选项');

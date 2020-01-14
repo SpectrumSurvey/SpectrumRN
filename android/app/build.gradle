@@ -142,9 +142,13 @@ android {
         versionName "1.0"
 
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
         }
 
+        manifestPlaceholders = [
+                JPUSH_APPKEY: "129c21dc4cb5e6f6de194003",         //在此替换你的APPKey
+                JPUSH_CHANNEL: "default"                          //在此替换你的channel
+        ]
     }
     splits {
         abi {
@@ -188,6 +192,12 @@ android {
 
         }
     }
+
+    packagingOptions {
+        pickFirst '**/armeabi-v7a/libc++_shared.so'
+        pickFirst '**/arm64-v8a/libc++_shared.so'
+        pickFirst '**/armeabi-v7a/libjsc.so'
+    }
 }
 
 dependencies {
@@ -195,7 +205,7 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
-    implementation 'com.android.support:support-annotations:27.1.1'
+    implementation project(':jcore-react-native')
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
