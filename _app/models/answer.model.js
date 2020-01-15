@@ -86,6 +86,42 @@ const model = {
     },
 
     /**
+     * 下拉单选框
+     * @param state
+     * @param payload
+     */
+    updateOptionByDropDownSingle (state, { payload }) {
+      return produce(state, draft => {
+        const { _index } = payload;
+        console.log(_index);
+        // 更新下拉单选题
+        const options = draft.info.questionnaire.subjects[draft.curIndex].options;
+
+        options.forEach(v => {
+          v._checked = false
+        });
+
+        options[_index]._checked = true
+      });
+    },
+
+    /**
+     * 下拉多选框
+     * @param state
+     * @param payload
+     */
+    updateOptionByDropDownMultiple (state, { payload }) {
+      return produce(state, draft => {
+        const { ids } = payload;
+        // 更新下拉多选题
+        const options = draft.info.questionnaire.subjects[draft.curIndex].options;
+
+        options.forEach(v => {
+          v._checked = !!ids.includes(v.optionId);
+        });
+      });
+    },
+    /**
      * 更新选项
      * @param state
      * @param payload
@@ -215,12 +251,14 @@ function processAnswerOptions (subjectType, options) {
     subjectType === SUBJECT_ENUM.COMPLETION
   ) {
     // 填空题
-    return JSON.stringify({
-      optionId: options[0].optionId,
-      // 填空题结果
-      optionKey: options[0].optionKey,
-      fillingValue: null,
-    })
+    return JSON.stringify([
+      {
+        optionId: options[0].optionId,
+        // 填空题结果
+        optionKey: options[0].optionKey,
+        fillingValue: null,
+      }
+    ])
   }
 
   if (subjectType === SUBJECT_ENUM.SCALE) {

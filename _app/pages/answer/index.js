@@ -5,10 +5,10 @@
  * @Email: middle2021@gmail.com
  */
 import { Image, SafeAreaView, Text, View } from 'react-native';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
-import Header from '../../components/header'
-import { handleCatch, showToast } from '../../utils/utils';
+import Header from '../../components/header';
+import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils';
 import _ from 'lodash';
 import { Button } from 'react-native-elements';
 import { Progress, Modal } from '@ant-design/react-native';
@@ -16,10 +16,12 @@ import { SUBJECT_ENUM } from '../../utils/constant';
 import ListOptions from './components/ListOptions';
 import { goBack } from '../../utils/NavigationService';
 import InputComponent from './components/InputComponent';
-import moment from 'moment'
+import moment from 'moment';
 import ScaleComponent from './components/ScaleComponent';
+import DropDownList from './components/DropDownList';
+import { ApiService } from '../../http/APIService';
 
-function Index(props) {
+function Index (props) {
 
   const { userQuestionnaireId = 7, questionnaireId = 3, questionnaireName } = props.route.params || {};
 
@@ -51,12 +53,12 @@ function Index(props) {
         .dispatch({
           type: 'answer/reset',
         });
-    }
+    };
   }, []);
   //
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Header
         color={'#6769FB'}
         back={true}
@@ -78,12 +80,9 @@ function Index(props) {
           style={{
             borderRadius: 8,
             paddingTop: 15,
-            shadowOpacity: 0.85,
             flex: 1,
-            shadowRadius: 5,
-            shadowColor: '#999999',
             backgroundColor: 'white',
-            shadowOffset: { height: 0, width: 0 },
+            ...elevationShadowStyle(5),
           }}
         >
           {
@@ -115,7 +114,7 @@ function Index(props) {
                     style={{
                       fontSize: 17,
                       color: '#000000',
-                      marginLeft: 10
+                      marginLeft: 10,
                     }}
                   >
                     {curIndex + 1}、{curItem?.subjectTitle}
@@ -130,7 +129,7 @@ function Index(props) {
                     curItem.subjectImage ? (
                       <View
                         style={{
-                          paddingHorizontal: 22.5
+                          paddingHorizontal: 22.5,
                         }}
                       >
                         <Image
@@ -140,7 +139,7 @@ function Index(props) {
                             backgroundColor: 'lightgray',
                             alignSelf: 'center',
                             marginTop: 20,
-                            borderRadius: 8
+                            borderRadius: 8,
                           }}
                           source={curItem.subjectImage}
                         />
@@ -172,14 +171,14 @@ function Index(props) {
       <View
         style={{
           alignItems: 'center',
-          paddingTop: 60
+          paddingTop: 60,
         }}
       >
         <Image
           style={{
             width: 103,
             height: 90,
-            marginBottom: 34
+            marginBottom: 34,
           }}
           source={require('../../asset/images/icon_successfully.png')}
         />
@@ -189,7 +188,7 @@ function Index(props) {
             lineHeight: 23,
             color: '#c4cbcd',
             width: 200,
-            textAlign: 'center'
+            textAlign: 'center',
           }}
         >
           {`恭喜完成问卷！感恩今天的${mins}分${ss}秒与您共同度过。`}
@@ -201,17 +200,17 @@ function Index(props) {
             backgroundColor: '#fff',
             borderWidth: 0.5,
             borderColor: '#959394',
-            borderRadius: 23.5
+            borderRadius: 23.5,
           }}
           titleStyle={{
             fontSize: 15,
-            color: '#111111'
+            color: '#111111',
           }}
           title={'返回首页'}
           onPress={goBack}
         />
       </View>
-    )
+    );
   }
 
   function renderContent () {
@@ -235,7 +234,7 @@ function Index(props) {
         );
       case SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE:
         return (
-          <ListOptions
+          <DropDownList
             options={curItem.options}
             type={'multiple'}
             subjectType={curItem?.subjectType}
@@ -243,7 +242,7 @@ function Index(props) {
         );
       case SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE:
         return (
-          <ListOptions
+          <DropDownList
             options={curItem.options}
             type={'single'}
             subjectType={curItem?.subjectType}
@@ -260,7 +259,7 @@ function Index(props) {
           <View
             style={{
               paddingHorizontal: 22.5,
-              paddingTop: 30
+              paddingTop: 30,
             }}
           >
             <Text>
@@ -290,7 +289,7 @@ function Index(props) {
           style={{
             marginHorizontal: 10,
             marginTop: 10,
-            height: 7.5
+            height: 7.5,
           }}
           barStyle={{
             borderRadius: 4,
@@ -302,7 +301,7 @@ function Index(props) {
           style={{
             width: '100%',
             paddingHorizontal: 10,
-            paddingVertical: 10
+            paddingVertical: 10,
           }}
         >
           <View
@@ -310,7 +309,7 @@ function Index(props) {
               flexShrink: 0,
               flexDirection: 'row',
               alignItems: 'center',
-              justifyContent: 'space-between'
+              justifyContent: 'space-between',
             }}
           >
 
@@ -338,7 +337,7 @@ function Index(props) {
                       curItem: subjects[curIndex - 1],
                       userQuestionnaireId,
                       questionnaireId,
-                    }
+                    },
                   })
                   .catch(handleCatch);
               }}
@@ -346,7 +345,7 @@ function Index(props) {
 
             <View
               style={{
-                flexDirection: 'row'
+                flexDirection: 'row',
               }}
             >
               <Text>{curIndex + 1}</Text>
@@ -356,31 +355,12 @@ function Index(props) {
             <Button
               title={(isLast) ? '完成' : '下一题'}
               onPress={() => {
-                if (isLast) {
-                  // 最后一题
-                  if (curItem.subjectType === SUBJECT_ENUM.GUIDE) {
-                    // 直接跳转到成功页面
-                    props.dispatch({
-                      type: 'answer/updateSuccessfully',
-                    });
-                    return;
-                  }
-                }
-
-                if (curItem.subjectType === SUBJECT_ENUM.GUIDE) {
-                  // 引导题直接跳过，不提交
-                  props.dispatch({
-                    type: 'answer/updateCurIndex',
-                    payload: curIndex + 1,
-                  });
-                  return;
-                }
 
                 if (
                   [
                     SUBJECT_ENUM.MULTIPLE_CHOICE, SUBJECT_ENUM.SINGLE_CHOICE,
                     SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE, SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE,
-                    SUBJECT_ENUM.SCALE
+                    SUBJECT_ENUM.SCALE,
                   ].includes(curItem.subjectType)) {
 
                   const noChecked = _.every(curItem.options, (v) => !v._checked);
@@ -393,27 +373,68 @@ function Index(props) {
                 }
 
                 if (isLast) {
-                  // 弹窗提示是否提交
+                  // 最后一题
+
                   Modal.alert('提交问卷', '确认提交当前问卷？一旦提交答案不可修改哦~', [
                     { text: '取消', onPress: () => {}, style: 'cancel' },
-                    { text: '确认', onPress: () => answer(), style: 'ok' },
+                    {
+                      text: '确认', onPress: () => {
+                        if (curItem.subjectType === SUBJECT_ENUM.GUIDE) {
+                          // 引导题
+                          ApiService.submit({ userQuestionnaireId, questionnaireId }).then((res) => {
+                            const [error] = res;
+                            if (!error) {
+                              // 直接跳转到成功页面
+                              props.dispatch({
+                                type: 'answer/updateSuccessfully',
+                              });
+                            }
+                          });
+                        } else {
+                          // 其它题目
+                          answer()
+                            .then(() => {
+                              // 其它题目
+                              ApiService.submit({ userQuestionnaireId, questionnaireId }).then((res) => {
+                                const [error] = res;
+                                if (!error) {
+                                  // 直接跳转到成功页面
+                                  props.dispatch({
+                                    type: 'answer/updateSuccessfully',
+                                  });
+                                }
+                              });
+                            }).catch(handleCatch);
+                        }
+                      }, style: 'ok',
+                    },
                   ]);
-                } else {
-                  // 答题
-                  answer()
+                  return;
                 }
+
+                if (curItem.subjectType === SUBJECT_ENUM.GUIDE) {
+                  // 引导题直接跳过，不提交
+                  props.dispatch({
+                    type: 'answer/updateCurIndex',
+                    payload: curIndex + 1,
+                  });
+                  return;
+                }
+
+                // 答题
+                answer().catch(handleCatch);
 
               }}
             />
           </View>
         </View>
       </View>
-    )
+    );
   }
 
   function answer () {
     // 答题
-    props
+    return props
       .dispatch({
         type: 'answer/answer',
         payload: {
@@ -422,26 +443,23 @@ function Index(props) {
           questionnaireId,
         },
       })
-      .then(() => {
+      .then((res) => {
         // 提交完成
         if (isLast) {
           // 最后一题
-          props.dispatch({
-            type: 'answer/updateSuccessfully',
-          })
         } else {
           // 下一题
           props.dispatch({
             type: 'answer/updateCurIndex',
             payload: curIndex + 1,
-          })
+          });
         }
-      })
-      .catch(handleCatch);
+        return res;
+      });
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     answerStore: state.answer,
   };

@@ -25,17 +25,12 @@ function header(props) {
   } = props;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  useFocusEffect(
+  useFocusEffect(() => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    React.useCallback(() => {
-      StatusBar.setBarStyle(statusBarProps.barStyle || 'light-content');
-      // android
-      Platform.OS === 'android' &&
-        StatusBar.setBackgroundColor(
-          statusBarProps.backgroundColor || '#6769FB',
-        );
-    }, [statusBarProps.backgroundColor, statusBarProps.barStyle]),
-  );
+    StatusBar.setBarStyle(statusBarProps.barStyle || 'light-content');
+    // android
+    Platform.OS === 'android' && StatusBar.setBackgroundColor(statusBarProps.backgroundColor || '#6769FB');
+  });
 
   const centerComponent = back
     ? null

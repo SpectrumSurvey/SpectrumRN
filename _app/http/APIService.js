@@ -20,11 +20,14 @@ const ApiService = {
     return HTTP.get('app-questionnaire/details', { params });
   },
   answer: async (data) => {
-    return HTTP.post('app-feedback/answer', data);
+    return HTTP.post('app-feedback/answer', { ...data, $skipLoading: true });
   },
-  feedbackOptions: async (data) => {
-    return HTTP.post('app-feedback/feedback-option', data);
+  feedbackOptions: async (data = {}) => {
+    return HTTP.post('app-feedback/feedback-option', { ...data, $skipLoading: true });
   },
+  submit: async (data = {}) => {
+    return HTTP.post('app-feedback/submit', { ...data, $skipLoading: true } )
+  }
 };
 
 export { ApiService };

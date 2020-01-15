@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import moment from 'moment';
 import { useAppState } from '../../utils/hooks.utils';
-import { handleCatch } from '../../utils/utils';
+import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils';
 import { Button, Card } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
@@ -51,7 +51,7 @@ function Index (props) {
         style={{
           flex: 1,
           marginTop: 30,
-          paddingHorizontal: 18,
+          // paddingHorizontal: 18,
         }}
         ListEmptyComponent={() => {
           return (
@@ -95,7 +95,7 @@ function Index (props) {
             />
           );
         }}
-        keyExtractor={(item) => `${item.questionnaireId}`}
+        keyExtractor={(item,index) => `${index}`}
       />
     );
   }
@@ -104,7 +104,11 @@ function Index (props) {
     // 是否已经完成
     const isEnd = item.userQuestionnaireStatus === 2;
 
-    const extraProps = isEnd ? {} : {
+    const extraProps = isEnd ? {
+      onPress: () => {
+        showToast('该问卷已完成！', 3)
+      },
+    } : {
       linearGradientProps: {
         colors: ['#499EF3', '#336DF6', '#5346F7'],
         start: { x: 0, y: 0.5 },
@@ -122,14 +126,11 @@ function Index (props) {
         style={{
           borderRadius: 8,
           paddingHorizontal: 15,
+          marginHorizontal: 16,
           paddingTop: 15,
           paddingBottom: 19,
-          shadowOpacity: 0.85,
-          shadowRadius: 5,
-          shadowColor: '#999999',
+          ...elevationShadowStyle(5),
           backgroundColor: 'white',
-          shadowOffset: { height: 0, width: 0 },
-          // 最后一条下边距
           marginBottom: (index === appHomeQuestionnaire.length -1) ? 15 : 0
         }}
       >

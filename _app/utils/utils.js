@@ -4,13 +4,14 @@
  * @Date: 2020/1/5 23:56
  * @Email: middle2021@gmail.com
  */
-import { Toast, Portal } from '@ant-design/react-native'
-import {PixelRatio} from 'react-native';
+import { Toast, Portal } from '@ant-design/react-native';
+import { PixelRatio } from 'react-native';
+
 const set = new Set();
 const loadingSet = new Set();
 
-export function showToast (msg , duration = 1.5) {
-  const key = Toast.info(msg, duration, undefined, true)
+export function showToast (msg, duration = 3) {
+  const key = Toast.info(msg, duration, undefined, true);
   set.add(key);
 }
 
@@ -33,6 +34,16 @@ export function hideLoopToast () {
 
 export function handleCatch () {
   // 默认异常
+}
+
+export function elevationShadowStyle (elevation) {
+  return {
+    elevation,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 0.5 * elevation },
+    shadowOpacity: 0.3,
+    shadowRadius: 0.8 * elevation,
+  };
 }
 
 export const px2dp = px => PixelRatio.roundToNearestPixel(px);
