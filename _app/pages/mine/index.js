@@ -11,10 +11,19 @@ import Header from '../../components/header';
 import { HeadLeftTitle } from '../../asset/styles/AppStyle';
 import { ListItem, Icon } from 'react-native-elements';
 import { px2dp } from '../../utils/utils';
+import { useFocusEffect } from '@react-navigation/native';
 
 function Index (props) {
 
   const { userDetails } = props;
+
+  useFocusEffect(
+    React.useCallback(() => {
+      props.dispatch({
+        type: 'auth/userDetails'
+      })
+    }, []),
+  );
 
   return (
     <View
