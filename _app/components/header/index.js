@@ -12,7 +12,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import TouchComponent from '../touch';
 import {goBack} from '../../utils/NavigationService';
 
-function header(props) {
+function WrappedHeader(props) {
   const {
     color,
     title,
@@ -21,7 +21,8 @@ function header(props) {
     centerStyle,
     back,
     backTitle,
-    ...resetProps
+    titleColor,
+    ...reset
   } = props;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -33,11 +34,11 @@ function header(props) {
   });
 
   const centerComponent = back
-    ? null
+    ? {}
     : {
         text: title,
         style: {
-          color: '#fff',
+          color: titleColor,
           fontSize: 18,
           ...centerStyle,
         },
@@ -57,10 +58,10 @@ function header(props) {
       centerComponent={centerComponent}
       leftContainerStyle={{
         marginLeft: 10,
-        backgroundColor: 'red',
       }}
+      ViewComponent={View}
       leftComponent={back ? backComponent(backTitle) : null}
-      {...resetProps}
+      {...reset}
     />
   );
 }
@@ -94,10 +95,11 @@ function backComponent(backTitle) {
   );
 }
 
-header.propTypes = {
+WrappedHeader.propTypes = {
   color: PropTypes.string,
   back: PropTypes.bool,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  titleColor: PropTypes.string,
   statusBarProps: PropTypes.object,
   leftComponent: PropTypes.oneOfType([PropTypes.object, PropTypes.element]),
   containerStyle: PropTypes.object,
@@ -106,10 +108,11 @@ header.propTypes = {
   backTitle: PropTypes.string,
 };
 
-header.defaultProps = {
+WrappedHeader.defaultProps = {
   color: '#6769FB',
   back: false,
   title: '',
+  titleColor: '#1e1e1e',
   statusBarProps: {
     translucent: false,
   },
@@ -123,4 +126,4 @@ header.defaultProps = {
   backTitle: '',
 };
 
-export default header;
+export default WrappedHeader;

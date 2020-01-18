@@ -1020,10 +1020,10 @@
     query-string "^6.4.2"
     react-is "^16.8.6"
 
-"@react-navigation/core@^5.0.0-alpha.30":
-  version "5.0.0-alpha.30"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.30.tgz#cde10907b051148e714f6eb92811a9151791e0c7"
-  integrity sha512-3FnTvyYqNl7uobdyvJhQ15JXhVcT4oKzJqS9em7miXUZQe0s+xIFhUhmNbptNrbOgCc8Ya3B2UMK+gsbe4OX+g==
+"@react-navigation/core@^5.0.0-alpha.30", "@react-navigation/core@^5.0.0-alpha.32":
+  version "5.0.0-alpha.35"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.0.0-alpha.35.tgz#169d96443e72c08a1f9d5c30cfd911910306d560"
+  integrity sha512-i7Hti3gk8dDa/QSWg12lxo4B5Q5pY5/16qq4C1ISxU10iYaQUR/P4DrPg5mGB45Fl5u3UZ6mafwpPwsdlAOl1g==
   dependencies:
     escape-string-regexp "^2.0.0"
     query-string "^6.9.0"
@@ -1047,11 +1047,11 @@
     react-native-screens "^1.0.0 || ^1.0.0-alpha"
 
 "@react-navigation/routers@^5.0.0-alpha.19", "@react-navigation/routers@^5.0.0-alpha.20":
-  version "5.0.0-alpha.20"
-  resolved "https://registry.yarnpkg.com/@react-navigation/routers/-/routers-5.0.0-alpha.20.tgz#f0c89baf2331f01ff90391f3e9a00a9d048a45be"
-  integrity sha512-Kxft5TEcA5JWGxw5KyvY/AAC14+yOS7gdtlVm9EhEkZYbJRMudFwj8MnG4XtOll9uhEwJdFLV4e1wbTTJP2Hlw==
+  version "5.0.0-alpha.22"
+  resolved "https://registry.yarnpkg.com/@react-navigation/routers/-/routers-5.0.0-alpha.22.tgz#db2086012ad9660da95df7b34fcb23b89f4a7429"
+  integrity sha512-GaTDJk7PeSbdStUfODb4VSDkwPUNtuZRYToTqwbI7WvY1yuRJbYZS2Jkrk/waOdf13U0rt7xDcdpmfGUNuZ2DQ==
   dependencies:
-    "@react-navigation/core" "^5.0.0-alpha.30"
+    "@react-navigation/core" "^5.0.0-alpha.32"
     shortid "^2.2.15"
 
 "@react-navigation/stack@5.0.0-alpha.52":
@@ -4998,9 +4998,9 @@ nan@^2.12.1:
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
 nanoid@^2.1.0:
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.1.8.tgz#2dbb0224231b246e3b4c819de7bfea6384dabf08"
-  integrity sha512-g1z+n5s26w0TGKh7gjn7HCqurNKMZWzH08elXzh/gM/csQHd/UqDV6uxMghQYg9IvqRPm1QpeMk50YMofHvEjQ==
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.1.9.tgz#edc71de7b16fc367bbb447c7a638ccebe07a17a1"
+  integrity sha512-J2X7aUpdmTlkAuSe9WaQ5DsTZZPW1r/zmEWKsGhbADO6Gm9FMd2ZzJ8NhsmP4OtA9oFhXfxNqPlreHEDOGB4sg==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -5643,10 +5643,19 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-string@^6.4.2, query-string@^6.9.0:
+query-string@^6.4.2:
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.9.0.tgz#1c3b727c370cf00f177c99f328fda2108f8fa3dd"
   integrity sha512-KG4bhCFYapExLsUHrFt+kQVEegF2agm4cpF/VNc6pZVthIfCc/GK8t8VyNIE3nyXG9DK3Tf2EGkxjR6/uRdYsA==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
+query-string@^6.9.0:
+  version "6.10.1"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.10.1.tgz#30b3505f6fca741d5ae541964d1b3ae9dc2a0de8"
+  integrity sha512-SHTUV6gDlgMXg/AQUuLpTiBtW/etZ9JT6k6RCtCyqADquApLX0Aq5oK/s5UeTUAWBG50IExjIr587GqfXRfM4A==
   dependencies:
     decode-uri-component "^0.2.0"
     split-on-first "^1.0.0"

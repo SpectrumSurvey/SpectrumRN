@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Image, View, Text, Platform } from 'react-native';
+import { ActivityIndicator, Image, View, Text, Platform, Alert } from 'react-native';
 import { Provider } from 'react-redux';
 import models from './_app/models';
 import { navigationRef } from './_app/utils/NavigationService';
@@ -94,13 +94,7 @@ function StackNavigator (props) {
 
   return (
     <NavigationNativeContainer ref={navigationRef}>
-      <Stack.Navigator
-        headerMode="none"
-        screenOptions={{
-          headerTintColor: 'white',
-          headerShown: false,
-          headerStyle: { backgroundColor: 'tomato' },
-        }}>
+      <Stack.Navigator headerMode="none">
         {!authStore.token ? (
           <Stack.Screen name="Login" component={Login}/>
         ) : (

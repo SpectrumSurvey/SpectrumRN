@@ -8,7 +8,7 @@ import React from 'react';
 import { TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
 
 function TouchComponent (props) {
-  const { children , ...reset} = props;
+  const { children, ...reset} = props;
   return Platform.select({
     android: (
       <TouchableNativeFeedback {...reset}>

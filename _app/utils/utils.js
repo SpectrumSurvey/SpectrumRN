@@ -10,7 +10,7 @@ import { PixelRatio } from 'react-native';
 const set = new Set();
 const loadingSet = new Set();
 
-export function showToast (msg, duration = 3) {
+export function showToast (msg, duration = 1.5) {
   const key = Toast.info(msg, duration, undefined, true);
   set.add(key);
 }

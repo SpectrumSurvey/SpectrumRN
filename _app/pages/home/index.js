@@ -4,14 +4,14 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { Text, ImageBackground, View, FlatList, Image, TextInput } from 'react-native';
+import { Text, ImageBackground, View, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import moment from 'moment';
 import { useAppState } from '../../utils/hooks.utils';
 import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils';
-import { Button, Card } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { useFocusEffect } from '@react-navigation/native';
@@ -51,19 +51,19 @@ function Index (props) {
         style={{
           flex: 1,
           marginTop: 30,
-          // paddingHorizontal: 18,
         }}
         ListEmptyComponent={() => {
           return (
-            <Card
-              containerStyle={{
+            <View
+              style={{
                 height: 169,
                 borderRadius: 6,
                 alignItems: 'center',
                 justifyContent: 'center',
+                ...elevationShadowStyle(5),
               }}
             >
-              <Image
+              <View
                 style={{
                   width: 81,
                   height: 71.5,
@@ -80,7 +80,7 @@ function Index (props) {
               >
                 任务待启动，请耐心等待
               </Text>
-            </Card>
+            </View>
           );
         }}
         data={appHomeQuestionnaire}
@@ -106,7 +106,7 @@ function Index (props) {
 
     const extraProps = isEnd ? {
       onPress: () => {
-        showToast('该问卷已完成！', 3)
+        showToast('该问卷已完成！')
       },
     } : {
       linearGradientProps: {
@@ -292,8 +292,6 @@ function Index (props) {
         }}
         source={require('../../asset/images/home_bg.png')}
       />
-
-
       <ImageBackground
         style={{
           width: 200,
@@ -321,6 +319,7 @@ function Index (props) {
             translucent: true,
             backgroundColor: '#6769FB',
           }}
+          titleColor={'#fff'}
           containerStyle={{
             flexShrink: 0,
           }}

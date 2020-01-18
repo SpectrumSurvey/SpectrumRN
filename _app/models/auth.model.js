@@ -100,7 +100,7 @@ const model = {
             yield put({ type: 'userDetails' });
           } catch (e) {
           }
-
+          return true
         } else {
           yield put({
             type: 'loginSuccess',
@@ -108,6 +108,7 @@ const model = {
               init: true
             },
           });
+          return false
         }
       },
       {take: 'Latest'},

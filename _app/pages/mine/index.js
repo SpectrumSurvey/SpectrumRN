@@ -68,7 +68,7 @@ function Index (props) {
                   marginLeft: 15,
                 }}>
                 <Text
-                  style={{ marginBottom: 10, fontSize: 12, color: '#bbcbfd' }}>
+                  style={{ marginBottom: 4, fontSize: 12, color: '#bbcbfd' }}>
                   登录码：
                 </Text>
                 <Text style={{ fontSize: 17, color: '#fff' }}>{userDetails?.loginCode ?? ''}</Text>
@@ -115,11 +115,13 @@ function Index (props) {
         <ListItem
           title={'您还可以选择'}
           containerStyle={styles.itemStyle}
+          rightTitle={' '}
           bottomDivider
         />
 
         <ListItem
           title={'我的报告'}
+          rightTitle={' '}
           containerStyle={styles.itemStyle}
           leftIcon={(
             <Image
@@ -133,6 +135,7 @@ function Index (props) {
         />
 
         <ListItem
+          rightTitle={' '}
           title={'我的任务'}
           containerStyle={styles.itemStyle}
           leftIcon={(
@@ -154,6 +157,7 @@ function Index (props) {
 
         <ListItem
           title={'退出'}
+          rightTitle={' '}
           containerStyle={[
             styles.itemStyle,
           ]}
@@ -190,7 +194,7 @@ const styles = {
   },
   txt2: {
     color: 'white',
-    marginTop: 7.5,
+    marginTop: 3,
     fontSize: 10.5,
   },
   line: {
