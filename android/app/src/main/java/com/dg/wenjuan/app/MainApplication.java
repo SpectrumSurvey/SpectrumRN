@@ -1,4 +1,4 @@
-package com.dg.qs.app;
+package com.dg.wenjuan.app;
 
 import android.app.Application;
 import android.content.Context;

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* dgQsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* dgQsAppTests.m */; };
+		00E356F31AD99517003FC87E /* dgAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* dgAppTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -15,11 +15,12 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* dgQsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* dgQsAppTests.m */; };
-		790B1B9109FAEB33E3558C63 /* libPods-dgQsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 559712B82B5245D395A084A4 /* libPods-dgQsApp.a */; };
-		7F5FD08E80AE8A7785BEA332 /* libPods-dgQsApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8BCB14458B59AA72012386 /* libPods-dgQsApp-tvOSTests.a */; };
-		826827F4A846814C363D90DA /* libPods-dgQsApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7257B801D25561CF1ADF63FF /* libPods-dgQsApp-tvOS.a */; };
-		CB1506DCB0E7059B0E642757 /* libPods-dgQsAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC846CB420E969D659DE0DF0 /* libPods-dgQsAppTests.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* dgAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* dgAppTests.m */; };
+		39204C4025CD4B3AA6298242 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36795D47024E1593D0854C /* libz.tbd */; };
+		790B1B9109FAEB33E3558C63 /* libPods-dgApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 559712B82B5245D395A084A4 /* libPods-dgApp.a */; };
+		7F5FD08E80AE8A7785BEA332 /* libPods-dgApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8BCB14458B59AA72012386 /* libPods-dgApp-tvOSTests.a */; };
+		826827F4A846814C363D90DA /* libPods-dgApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7257B801D25561CF1ADF63FF /* libPods-dgApp-tvOS.a */; };
+		CB1506DCB0E7059B0E642757 /* libPods-dgAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC846CB420E969D659DE0DF0 /* libPods-dgAppTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,45 +29,46 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = dgQsApp;
+			remoteInfo = dgApp;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "dgQsApp-tvOS";
+			remoteInfo = "dgApp-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* dgQsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dgQsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* dgAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dgAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* dgQsAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dgQsAppTests.m; sourceTree = "<group>"; };
-		00F7A5AB401C5CB2AC7DD7CA /* Pods-dgQsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgQsApp.release.xcconfig"; path = "Target Support Files/Pods-dgQsApp/Pods-dgQsApp.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* dgQsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dgQsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = dgQsApp/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = dgQsApp/AppDelegate.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* dgAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dgAppTests.m; sourceTree = "<group>"; };
+		00F7A5AB401C5CB2AC7DD7CA /* Pods-dgApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp.release.xcconfig"; path = "Target Support Files/Pods-dgApp/Pods-dgApp.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* dgApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dgApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = dgApp/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = dgApp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = dgQsApp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = dgQsApp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dgQsApp/main.m; sourceTree = "<group>"; };
-		189BE54E8AF9313E2F384412 /* Pods-dgQsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgQsApp.debug.xcconfig"; path = "Target Support Files/Pods-dgQsApp/Pods-dgQsApp.debug.xcconfig"; sourceTree = "<group>"; };
-		1A04A9A293A4AC214A0366B8 /* Pods-dgQsApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgQsApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-dgQsApp-tvOS/Pods-dgQsApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* dgQsApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dgQsApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* dgQsApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dgQsApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E8BCB14458B59AA72012386 /* libPods-dgQsApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgQsApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		559712B82B5245D395A084A4 /* libPods-dgQsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgQsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		55DADB25FB9C1AE799342618 /* Pods-dgQsApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgQsApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-dgQsApp-tvOS/Pods-dgQsApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		7257B801D25561CF1ADF63FF /* libPods-dgQsApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgQsApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A821F9D10D98B8C8E14E698 /* Pods-dgQsApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgQsApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-dgQsApp-tvOSTests/Pods-dgQsApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		AC846CB420E969D659DE0DF0 /* libPods-dgQsAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgQsAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7D0D93F3335BFC8C33357D9 /* Pods-dgQsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgQsAppTests.release.xcconfig"; path = "Target Support Files/Pods-dgQsAppTests/Pods-dgQsAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		D7A4933134DB5A21763F9E0F /* Pods-dgQsApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgQsApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-dgQsApp-tvOSTests/Pods-dgQsApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = dgApp/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = dgApp/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dgApp/main.m; sourceTree = "<group>"; };
+		189BE54E8AF9313E2F384412 /* Pods-dgApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp.debug.xcconfig"; path = "Target Support Files/Pods-dgApp/Pods-dgApp.debug.xcconfig"; sourceTree = "<group>"; };
+		1A04A9A293A4AC214A0366B8 /* Pods-dgApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-dgApp-tvOS/Pods-dgApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		1F36795D47024E1593D0854C /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2D02E47B1E0B4A5D006451C7 /* dgApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dgApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* dgApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dgApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E8BCB14458B59AA72012386 /* libPods-dgApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		559712B82B5245D395A084A4 /* libPods-dgApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55DADB25FB9C1AE799342618 /* Pods-dgApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-dgApp-tvOS/Pods-dgApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		7257B801D25561CF1ADF63FF /* libPods-dgApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A821F9D10D98B8C8E14E698 /* Pods-dgApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-dgApp-tvOSTests/Pods-dgApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC846CB420E969D659DE0DF0 /* libPods-dgAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D0D93F3335BFC8C33357D9 /* Pods-dgAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgAppTests.release.xcconfig"; path = "Target Support Files/Pods-dgAppTests/Pods-dgAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		D7A4933134DB5A21763F9E0F /* Pods-dgApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-dgApp-tvOSTests/Pods-dgApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		FCAB4AD998D9742DDF970D3A /* Pods-dgQsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgQsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-dgQsAppTests/Pods-dgQsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FCAB4AD998D9742DDF970D3A /* Pods-dgAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgAppTests.debug.xcconfig"; path = "Target Support Files/Pods-dgAppTests/Pods-dgAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB1506DCB0E7059B0E642757 /* libPods-dgQsAppTests.a in Frameworks */,
+				CB1506DCB0E7059B0E642757 /* libPods-dgAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				790B1B9109FAEB33E3558C63 /* libPods-dgQsApp.a in Frameworks */,
+				790B1B9109FAEB33E3558C63 /* libPods-dgApp.a in Frameworks */,
+				39204C4025CD4B3AA6298242 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				826827F4A846814C363D90DA /* libPods-dgQsApp-tvOS.a in Frameworks */,
+				826827F4A846814C363D90DA /* libPods-dgApp-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,20 +101,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F5FD08E80AE8A7785BEA332 /* libPods-dgQsApp-tvOSTests.a in Frameworks */,
+				7F5FD08E80AE8A7785BEA332 /* libPods-dgApp-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* dgQsAppTests */ = {
+		00E356EF1AD99517003FC87E /* dgAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* dgQsAppTests.m */,
+				00E356F21AD99517003FC87E /* dgAppTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = dgQsAppTests;
+			path = dgAppTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -122,7 +125,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* dgQsApp */ = {
+		13B07FAE1A68108700A75B9A /* dgApp */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -133,7 +136,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = dgQsApp;
+			name = dgApp;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -141,10 +144,11 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				559712B82B5245D395A084A4 /* libPods-dgQsApp.a */,
-				7257B801D25561CF1ADF63FF /* libPods-dgQsApp-tvOS.a */,
-				3E8BCB14458B59AA72012386 /* libPods-dgQsApp-tvOSTests.a */,
-				AC846CB420E969D659DE0DF0 /* libPods-dgQsAppTests.a */,
+				559712B82B5245D395A084A4 /* libPods-dgApp.a */,
+				7257B801D25561CF1ADF63FF /* libPods-dgApp-tvOS.a */,
+				3E8BCB14458B59AA72012386 /* libPods-dgApp-tvOSTests.a */,
+				AC846CB420E969D659DE0DF0 /* libPods-dgAppTests.a */,
+				1F36795D47024E1593D0854C /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,9 +163,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* dgQsApp */,
+				13B07FAE1A68108700A75B9A /* dgApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* dgQsAppTests */,
+				00E356EF1AD99517003FC87E /* dgAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				886EF39A1A4D3A7910C02B39 /* Pods */,
@@ -174,10 +178,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* dgQsApp.app */,
-				00E356EE1AD99517003FC87E /* dgQsAppTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* dgQsApp-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* dgQsApp-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* dgApp.app */,
+				00E356EE1AD99517003FC87E /* dgAppTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* dgApp-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* dgApp-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,14 +189,14 @@
 		886EF39A1A4D3A7910C02B39 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				189BE54E8AF9313E2F384412 /* Pods-dgQsApp.debug.xcconfig */,
-				00F7A5AB401C5CB2AC7DD7CA /* Pods-dgQsApp.release.xcconfig */,
-				1A04A9A293A4AC214A0366B8 /* Pods-dgQsApp-tvOS.debug.xcconfig */,
-				55DADB25FB9C1AE799342618 /* Pods-dgQsApp-tvOS.release.xcconfig */,
-				D7A4933134DB5A21763F9E0F /* Pods-dgQsApp-tvOSTests.debug.xcconfig */,
-				9A821F9D10D98B8C8E14E698 /* Pods-dgQsApp-tvOSTests.release.xcconfig */,
-				FCAB4AD998D9742DDF970D3A /* Pods-dgQsAppTests.debug.xcconfig */,
-				C7D0D93F3335BFC8C33357D9 /* Pods-dgQsAppTests.release.xcconfig */,
+				189BE54E8AF9313E2F384412 /* Pods-dgApp.debug.xcconfig */,
+				00F7A5AB401C5CB2AC7DD7CA /* Pods-dgApp.release.xcconfig */,
+				1A04A9A293A4AC214A0366B8 /* Pods-dgApp-tvOS.debug.xcconfig */,
+				55DADB25FB9C1AE799342618 /* Pods-dgApp-tvOS.release.xcconfig */,
+				D7A4933134DB5A21763F9E0F /* Pods-dgApp-tvOSTests.debug.xcconfig */,
+				9A821F9D10D98B8C8E14E698 /* Pods-dgApp-tvOSTests.release.xcconfig */,
+				FCAB4AD998D9742DDF970D3A /* Pods-dgAppTests.debug.xcconfig */,
+				C7D0D93F3335BFC8C33357D9 /* Pods-dgAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -200,9 +204,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* dgQsAppTests */ = {
+		00E356ED1AD99517003FC87E /* dgAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "dgQsAppTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "dgAppTests" */;
 			buildPhases = (
 				1773958BCE58ADCB8E8E5BC6 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -214,14 +218,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = dgQsAppTests;
-			productName = dgQsAppTests;
-			productReference = 00E356EE1AD99517003FC87E /* dgQsAppTests.xctest */;
+			name = dgAppTests;
+			productName = dgAppTests;
+			productReference = 00E356EE1AD99517003FC87E /* dgAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* dgQsApp */ = {
+		13B07F861A680F5B00A75B9A /* dgApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dgQsApp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dgApp" */;
 			buildPhases = (
 				E7B81B0945F70A326B422965 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -230,19 +234,20 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				B76F18EE4C2E08FB26C3D630 /* [CP] Copy Pods Resources */,
+				948EE8105C0C4159B70D7708 /* Upload Debug Symbols to Sentry */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = dgQsApp;
-			productName = dgQsApp;
-			productReference = 13B07F961A680F5B00A75B9A /* dgQsApp.app */;
+			name = dgApp;
+			productName = dgApp;
+			productReference = 13B07F961A680F5B00A75B9A /* dgApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* dgQsApp-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* dgApp-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgQsApp-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgApp-tvOS" */;
 			buildPhases = (
 				021FFBA716A5140D2C31CF35 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -255,14 +260,14 @@
 			);
 			dependencies = (
 			);
-			name = "dgQsApp-tvOS";
-			productName = "dgQsApp-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* dgQsApp-tvOS.app */;
+			name = "dgApp-tvOS";
+			productName = "dgApp-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* dgApp-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* dgQsApp-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* dgApp-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgQsApp-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgApp-tvOSTests" */;
 			buildPhases = (
 				6E95B2B39C83AF1A4DBD39E0 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -274,9 +279,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "dgQsApp-tvOSTests";
-			productName = "dgQsApp-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* dgQsApp-tvOSTests.xctest */;
+			name = "dgApp-tvOSTests";
+			productName = "dgApp-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* dgApp-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -285,7 +290,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -294,7 +299,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = CM36SJN233;
+						DevelopmentTeam = GVWBSMDMT2;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -309,7 +314,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "dgQsApp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "dgApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -323,10 +328,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* dgQsApp */,
-				00E356ED1AD99517003FC87E /* dgQsAppTests */,
-				2D02E47A1E0B4A5D006451C7 /* dgQsApp-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* dgQsApp-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* dgApp */,
+				00E356ED1AD99517003FC87E /* dgAppTests */,
+				2D02E47A1E0B4A5D006451C7 /* dgApp-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* dgApp-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -378,7 +383,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport NODE_BINARY=node\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
 		021FFBA716A5140D2C31CF35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -395,7 +400,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dgQsApp-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-dgApp-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -417,7 +422,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dgQsAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-dgAppTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -436,7 +441,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport NODE_BINARY=node\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
 		6E95B2B39C83AF1A4DBD39E0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -453,12 +458,26 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dgQsApp-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-dgApp-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		948EE8105C0C4159B70D7708 /* Upload Debug Symbols to Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Upload Debug Symbols to Sentry";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\n../node_modules/@sentry/cli/bin/sentry-cli upload-dsym";
 		};
 		B76F18EE4C2E08FB26C3D630 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -466,7 +485,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dgQsApp/Pods-dgQsApp-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-dgApp/Pods-dgApp-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -505,7 +524,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dgQsApp/Pods-dgQsApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dgApp/Pods-dgApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E7B81B0945F70A326B422965 /* [CP] Check Pods Manifest.lock */ = {
@@ -523,7 +542,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dgQsApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-dgApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -575,7 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* dgQsAppTests.m in Sources */,
+				00E356F31AD99517003FC87E /* dgAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* dgQsAppTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* dgAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,12 +629,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* dgQsApp */;
+			target = 13B07F861A680F5B00A75B9A /* dgApp */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* dgQsApp-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* dgApp-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -627,7 +646,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = dgQsApp;
+			path = dgApp;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -635,7 +654,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCAB4AD998D9742DDF970D3A /* Pods-dgQsAppTests.debug.xcconfig */;
+			baseConfigurationReference = FCAB4AD998D9742DDF970D3A /* Pods-dgAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -644,7 +663,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = dgQsAppTests/Info.plist;
+				INFOPLIST_FILE = dgAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -654,19 +673,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgQsApp.app/dgQsApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgApp.app/dgApp";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7D0D93F3335BFC8C33357D9 /* Pods-dgQsAppTests.release.xcconfig */;
+			baseConfigurationReference = C7D0D93F3335BFC8C33357D9 /* Pods-dgAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = CM36SJN233;
-				INFOPLIST_FILE = dgQsAppTests/Info.plist;
+				INFOPLIST_FILE = dgAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -676,29 +695,29 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgQsApp.app/dgQsApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgApp.app/dgApp";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 189BE54E8AF9313E2F384412 /* Pods-dgQsApp.debug.xcconfig */;
+			baseConfigurationReference = 189BE54E8AF9313E2F384412 /* Pods-dgApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = CM36SJN233;
-				INFOPLIST_FILE = dgQsApp/Info.plist;
+				DEVELOPMENT_TEAM = GVWBSMDMT2;
+				INFOPLIST_FILE = dgApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dg.qs.app;
-				PRODUCT_NAME = dgQsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dg.wenjuan.app;
+				PRODUCT_NAME = dgApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -706,22 +725,22 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00F7A5AB401C5CB2AC7DD7CA /* Pods-dgQsApp.release.xcconfig */;
+			baseConfigurationReference = 00F7A5AB401C5CB2AC7DD7CA /* Pods-dgApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CM36SJN233;
-				INFOPLIST_FILE = dgQsApp/Info.plist;
+				DEVELOPMENT_TEAM = GVWBSMDMT2;
+				INFOPLIST_FILE = dgApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dg.qs.app;
-				PRODUCT_NAME = dgQsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dg.wenjuan.app;
+				PRODUCT_NAME = dgApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -729,7 +748,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A04A9A293A4AC214A0366B8 /* Pods-dgQsApp-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 1A04A9A293A4AC214A0366B8 /* Pods-dgApp-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -741,14 +760,14 @@
 				DEVELOPMENT_TEAM = CM36SJN233;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "dgQsApp-tvOS/Info.plist";
+				INFOPLIST_FILE = "dgApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgQsApp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgApp-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -758,7 +777,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55DADB25FB9C1AE799342618 /* Pods-dgQsApp-tvOS.release.xcconfig */;
+			baseConfigurationReference = 55DADB25FB9C1AE799342618 /* Pods-dgApp-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -770,14 +789,14 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CM36SJN233;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "dgQsApp-tvOS/Info.plist";
+				INFOPLIST_FILE = "dgApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgQsApp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgApp-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -787,7 +806,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7A4933134DB5A21763F9E0F /* Pods-dgQsApp-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = D7A4933134DB5A21763F9E0F /* Pods-dgApp-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -797,24 +816,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "dgQsApp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "dgApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgQsApp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgQsApp-tvOS.app/dgQsApp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgApp-tvOS.app/dgApp-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A821F9D10D98B8C8E14E698 /* Pods-dgQsApp-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 9A821F9D10D98B8C8E14E698 /* Pods-dgApp-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -824,17 +843,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "dgQsApp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "dgApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgQsApp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgQsApp-tvOS.app/dgQsApp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgApp-tvOS.app/dgApp-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -941,7 +960,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "dgQsAppTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "dgAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -950,7 +969,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dgQsApp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dgApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -959,7 +978,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgQsApp-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgApp-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -968,7 +987,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgQsApp-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgApp-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -977,7 +996,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "dgQsApp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "dgApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

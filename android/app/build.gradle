@@ -76,12 +76,13 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-        entryFile   : "index.js",
-        enableHermes: false,  // clean and rebuild if changing
+        entryFile         : "index.js",
+        enableHermes      : false,  // clean and rebuild if changing
         hermesFlagsRelease: [],
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/@sentry/react-native/sentry.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -126,6 +127,10 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
+def getIncreasedVersionCode() {
+    return (int) (System.currentTimeMillis() / (1000 * 60 * 60 * 24))
+}
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -135,10 +140,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.dg.qs.app"
+        applicationId "com.dg.wenjuan.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode getIncreasedVersionCode()
         versionName "1.0"
 
         ndk {
@@ -146,7 +151,7 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_APPKEY: "129c21dc4cb5e6f6de194003",         //在此替换你的APPKey
+                JPUSH_APPKEY : "129c21dc4cb5e6f6de194003",         //在此替换你的APPKey
                 JPUSH_CHANNEL: "default"                          //在此替换你的channel
         ]
     }
@@ -206,6 +211,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
     implementation project(':jcore-react-native')
+    implementation 'com.tencent.bugly:crashreport:latest.release'
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

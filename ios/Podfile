@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'dgQsApp' do
-  # Pods for dgQsApp
+target 'dgApp' do
+  # Pods for dgApp
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -35,7 +35,7 @@ target 'dgQsApp' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 
-  target 'dgQsAppTests' do
+  target 'dgAppTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -43,10 +43,10 @@ target 'dgQsApp' do
   use_native_modules!
 end
 
-target 'dgQsApp-tvOS' do
-  # Pods for dgQsApp-tvOS
+target 'dgApp-tvOS' do
+  # Pods for dgApp-tvOS
 
-  target 'dgQsApp-tvOSTests' do
+  target 'dgApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

@@ -1,4 +1,4 @@
-package com.dg.qs.app;
+package com.dg.wenjuan.app;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "dgQsApp";
+        return "dgApp";
     }
 
     @Override

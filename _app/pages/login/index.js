@@ -4,28 +4,17 @@
  * @Date: 2020/1/5 17:15
  * @Email: middle2021@gmail.com
  */
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import Header from '../../components/header';
 import {Input, Button} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
-import DialogBox from 'react-native-dialogbox';
 import {Toast} from '@ant-design/react-native';
-import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {connect} from 'react-redux';
 import { handleCatch } from '../../utils/utils';
 
 function Index(props) {
-  const dialogRef = useRef(null);
   const [code, setCode] = useState('');
-
-  useFocusEffect(
-    React.useCallback(() => {
-      // props.navigation.replace('Root');
-    }, []),
-  );
-
-  useEffect(() => {}, []);
 
   return (
     <View
@@ -85,7 +74,6 @@ function Index(props) {
           />
         </View>
       </SafeAreaView>
-      <DialogBox ref={dialogRef} />
     </View>
   );
 

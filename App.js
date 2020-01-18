@@ -31,6 +31,12 @@ import MyTask from './_app/pages/mine/task';
 import { connect } from 'react-redux';
 import JPush from 'jpush-react-native';
 
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'https://8452e9e120ca4143b4149e48b72f1638@sentry.io/1886648',
+});
+
 if (__DEV__) {
   require('./_app/utils/network.inspect');
 }
@@ -124,7 +130,7 @@ const App: () => React$Node = () => {
 
   function initJPush () {
     // 初始化
-    JPush.init();
+    // JPush.init();
   }
 
   useEffect(() => {
