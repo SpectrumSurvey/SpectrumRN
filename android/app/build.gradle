@@ -151,7 +151,7 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_APPKEY : "129c21dc4cb5e6f6de194003",         //在此替换你的APPKey
+                JPUSH_APPKEY : "fab53794aab9e1c30043f28a",         //在此替换你的APPKey
                 JPUSH_CHANNEL: "default"                          //在此替换你的channel
         ]
     }
@@ -170,6 +170,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('../release.keystore')
+            storePassword 'dgqs123456'
+            keyAlias 'dg'
+            keyPassword 'dgqs123456'
+        }
     }
     buildTypes {
         debug {
@@ -178,7 +184,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

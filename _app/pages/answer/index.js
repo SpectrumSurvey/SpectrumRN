@@ -359,17 +359,25 @@ function Index (props) {
                 if (
                   [
                     SUBJECT_ENUM.MULTIPLE_CHOICE, SUBJECT_ENUM.SINGLE_CHOICE,
-                    SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE, SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE,
+                    SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE,
+                    SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE,
                     SUBJECT_ENUM.SCALE,
                   ].includes(curItem.subjectType)) {
-
                   const noChecked = _.every(curItem.options, (v) => !v._checked);
-
                   if (noChecked) {
                     showToast('请选择选项');
                     return;
                   }
+                }
 
+                if (
+                  SUBJECT_ENUM.COMPLETION === curItem.subjectType
+                ) {
+                  const isEmpty = _.isEmpty(curItem.options[0].optionKey)
+                  if (isEmpty) {
+                    showToast('请填写题目');
+                    return;
+                  }
                 }
 
                 if (isLast) {

@@ -27,12 +27,13 @@ function Index (props) {
   const appState = useAppState();
 
   useEffect(() => {
-    // 更新当前界面
-    setNow(moment());
+
   }, [appState]);
 
   useFocusEffect(
     React.useCallback(() => {
+      // 更新当前界面
+      setNow(moment());
       fetchData();
     }, []),
   );
@@ -59,18 +60,20 @@ function Index (props) {
                 height: 169,
                 borderRadius: 6,
                 alignItems: 'center',
+                marginHorizontal: 16,
+                backgroundColor: 'white',
                 justifyContent: 'center',
                 ...elevationShadowStyle(5),
               }}
             >
-              <View
+              <Image
                 style={{
                   width: 81,
                   height: 71.5,
                   alignSelf: 'center',
                   marginBottom: 20,
-                  backgroundColor: 'lightgray'
                 }}
+                source={require('../../asset/images/icon_home_empty.png')}
               />
               <Text
                 style={{
@@ -134,7 +137,6 @@ function Index (props) {
           marginBottom: (index === appHomeQuestionnaire.length -1) ? 15 : 0
         }}
       >
-
         <View
           style={{
             flexDirection: 'row',

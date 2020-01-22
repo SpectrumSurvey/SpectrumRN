@@ -5,7 +5,7 @@
  * @Email: middle2021@gmail.com
  */
 import React, {useState} from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import { Image, SafeAreaView, Text, View } from 'react-native';
 import Header from '../../components/header';
 import {Input, Button} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
@@ -30,7 +30,7 @@ function Index(props) {
           backgroundColor: 'white',
         }}
       />
-      <SafeAreaView
+      <View
         style={{
           flex: 1,
         }}>
@@ -40,6 +40,7 @@ function Index(props) {
 
         <View
           style={{
+            flex: 1,
             paddingHorizontal: 16,
           }}>
           <Input
@@ -66,14 +67,39 @@ function Index(props) {
             raised={true}
             buttonStyle={styles.button}
             linearGradientProps={{
-              colors: ['#499EF3', '#336DF6', '#5346F7'],
+              colors: ['#4F97FD', '#4F97FD', '#4F97FD'],
               start: {x: 0, y: 0.5},
               end: {x: 1, y: 0.5},
             }}
             ViewComponent={LinearGradient}
           />
         </View>
-      </SafeAreaView>
+
+        <View
+          style={{
+            alignItems: 'center'
+          }}
+        >
+          <Text
+            style={{
+              marginBottom: 16,
+              color: '#4F97FD'
+            }}
+          >
+            登录遇到问题？
+          </Text>
+          <Image
+            resizeMode={'stretch'}
+            style={{
+              width: '100%',
+              height: 69,
+            }}
+            source={require('../../asset/images/icon_login_bottom.png')}
+          />
+
+        </View>
+
+      </View>
     </View>
   );
 

@@ -32,7 +32,6 @@ function Index (props) {
       }}
     >
       <Header
-        title={'我的'}
         color={'white'}
         statusBarProps={{
           barStyle: 'dark-content',
@@ -126,7 +125,7 @@ function Index (props) {
           leftIcon={(
             <Image
               style={styles.icon}
-              source={require('../../asset/images/icon_my_report.png')}
+              source={require('../../asset/images/icon_my_task.png')}
             />
           )}
           bottomDivider
@@ -141,7 +140,7 @@ function Index (props) {
           leftIcon={(
             <Image
               style={styles.icon}
-              source={require('../../asset/images/icon_my_task.png')}
+              source={require('../../asset/images/icon_my_report.png')}
             />
           )}
           chevron={{ color: '#878787' }}

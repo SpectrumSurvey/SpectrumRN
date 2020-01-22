@@ -94,7 +94,9 @@ function StackNavigator (props) {
 
   return (
     <NavigationNativeContainer ref={navigationRef}>
-      <Stack.Navigator headerMode="none">
+      <Stack.Navigator
+        headerMode="none"
+      >
         {!authStore.token ? (
           <Stack.Screen name="Login" component={Login}/>
         ) : (
@@ -152,6 +154,9 @@ function renderBottomTab () {
         scrollEnabled: true,
         activeTintColor: '#558FFB',
         inactiveTintColor: '#BBBBBB',
+        safeAreaInset: {
+          bottom: 'never'
+        },
         style: {
           backgroundColor: '#FFFFFF',
           borderTopColor: '#dddddd',
