@@ -53,10 +53,13 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
     "babel-plugin-import": "^1.13.0",
+    "child_process": "^1.0.2",
     "eslint": "^6.8.0",
+    "fs": "^0.0.1-security",
     "jest": "^24.9.0",
     "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.57.0",
+    "path": "^0.12.7",
     "react-test-renderer": "16.9.0"
   },
   "jest": {

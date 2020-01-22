@@ -22,8 +22,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+  NSMutableDictionary *infoDict = [NSMutableDictionary dictionaryWithContentsOfFile:bundlePath];
+  NSString *appKey = [infoDict objectForKey:@"JPushAppKey"];
   // JPush初始化配置
-  [JPUSHService setupWithOption:launchOptions appKey:@"129c21dc4cb5e6f6de194003"
+  [JPUSHService setupWithOption:launchOptions appKey:appKey
                         channel:@"dev" apsForProduction:YES];
   // APNS
   JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];

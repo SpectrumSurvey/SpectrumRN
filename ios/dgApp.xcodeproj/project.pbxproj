@@ -728,7 +728,7 @@
 			baseConfigurationReference = 00F7A5AB401C5CB2AC7DD7CA /* Pods-dgApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: fdggfdg fdgfd (B6KT2NT7AT)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GVWBSMDMT2;

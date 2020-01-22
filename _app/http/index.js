@@ -7,6 +7,7 @@
 // axios 更多文档参考 https://github.com/axios/axios
 import axios from 'axios';
 import { APIInterceptor } from './APIInterceptors';
+import config from '../../app.json'
 
 // interceptors.request 先触发
 // transformRequest 后触发
@@ -15,7 +16,7 @@ import { APIInterceptor } from './APIInterceptors';
 // interceptors.response.use (先加入，先触发）
 
 const HTTP = axios.create({
-  baseURL: 'http://47.98.216.5:9010/',
+  baseURL: config.url,
   timeout: 8000,
 });
 

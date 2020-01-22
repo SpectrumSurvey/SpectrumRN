@@ -131,6 +131,13 @@ def getIncreasedVersionCode() {
     return (int) (System.currentTimeMillis() / (1000 * 60 * 60 * 24))
 }
 
+def getJPushAppKey() {
+    def jsonFile = file('../../app.json')
+    def parsedJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
+    return parsedJson.JPushAppKey
+}
+
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -151,8 +158,8 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_APPKEY : "fab53794aab9e1c30043f28a",         //在此替换你的APPKey
-                JPUSH_CHANNEL: "default"                          //在此替换你的channel
+                JPUSH_APPKEY : getJPushAppKey(),         //在此替换你的APPKey
+                JPUSH_CHANNEL: "default"                 //在此替换你的channel
         ]
     }
     splits {

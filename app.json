@@ -1,4 +1,7 @@
 {
   "name": "dgApp",
-  "displayName": "dgApp"
+  "displayName": "dgApp",
+  "env": "dev",
+  "url": "http://47.98.216.5:9010/",
+  "JPushAppKey": "fab53794aab9e1c30043f28a"
 }
