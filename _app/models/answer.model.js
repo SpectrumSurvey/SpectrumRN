@@ -5,9 +5,10 @@
  * @Email: middle2021@gmail.com
  */
 import produce from 'immer';
-import {ApiService} from '../http/APIService';
+import { ApiService } from '../http/APIService';
 import _ from 'lodash';
 import { SUBJECT_ENUM } from '../utils/constant';
+import moment from 'moment';
 
 const initState = {
   info: {},
@@ -16,16 +17,24 @@ const initState = {
   startTime: 0,
   // 是否完成全部答题
   isSuccessfully: false,
+
+  // 每一题开始时间
+  subjectStartTime: 0,
 };
 
 const model = {
   namespace: 'answer',
   state: _.cloneDeep(initState),
   reducers: {
-    updateInfo(state, {payload}) {
+    updateInfo (state, { payload }) {
       return produce(state, draft => {
         draft.info = payload;
         draft.startTime = new Date().getTime();
+      });
+    },
+    updateSubjectStartTime (state) {
+      return produce(state, draft => {
+        draft.subjectStartTime = moment().valueOf();
       });
     },
     reset (state) {
@@ -36,6 +45,8 @@ const model = {
     updateCurIndex (state, { payload }) {
       return produce(state, draft => {
         draft.curIndex = payload;
+        // 重新计算题目开始时间
+        draft.subjectStartTime = moment().valueOf();
       });
     },
     /**
@@ -45,10 +56,13 @@ const model = {
      */
     updateOptions (state, { payload }) {
       return produce(state, draft => {
-        const { _index, ...values } = payload;
-        // 更新多选题
-        const _option = draft.info.questionnaire.subjects[draft.curIndex].options[_index];
-        Object.assign(_option, values);
+        try {
+          const { _index, ...values } = payload;
+          // 更新多选题
+          const _option = draft.info.questionnaire.subjects[draft.curIndex].options[_index];
+          Object.assign(_option, values);
+        } catch (e) {
+        }
       });
     },
     /**
@@ -58,16 +72,19 @@ const model = {
      */
     updateOptionsSingle (state, { payload }) {
       return produce(state, draft => {
-        const { _index, ...values } = payload;
-        // 更新单选题
-        const options = draft.info.questionnaire.subjects[draft.curIndex].options;
+        try {
+          const { _index, ...values } = payload;
+          // 更新单选题
+          const options = draft.info.questionnaire.subjects[draft.curIndex]?.options;
 
-        options.forEach(v => {
-          v._checked = false;
-          v.fillingValue = '';
-        });
+          options?.forEach(v => {
+            v._checked = false;
+            v.fillingValue = '';
+          });
 
-        Object.assign(options[_index], values);
+          Object.assign(options[_index], values);
+        } catch (e) {
+        }
       });
     },
 
@@ -78,10 +95,13 @@ const model = {
      */
     updateOptionsByInput (state, { payload }) {
       return produce(state, draft => {
-        const value = payload;
-        // 更新填空题
-        const options = draft.info.questionnaire.subjects[draft.curIndex].options;
-        options[0].optionKey = value
+        try {
+          const value = payload;
+          // 更新填空题
+          const options = draft.info.questionnaire.subjects[draft.curIndex].options;
+          options[0].optionKey = value;
+        } catch (e) {
+        }
       });
     },
 
@@ -92,16 +112,18 @@ const model = {
      */
     updateOptionByDropDownSingle (state, { payload }) {
       return produce(state, draft => {
-        const { _index } = payload;
-        console.log(_index);
-        // 更新下拉单选题
-        const options = draft.info.questionnaire.subjects[draft.curIndex].options;
+        try {
+          const { _index } = payload;
+          // 更新下拉单选题
+          const options = draft.info.questionnaire.subjects[draft.curIndex].options;
 
-        options.forEach(v => {
-          v._checked = false
-        });
+          options.forEach(v => {
+            v._checked = false;
+          });
 
-        options[_index]._checked = true
+          options[_index]._checked = true;
+        } catch (e) {
+        }
       });
     },
 
@@ -112,13 +134,16 @@ const model = {
      */
     updateOptionByDropDownMultiple (state, { payload }) {
       return produce(state, draft => {
-        const { ids } = payload;
-        // 更新下拉多选题
-        const options = draft.info.questionnaire.subjects[draft.curIndex].options;
+        try {
+          const { ids } = payload;
+          // 更新下拉多选题
+          const options = draft.info.questionnaire.subjects[draft.curIndex].options;
 
-        options.forEach(v => {
-          v._checked = !!ids.includes(v.optionId);
-        });
+          options.forEach(v => {
+            v._checked = !!ids.includes(v.optionId);
+          });
+        } catch (e) {
+        }
       });
     },
     /**
@@ -128,27 +153,30 @@ const model = {
      */
     updateOptionsByFeedBack (state, { payload }) {
       return produce(state, draft => {
-        const options = draft.info.questionnaire.subjects[draft.curIndex - 1].options;
-        options.forEach(v => {
-          const hasOption = _.some(payload, { optionId: v.optionId });
-          if (hasOption) {
-            // 有匹配到
-            v._checked = true;
-          }
-        });
-        // 更新单选题
-        draft.info.questionnaire.subjects[draft.curIndex - 1].options = options;
+        try {
+          const options = draft.info.questionnaire.subjects[draft.curIndex - 1].options;
+          options.forEach(v => {
+            const hasOption = _.some(payload, { optionId: v.optionId });
+            if (hasOption) {
+              // 有匹配到
+              v._checked = true;
+            }
+          });
+          // 更新单选题
+          draft.info.questionnaire.subjects[draft.curIndex - 1].options = options;
+        } catch (e) {
+        }
       });
     },
     updateSuccessfully (state, { payload }) {
       return produce(state, draft => {
-        draft.isSuccessfully = true
-      })
-    }
+        draft.isSuccessfully = true;
+      });
+    },
   },
   effects: {
     loadData: [
-      function*({payload}, {call, put}) {
+      function * ({ payload }, { call, put }) {
         /*eslint prettier/prettier:0*/
         const [error, data] = yield call(ApiService.questionnaireDetails, payload);
         if (error) {
@@ -169,12 +197,16 @@ const model = {
           type: 'updateInfo',
           payload: data,
         });
+
+        yield put({
+          type: 'updateSubjectStartTime',
+        });
       },
-      {take: 'Latest'},
+      { take: 'Latest' },
     ],
     //上一题
     feedbackOptions: [
-      function*({payload}, {call, put, select}) {
+      function * ({ payload }, { call, put, select }) {
         /*eslint prettier/prettier:0*/
         const { curItem, userQuestionnaireId, questionnaireId } = payload;
 
@@ -193,7 +225,7 @@ const model = {
 
         yield put({
           type: 'updateOptionsByFeedBack',
-          payload: data
+          payload: data,
         });
 
         yield put({
@@ -202,28 +234,40 @@ const model = {
         });
 
       },
-      {take: 'Latest'},
+      { take: 'Latest' },
     ],
 
     answer: [
-      function*({payload}, {call}) {
+      function * ({ payload }, { call, select }) {
         /*eslint prettier/prettier:0*/
 
+        const startTime = yield select(state => state.answer.subjectStartTime);
+        // 答题时长
+        const duration = moment().diff(moment(startTime), 'seconds');
+
         const { curItem, userQuestionnaireId, questionnaireId } = payload;
+
+        const options = processAnswerOptions(curItem.subjectType, curItem.options);
+
+        if (!_.isEmpty(options)) {
+          options.forEach(v => {
+            v.duration = duration;
+          });
+        }
 
         const params = {
           userQuestionnaireId,
           questionnaireId,
           subjectId: curItem.subjectId,
-          answerOptionJson: processAnswerOptions(curItem.subjectType, curItem.options),
+          answerOptionJson: options,
         };
         const [error, data] = yield call(ApiService.answer, params);
         if (error) {
           return Promise.reject(error);
         }
-        return Promise.resolve(data)
+        return Promise.resolve(data);
       },
-      {take: 'Latest'},
+      { take: 'Latest' },
     ],
   },
 };
@@ -233,7 +277,7 @@ function processAnswerOptions (subjectType, options) {
     SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE,
     SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE,
     SUBJECT_ENUM.SINGLE_CHOICE,
-    SUBJECT_ENUM.MULTIPLE_CHOICE
+    SUBJECT_ENUM.MULTIPLE_CHOICE,
   ].includes(subjectType)) {
     const result = options.filter(v => v._checked).reduce((pre, cur) => {
       pre.push({
@@ -241,10 +285,10 @@ function processAnswerOptions (subjectType, options) {
         optionKey: cur.optionKey,
         fillingValue: cur.fillingValue,
       });
-      return pre
+      return pre;
     }, []);
 
-    return JSON.stringify(result)
+    return JSON.stringify(result);
   }
 
   if (
@@ -257,8 +301,8 @@ function processAnswerOptions (subjectType, options) {
         // 填空题结果
         optionKey: options[0].optionKey,
         fillingValue: null,
-      }
-    ])
+      },
+    ]);
   }
 
   if (subjectType === SUBJECT_ENUM.SCALE) {
@@ -268,7 +312,7 @@ function processAnswerOptions (subjectType, options) {
       optionId: cur.optionId,
       optionKey: cur.optionKey,
       fillingValue: cur.fillingValue,
-    }])
+    }]);
   }
 
 }

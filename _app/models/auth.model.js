@@ -5,8 +5,11 @@
  * @Email: middle2021@gmail.com
  */
 import produce from 'immer';
-import {ApiService} from '../http/APIService';
-import {AsyncStorage} from '../utils/storage';
+import { ApiService } from '../http/APIService';
+import { AsyncStorage } from '../utils/storage';
+import JPush from 'jpush-react-native';
+import { Platform } from 'react-native';
+
 const AUTH_MODEL = {
   NAMESPACE: 'auth',
   REDUCERS: {},
@@ -26,26 +29,26 @@ const model = {
   namespace: AUTH_MODEL.NAMESPACE,
   state: initState,
   reducers: {
-    logOutSuccess(state) {
+    logOutSuccess (state) {
       // 清空本地
       return produce(state, draft => {
         draft.token = '';
       });
     },
-    loginSuccess(state, {payload}) {
+    loginSuccess (state, { payload }) {
       return produce(state, draft => {
         Object.assign(draft, payload);
       });
     },
-    updateUserDetail(state, {payload}) {
+    updateUserDetail (state, { payload }) {
       return produce(state, draft => {
-        draft.userDetails = payload
+        draft.userDetails = payload;
       });
     },
   },
   effects: {
     login: [
-      function*({payload}, {call, put}) {
+      function * ({ payload }, { call, put }) {
         const [error, data] = yield call(ApiService.login, payload);
         if (error) {
           return Promise.reject(error);
@@ -53,83 +56,110 @@ const model = {
 
         yield call(AsyncStorage.setItem, 'token', data.token);
 
+        const timeStamp = new Date().getTime();
+
         yield put({
           type: 'loginSuccess',
           payload: {
             token: data.token,
-            init: true
+            init: true,
+            timeStamp
           },
         });
 
         try {
           // 更新用户信息
-          yield put({ type: 'userDetails' });
+          const data = yield put.resolve({ type: 'userDetails' });
+          if (data) {
+            JPush.setAlias({
+              alias: `${data?.loginCodeId}`,
+              sequence: timeStamp,
+            });
+          }
         } catch (e) {
-
         }
       },
-      {take: 'Latest'},
+      { take: 'Latest' },
     ],
     logOut: [
-      function*({payload}, {call, put}) {
+      function * ({ payload }, { call, put, select }) {
         yield call(AsyncStorage.removeItem, 'token');
 
         yield put({
           type: 'logOutSuccess',
         });
+
+        const timeStamp = yield select(state => state.auth.timeStamp);
+
+        // 退出登录删除 alias
+        JPush.deleteAlias({
+          sequence: timeStamp,
+        });
       },
-      {take: 'Latest'},
+      { take: 'Latest' },
     ],
 
     checkLogin: [
-      function*({payload}, {call, put}) {
+      function * ({ payload }, { call, put }) {
 
         const token = yield call(AsyncStorage.getItem, 'token');
 
         if (token) {
+
+          const timeStamp = new Date().getTime();
+
           yield put({
             type: 'loginSuccess',
             payload: {
               token,
-              init: true
+              init: true,
+              timeStamp,
             },
           });
 
           try {
             // 更新用户信息
-            yield put({ type: 'userDetails' });
+            const data = yield put.resolve({ type: 'userDetails' });
+            if (data) {
+              JPush.setAlias({
+                alias: `${data?.loginCodeId}`,
+                sequence: timeStamp,
+              });
+            }
           } catch (e) {
           }
-          return true
+          return true;
         } else {
           yield put({
             type: 'loginSuccess',
             payload: {
-              init: true
+              init: true,
             },
           });
-          return false
+          return false;
         }
       },
-      {take: 'Latest'},
+      { take: 'Latest' },
     ],
 
     userDetails: [
-      function*({payload}, {call, put}) {
+      function * ({ payload }, { call, put }) {
         const [error, data] = yield call(ApiService.userDetails, payload);
         if (error) {
-          return Promise.reject(error)
+          return Promise.reject(error);
         }
 
         yield put({
           type: 'updateUserDetail',
           payload: data,
         });
+
+        return data;
       },
-      {take: 'Latest'},
+      { take: 'Latest' },
     ],
   },
 };
 
-export {AUTH_MODEL};
+export { AUTH_MODEL };
 export default model;

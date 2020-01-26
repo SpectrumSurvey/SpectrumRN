@@ -4,16 +4,16 @@
  * @Date: 2020/1/5 17:15
  * @Email: middle2021@gmail.com
  */
-import React, {useState} from 'react';
-import { Image, SafeAreaView, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Image, Clipboard, Text, TouchableWithoutFeedback, View } from 'react-native';
 import Header from '../../components/header';
-import {Input, Button} from 'react-native-elements';
+import { Input, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
-import {Toast} from '@ant-design/react-native';
-import {connect} from 'react-redux';
-import { handleCatch } from '../../utils/utils';
+import { Modal, Toast } from '@ant-design/react-native';
+import { connect } from 'react-redux';
+import { handleCatch, showToast } from '../../utils/utils';
 
-function Index(props) {
+function Index (props) {
   const [code, setCode] = useState('');
 
   return (
@@ -68,8 +68,8 @@ function Index(props) {
             buttonStyle={styles.button}
             linearGradientProps={{
               colors: ['#4F97FD', '#4F97FD', '#4F97FD'],
-              start: {x: 0, y: 0.5},
-              end: {x: 1, y: 0.5},
+              start: { x: 0, y: 0.5 },
+              end: { x: 1, y: 0.5 },
             }}
             ViewComponent={LinearGradient}
           />
@@ -77,17 +77,21 @@ function Index(props) {
 
         <View
           style={{
-            alignItems: 'center'
+            alignItems: 'center',
           }}
         >
-          <Text
-            style={{
-              marginBottom: 16,
-              color: '#4F97FD'
-            }}
+          <TouchableWithoutFeedback
+            onPress={showDialog}
           >
-            登录遇到问题？
-          </Text>
+            <Text
+              style={{
+                marginBottom: 16,
+                color: '#4F97FD',
+              }}
+            >
+              登录遇到问题？
+            </Text>
+          </TouchableWithoutFeedback>
           <Image
             resizeMode={'stretch'}
             style={{
@@ -103,11 +107,40 @@ function Index(props) {
     </View>
   );
 
-  function onInput(value) {
+  function showDialog () {
+    Modal.alert('', (
+        <View
+          style={{
+            flexDirection: 'row'
+          }}
+        >
+          <Text>请添加客服微信：</Text>
+          <TouchableWithoutFeedback
+            onLongPress={() => {
+              Clipboard.setString('ZIB-UNISTU');
+              showToast('已复制到剪切板~')
+            }}
+          >
+            <Text
+              style={{
+                color: '#4F97FD',
+              }}
+            >
+              ZIB-UNISTU
+            </Text>
+          </TouchableWithoutFeedback>
+        </View>
+      ), [
+        { text: '取消', onPress: () => {}, style: 'cancel' }
+      ],
+    );
+  }
+
+  function onInput (value) {
     setCode(value);
   }
 
-  function go() {
+  function go () {
     if (!code) {
       Toast.info('请输入登录码');
       return;

@@ -22,6 +22,9 @@ function Index (props) {
 
   const { appHomeQuestionnaire, monthEn, week, year, day, motto, quotes } = props.info;
 
+  useEffect(() => {
+  }, []);
+
   const [now, setNow] = useState(moment());
 
   const appState = useAppState();
@@ -78,7 +81,7 @@ function Index (props) {
               <Text
                 style={{
                   fontSize: 15,
-                  color: '#d1d1d1'
+                  color: '#d1d1d1',
                 }}
               >
                 任务待启动，请耐心等待
@@ -98,7 +101,7 @@ function Index (props) {
             />
           );
         }}
-        keyExtractor={(item,index) => `${index}`}
+        keyExtractor={(item, index) => `${index}`}
       />
     );
   }
@@ -109,7 +112,7 @@ function Index (props) {
 
     const extraProps = isEnd ? {
       onPress: () => {
-        showToast('该问卷已完成！')
+        showToast('该问卷已完成！');
       },
     } : {
       linearGradientProps: {
@@ -134,7 +137,7 @@ function Index (props) {
           paddingBottom: 19,
           ...elevationShadowStyle(5),
           backgroundColor: 'white',
-          marginBottom: (index === appHomeQuestionnaire.length -1) ? 15 : 0
+          marginBottom: (index === appHomeQuestionnaire.length - 1) ? 15 : 0,
         }}
       >
         <View

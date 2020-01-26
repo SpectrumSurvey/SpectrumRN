@@ -10,7 +10,7 @@ import React from 'react';
 import Header from '../../components/header';
 import { HeadLeftTitle } from '../../asset/styles/AppStyle';
 import { ListItem, Icon } from 'react-native-elements';
-import { px2dp } from '../../utils/utils';
+import { handleCatch, px2dp } from '../../utils/utils';
 import { useFocusEffect } from '@react-navigation/native';
 
 function Index (props) {
@@ -21,7 +21,7 @@ function Index (props) {
     React.useCallback(() => {
       props.dispatch({
         type: 'auth/userDetails'
-      })
+      }).catch(handleCatch)
     }, []),
   );
 
@@ -103,7 +103,7 @@ function Index (props) {
 
               <View style={styles.item}>
                 <Text style={styles.txt1}>{userDetails?.projectNum ?? ''}</Text>
-                <Text style={styles.txt2}>参与项目</Text>
+                <Text style={styles.txt2}>参与任务</Text>
               </View>
 
             </View>

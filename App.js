@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Image, View, Text, Platform, Alert } from 'react-native';
+import { ActivityIndicator, Image, View, Text, Platform, Alert, AppState } from 'react-native';
 import { Provider } from 'react-redux';
 import models from './_app/models';
 import { navigationRef } from './_app/utils/NavigationService';
@@ -32,6 +32,7 @@ import { connect } from 'react-redux';
 import JPush from 'jpush-react-native';
 
 import * as Sentry from '@sentry/react-native';
+import { handleCatch } from './_app/utils/utils';
 
 Sentry.init({
   dsn: 'https://8452e9e120ca4143b4149e48b72f1638@sentry.io/1886648',
@@ -126,15 +127,42 @@ const App: () => React$Node = () => {
 
   function initJPush () {
     // 初始化
-    // JPush.init();
+    JPush.init();
+
+    JPush.setLoggerEnable(__DEV__);
+
+    JPush.initCrashHandler();
+
+    JPush.getRegistrationID(id => {
+      console.log(id);
+    });
+
+    JPush.addTagAliasListener((res) => {
+      if (__DEV__) {
+        console.log('addTagAliasListener  ', res);
+      }
+    });
+
+    JPush.addNotificationListener(result => {
+      const { notificationEventType } = result;
+      if (notificationEventType === 'notificationArrived'
+        && AppState.currentState === 'active') {
+        // 前台并且获取到通知消息
+        DvaInstance.instance._store
+          .dispatch({
+            type: 'msg/loadData',
+          })
+          .catch(handleCatch);
+      }
+    });
   }
 
   useEffect(() => {
+    initJPush();
+
     store.dispatch({
       type: 'auth/checkLogin',
     });
-
-    initJPush();
   }, []);
 
   return (
@@ -154,13 +182,14 @@ function renderBottomTab () {
         scrollEnabled: true,
         activeTintColor: '#558FFB',
         inactiveTintColor: '#BBBBBB',
-        safeAreaInset: {
-          bottom: 'never'
-        },
+        safeAreaInset: {},
         style: {
-          backgroundColor: '#FFFFFF',
+          backgroundColor: 'white',
           borderTopColor: '#dddddd',
           borderTopWidth: 1,
+          marginBottom: 0,
+          height: 50,
+          paddingBottom: 0
         },
       }}>
       <Tabs.Screen

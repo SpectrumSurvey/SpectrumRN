@@ -13,23 +13,6 @@ import moment from 'moment';
 import { useFocusEffect } from '@react-navigation/native';
 import { elevationShadowStyle, handleCatch } from '../../utils/utils';
 
-const list = [
-  {
-    id: 1,
-    type: 1,
-    title: 'xiawajdjsadasd',
-    desc: '儿科联发科收款方接收的计费电视剧发送的肯德基福克斯积分克鲁赛德姐夫绝对是分开了',
-    time: 1579664864350,
-  },
-  {
-    id: 2,
-    type: 2,
-    title: '234843598734823',
-    desc: 'saklsfjsad;2132123123',
-    time: 1579664864350,
-  },
-];
-
 function Msg (props) {
 
   const { list, loading } = props.msg;
@@ -97,7 +80,7 @@ function Msg (props) {
         }}
       >
         <Image
-          source={item.messageType === 1 ?
+          source={item.messageType === 2 ?
             require('../../asset/images/icon_msg_report.png') :
             require('../../asset/images/icon_msg_img1.png')}
           style={{
