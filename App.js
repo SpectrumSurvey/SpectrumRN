@@ -7,11 +7,12 @@
  */
 
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Image, View, Text, Platform, Alert, AppState } from 'react-native';
+import { ActivityIndicator, Image, View, Text, Platform, AppState, Linking } from 'react-native';
 import { Provider } from 'react-redux';
 import models from './_app/models';
 import { navigationRef } from './_app/utils/NavigationService';
-import { Provider as AntdProvider } from '@ant-design/react-native';
+import { Modal, Provider as AntdProvider } from '@ant-design/react-native';
+import { HTTP } from './_app/http';
 
 import { DvaInstance } from './_app/utils/dva';
 import { NavigationNativeContainer } from '@react-navigation/native';
@@ -30,9 +31,11 @@ import MyReport from './_app/pages/mine/report';
 import MyTask from './_app/pages/mine/task';
 import { connect } from 'react-redux';
 import JPush from 'jpush-react-native';
+import RNVersion from 'react-native-version-number';
 
 import * as Sentry from '@sentry/react-native';
 import { handleCatch } from './_app/utils/utils';
+import { getBottomSpace } from './_app/utils/iphonex.util';
 
 Sentry.init({
   dsn: 'https://8452e9e120ca4143b4149e48b72f1638@sentry.io/1886648',
@@ -163,6 +166,34 @@ const App: () => React$Node = () => {
     store.dispatch({
       type: 'auth/checkLogin',
     });
+
+    // checkUpdate
+    (
+      async () => {
+        try {
+          const [error, data] = await HTTP.get('app-version/latest', {
+            params: { appSystem: Platform.OS === 'android' ? 2 : 1 },
+          });
+          if (error) {
+            return;
+          }
+          console.log(data,RNVersion.appVersion);
+          const { appVersion, versionDescribe, versionUrl } = data || {};
+          if (appVersion && appVersion > RNVersion.buildVersion) {
+            // 有新版本
+            Modal.alert('更新提示', versionDescribe, [
+              { text: '取消', onPress: () => {}, style: 'cancel' },
+              {
+                text: '更新', onPress: () => {
+                  // 打开下载页面
+                  Linking.openURL(versionUrl);
+                },
+              }]);
+          }
+        } catch (e) {
+        }
+      }
+    )();
   }, []);
 
   return (
@@ -188,8 +219,8 @@ function renderBottomTab () {
           borderTopColor: '#dddddd',
           borderTopWidth: 1,
           marginBottom: 0,
-          height: 50,
-          paddingBottom: 0
+          height: 50 + getBottomSpace(),
+          paddingBottom: getBottomSpace(),
         },
       }}>
       <Tabs.Screen

@@ -52,7 +52,7 @@ function Index (props) {
           }}>
           <ImageBackground
             style={{
-              height: px2dp(190),
+              height: px2dp(170),
               padding: px2dp(30),
             }}
             source={require('../../asset/images/mine_top_bg.png')}>

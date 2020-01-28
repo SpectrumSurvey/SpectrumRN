@@ -126,28 +126,13 @@ function Index (props) {
                   }}
                 >
                   {
-                    curItem.subjectImage ? (
-                      <View
-                        style={{
-                          paddingHorizontal: 22.5,
-                        }}
-                      >
-                        <Image
-                          style={{
-                            width: '100%',
-                            height: 145,
-                            backgroundColor: 'lightgray',
-                            alignSelf: 'center',
-                            marginTop: 20,
-                            borderRadius: 8,
-                          }}
-                          source={{ uri: curItem.subjectImage }}
-                        />
-                      </View>
-                    ) : null
+                    curItem?.subjectType !== SUBJECT_ENUM.GUIDE && renderImage()
                   }
                   {
                     renderContent()
+                  }
+                  {
+                    curItem?.subjectType === SUBJECT_ENUM.GUIDE && renderImage()
                   }
                 </View>
                 {
@@ -160,6 +145,29 @@ function Index (props) {
       </SafeAreaView>
     </View>
   );
+
+  function renderImage () {
+    return curItem.subjectImage && (
+      curItem?.subjectType !== SUBJECT_ENUM.GUIDE
+    ) ? (
+      <View
+        style={{
+          paddingHorizontal: 22.5,
+        }}>
+        <Image
+          style={{
+            width: '100%',
+            height: 145,
+            backgroundColor: 'lightgray',
+            alignSelf: 'center',
+            marginTop: 20,
+            borderRadius: 8,
+          }}
+          source={{ uri: curItem.subjectImage }}
+        />
+      </View>
+    ) : null;
+  }
 
   function renderSuccessfully () {
 
@@ -260,6 +268,7 @@ function Index (props) {
             style={{
               paddingHorizontal: 22.5,
               paddingTop: 30,
+              paddingBottom: 30
             }}
           >
             <Text>

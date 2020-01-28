@@ -28,7 +28,9 @@ function Index(props) {
           flex: 1,
         }}>
         <StatusBar backgroundColor={'#6079FB'} />
-        <Text>answer</Text>
+        <Text>
+          我的报告
+        </Text>
       </SafeAreaView>
     </View>
   );
