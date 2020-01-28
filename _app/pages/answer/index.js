@@ -141,7 +141,7 @@ function Index (props) {
                             marginTop: 20,
                             borderRadius: 8,
                           }}
-                          source={curItem.subjectImage}
+                          source={{ uri: curItem.subjectImage }}
                         />
                       </View>
                     ) : null
@@ -373,7 +373,7 @@ function Index (props) {
                 if (
                   SUBJECT_ENUM.COMPLETION === curItem.subjectType
                 ) {
-                  const isEmpty = _.isEmpty(curItem.options[0].optionKey)
+                  const isEmpty = _.isEmpty(curItem.options[0].optionKey);
                   if (isEmpty) {
                     showToast('请填写题目');
                     return;

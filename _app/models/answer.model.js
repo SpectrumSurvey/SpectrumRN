@@ -259,7 +259,7 @@ const model = {
           userQuestionnaireId,
           questionnaireId,
           subjectId: curItem.subjectId,
-          answerOptionJson: options,
+          answerOptionJson: _.isEmpty(options) ? null : JSON.stringify(options),
         };
         const [error, data] = yield call(ApiService.answer, params);
         if (error) {
@@ -288,31 +288,31 @@ function processAnswerOptions (subjectType, options) {
       return pre;
     }, []);
 
-    return JSON.stringify(result);
+    return result;
   }
 
   if (
     subjectType === SUBJECT_ENUM.COMPLETION
   ) {
     // 填空题
-    return JSON.stringify([
+    return [
       {
         optionId: options[0].optionId,
         // 填空题结果
         optionKey: options[0].optionKey,
         fillingValue: null,
       },
-    ]);
+    ];
   }
 
   if (subjectType === SUBJECT_ENUM.SCALE) {
     // 量表题
     const cur = options.filter(v => v._checked)[0];
-    return JSON.stringify([{
+    return [{
       optionId: cur.optionId,
       optionKey: cur.optionKey,
       fillingValue: cur.fillingValue,
-    }]);
+    }];
   }
 
 }
