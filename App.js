@@ -36,6 +36,8 @@ import RNVersion from 'react-native-version-number';
 import * as Sentry from '@sentry/react-native';
 import { handleCatch } from './_app/utils/utils';
 import { getBottomSpace } from './_app/utils/iphonex.util';
+import { getLocation, initAMap } from './_app/utils/location.util';
+import { getAccelerometer, getSteps } from './_app/utils/sensors.util';
 
 Sentry.init({
   dsn: 'https://8452e9e120ca4143b4149e48b72f1638@sentry.io/1886648',
@@ -167,6 +169,16 @@ const App: () => React$Node = () => {
       type: 'auth/checkLogin',
     });
 
+    initAMap()
+      .then(getLocation)
+      .catch(error => {
+        console.log(error);
+      });
+
+    getAccelerometer();
+
+    getSteps();
+
     // checkUpdate
     (
       async () => {
@@ -177,7 +189,6 @@ const App: () => React$Node = () => {
           if (error) {
             return;
           }
-          console.log(data,RNVersion.appVersion);
           const { appVersion, versionDescribe, versionUrl } = data || {};
           if (appVersion && appVersion > RNVersion.buildVersion) {
             // 有新版本
