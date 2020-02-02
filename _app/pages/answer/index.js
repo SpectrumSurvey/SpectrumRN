@@ -60,26 +60,26 @@ function Index (props) {
   return (
     <View style={{ flex: 1 }}>
       <Header
-        color={'#6769FB'}
+        color={'#4E97FD'}
         back={true}
         backTitle={questionnaireName}
         statusBarProps={{
           barStyle: 'light-content',
           translucent: true,
-          backgroundColor: '#6769FB',
+          backgroundColor: '#4E97FD',
         }}
       />
       <SafeAreaView
         style={{
           flex: 1,
-          paddingHorizontal: 10,
-          paddingVertical: 15,
         }}>
 
         <View
           style={{
             borderRadius: 8,
             paddingTop: 15,
+            marginHorizontal: 10,
+            marginVertical: 15,
             flex: 1,
             backgroundColor: 'white',
             ...elevationShadowStyle(5),
@@ -92,6 +92,7 @@ function Index (props) {
                   style={{
                     flexDirection: 'row',
                     flexShrink: 0,
+                    width: '100%',
                     paddingHorizontal: 15,
                     paddingBottom: 15,
                     borderBottomWidth: 0.5,
@@ -103,6 +104,7 @@ function Index (props) {
                       color: '#dde1e9',
                       borderRadius: 1,
                       borderWidth: 1,
+                      lineHeight: 20,
                       borderColor: '#dde1e9',
                       paddingHorizontal: 5,
                       paddingVertical: 3,
@@ -115,7 +117,10 @@ function Index (props) {
                       fontSize: 17,
                       color: '#000000',
                       marginLeft: 10,
+                      flex: 1,
                     }}
+                    numberOfLines={2}
+                    ellipsizeMode={'tail'}
                   >
                     {curIndex + 1}、{curItem?.subjectTitle}
                   </Text>
@@ -374,7 +379,7 @@ function Index (props) {
                   ].includes(curItem.subjectType)) {
                   const noChecked = _.every(curItem.options, (v) => !v._checked);
                   if (noChecked) {
-                    showToast('请选择选项');
+                    showToast('请完成作答~');
                     return;
                   }
                 }
@@ -384,7 +389,7 @@ function Index (props) {
                 ) {
                   const isEmpty = _.isEmpty(curItem.options[0].optionKey);
                   if (isEmpty) {
-                    showToast('请填写题目');
+                    showToast('请完成作答~');
                     return;
                   }
                 }

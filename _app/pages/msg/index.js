@@ -52,13 +52,25 @@ function Msg (props) {
       >
         <FlatList
           style={{
-            paddingVertical: 14,
+            marginBottom: 14,
           }}
           data={list}
           refreshing={loading}
           renderItem={renderItem}
           onRefresh={fetchData}
           keyExtractor={(item) => `${item.userMessageId}`}
+          ListFooterComponent={() => {
+            return (
+              <Text
+                style={{
+                  textAlign: 'center',
+                  color: '#1e1e1e'
+                }}
+              >
+                没有更多了~
+              </Text>
+            )
+          }}
         />
       </SafeAreaView>
     </View>

@@ -30,7 +30,7 @@ function WrappedHeader(props) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     StatusBar.setBarStyle(statusBarProps.barStyle || 'light-content');
     // android
-    Platform.OS === 'android' && StatusBar.setBackgroundColor(statusBarProps.backgroundColor || '#6769FB');
+    Platform.OS === 'android' && StatusBar.setBackgroundColor(statusBarProps.backgroundColor || '#4E97FD');
   });
 
   const centerComponent = back
@@ -109,7 +109,7 @@ WrappedHeader.propTypes = {
 };
 
 WrappedHeader.defaultProps = {
-  color: '#6769FB',
+  color: '#4E97FD',
   back: false,
   title: '',
   titleColor: '#1e1e1e',

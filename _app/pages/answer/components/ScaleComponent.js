@@ -17,7 +17,13 @@ function ScaleComponent (props) {
         flex: 1
       }}
     >
-      <Text>
+      <Text
+        style={{
+          marginBottom: 16,
+          fontSize: 18,
+          color: '#70C391'
+        }}
+      >
         您的选择：{props.options.filter(v => v._checked)[0]?.optionValue}
       </Text>
 
@@ -73,7 +79,8 @@ function ScaleComponent (props) {
                     <View
                       style={{
                         height: 31,
-                        width: 67,
+                        minWidth: 67,
+                        paddingHorizontal: 12,
                         marginLeft: 15,
                         backgroundColor: item._checked ? '#70C391' : '#E5F9EF'
                       }}
@@ -82,8 +89,11 @@ function ScaleComponent (props) {
                         style={{
                           lineHeight: 31,
                           textAlign: 'center',
+                          fontSize: 17,
                           color: item._checked ? '#fff' : '#70C391'
                         }}
+                        numberOfLines={1}
+                        ellipsizeMode={'tail'}
                       >
                         {item.optionValue}
                       </Text>

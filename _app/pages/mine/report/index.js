@@ -14,13 +14,13 @@ function Index(props) {
   return (
     <View style={{flex: 1}}>
       <Header
-        color={'#6769FB'}
+        color={'#4E97FD'}
         back={true}
         backTitle={'我的报告'}
         statusBarProps={{
           barStyle: 'light-content',
           translucent: true,
-          backgroundColor: '#6769FB',
+          backgroundColor: '#4E97FD',
         }}
       />
       <SafeAreaView

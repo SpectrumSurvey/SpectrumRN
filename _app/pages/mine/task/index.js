@@ -82,13 +82,13 @@ function Task (props) {
   return (
     <View style={{ flex: 1 }}>
       <Header
-        color={'#6769FB'}
+        color={'#4E97FD'}
         back={true}
         backTitle={'我的任务'}
         statusBarProps={{
           barStyle: 'light-content',
           translucent: true,
-          backgroundColor: '#6769FB',
+          backgroundColor: '#4E97FD',
         }}
       />
       <SafeAreaView
@@ -96,15 +96,23 @@ function Task (props) {
           flex: 1,
         }}>
         <FlatList
-          style={{
-            paddingTop: 15,
-            paddingBottom: 15
-          }}
           data={task}
           refreshing={loading}
           onRefresh={fetchData}
           renderItem={renderItem}
           keyExtractor={(item => `${item.taskId}`)}
+          ListFooterComponent={() => {
+            return (
+              <Text
+                style={{
+                  textAlign: 'center',
+                  color: '#1e1e1e'
+                }}
+              >
+                没有更多了~
+              </Text>
+            )
+          }}
         />
       </SafeAreaView>
     </View>

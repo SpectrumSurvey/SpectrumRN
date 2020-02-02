@@ -10,7 +10,7 @@ import React from 'react';
 import Header from '../../components/header';
 import { HeadLeftTitle } from '../../asset/styles/AppStyle';
 import { ListItem, Icon } from 'react-native-elements';
-import { handleCatch, px2dp } from '../../utils/utils';
+import { elevationShadowStyle, handleCatch, px2dp } from '../../utils/utils';
 import { useFocusEffect } from '@react-navigation/native';
 
 function Index (props) {
@@ -20,8 +20,8 @@ function Index (props) {
   useFocusEffect(
     React.useCallback(() => {
       props.dispatch({
-        type: 'auth/userDetails'
-      }).catch(handleCatch)
+        type: 'auth/userDetails',
+      }).catch(handleCatch);
     }, []),
   );
 
@@ -50,12 +50,16 @@ function Index (props) {
             paddingTop: px2dp(12),
             paddingBottom: px2dp(12),
           }}>
-          <ImageBackground
+          <View
             style={{
-              height: px2dp(170),
-              padding: px2dp(30),
+              height: 170,
+              padding: 30,
+              backgroundColor: '#4E97FD',
+              marginHorizontal: 15,
+              borderRadius: 4,
+              ...elevationShadowStyle(5),
             }}
-            source={require('../../asset/images/mine_top_bg.png')}>
+          >
             <View
               style={{
                 flexDirection: 'row',
@@ -84,7 +88,7 @@ function Index (props) {
             >
 
               <View style={styles.item}>
-                <Text style={styles.txt1}>{userDetails?.questionnaireNum ?? ''}</Text>
+                <Text style={styles.txt1}>{userDetails?.questionnaireNum ?? 0}</Text>
                 <Text style={styles.txt2}>问卷数量</Text>
               </View>
 
@@ -93,7 +97,7 @@ function Index (props) {
               />
 
               <View style={styles.item}>
-                <Text style={styles.txt1}>{userDetails?.subjectNum ?? ''}</Text>
+                <Text style={styles.txt1}>{userDetails?.subjectNum ?? 0}</Text>
                 <Text style={styles.txt2}>答题数量</Text>
               </View>
 
@@ -102,13 +106,13 @@ function Index (props) {
               />
 
               <View style={styles.item}>
-                <Text style={styles.txt1}>{userDetails?.projectNum ?? ''}</Text>
+                <Text style={styles.txt1}>{userDetails?.projectNum ?? 0}</Text>
                 <Text style={styles.txt2}>参与任务</Text>
               </View>
 
             </View>
 
-          </ImageBackground>
+          </View>
         </View>
 
         <ListItem
@@ -177,8 +181,8 @@ function Index (props) {
   function logout () {
     // 移除登录信息
     props.dispatch({
-      type: 'auth/logOut'
-    })
+      type: 'auth/logOut',
+    });
   }
 }
 
@@ -213,7 +217,7 @@ const styles = {
 
 function mapStateToProps (state) {
   return {
-    userDetails: state.auth?.userDetails
+    userDetails: state.auth?.userDetails,
   };
 }
 
