@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { SafeAreaView, Text, View, ImageBackground, Image } from 'react-native';
+import { SafeAreaView, Text, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import React from 'react';
 import Header from '../../components/header';
@@ -47,13 +47,13 @@ function Index (props) {
       >
         <View
           style={{
-            paddingTop: px2dp(12),
-            paddingBottom: px2dp(12),
+            paddingTop: 12,
+            paddingBottom: 12,
           }}>
           <View
             style={{
               height: 170,
-              padding: 30,
+              padding: 16,
               backgroundColor: '#4E97FD',
               marginHorizontal: 15,
               borderRadius: 4,
@@ -83,7 +83,7 @@ function Index (props) {
                 flexDirection: 'row',
                 justifyContent: 'space-around',
                 alignItems: 'center',
-                marginTop: 25,
+                marginTop: 20,
               }}
             >
 

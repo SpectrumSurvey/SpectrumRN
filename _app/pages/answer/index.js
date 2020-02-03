@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { Image, SafeAreaView, Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import Header from '../../components/header';
@@ -20,6 +20,7 @@ import moment from 'moment';
 import ScaleComponent from './components/ScaleComponent';
 import DropDownList from './components/DropDownList';
 import { ApiService } from '../../http/APIService';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 function Index (props) {
 
@@ -68,8 +69,29 @@ function Index (props) {
           translucent: true,
           backgroundColor: '#4E97FD',
         }}
+        backFunc={() => {
+          if (isSuccessfully) {
+            goBack();
+          } else {
+            Modal.alert('提示', '未完成答题，确认退出么？', [
+              { text: '取消', onPress: () => {}, style: 'cancel' },
+              {
+                text: '确认', onPress: () => {
+                  // 确认
+                  goBack();
+                },
+              }]);
+          }
+        }}
+        backIcon={(
+          <Icon
+            name={'close'}
+            size={16}
+            color={'white'}
+          />
+        )}
       />
-      <SafeAreaView
+      <View
         style={{
           flex: 1,
         }}>
@@ -147,7 +169,7 @@ function Index (props) {
             )
           }
         </View>
-      </SafeAreaView>
+      </View>
     </View>
   );
 
@@ -273,7 +295,7 @@ function Index (props) {
             style={{
               paddingHorizontal: 22.5,
               paddingTop: 30,
-              paddingBottom: 30
+              paddingBottom: 30,
             }}
           >
             <Text>

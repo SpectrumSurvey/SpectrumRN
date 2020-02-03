@@ -5,14 +5,14 @@
  * @Email: middle2021@gmail.com
  */
 import React from 'react';
-import {Header} from 'react-native-elements';
-import {Image, Platform, StatusBar, Text, View} from 'react-native';
+import { Header } from 'react-native-elements';
+import { Image, Platform, StatusBar, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
-import {useFocusEffect} from '@react-navigation/native';
+import { useFocusEffect } from '@react-navigation/native';
 import TouchComponent from '../touch';
-import {goBack} from '../../utils/NavigationService';
+import { goBack } from '../../utils/NavigationService';
 
-function WrappedHeader(props) {
+function WrappedHeader (props) {
   const {
     color,
     title,
@@ -22,6 +22,8 @@ function WrappedHeader(props) {
     back,
     backTitle,
     titleColor,
+    backFunc,
+    backIcon,
     ...reset
   } = props;
 
@@ -36,13 +38,13 @@ function WrappedHeader(props) {
   const centerComponent = back
     ? {}
     : {
-        text: title,
-        style: {
-          color: titleColor,
-          fontSize: 18,
-          ...centerStyle,
-        },
-      };
+      text: title,
+      style: {
+        color: titleColor,
+        fontSize: 18,
+        ...centerStyle,
+      },
+    };
 
   return (
     <Header
@@ -60,28 +62,34 @@ function WrappedHeader(props) {
         marginLeft: 10,
       }}
       ViewComponent={View}
-      leftComponent={back ? backComponent(backTitle) : null}
+      leftComponent={back ? backComponent(backTitle, backIcon, backFunc) : null}
       {...reset}
     />
   );
 }
 
-function backComponent(backTitle) {
+function backComponent (backTitle, backIcon, backFunc) {
   return (
-    <TouchComponent onPress={() => goBack()}>
+    <TouchComponent onPress={() => {
+      backFunc ? backFunc() : goBack();
+    }}>
       <View
         style={{
           flexDirection: 'row',
           alignItems: 'center',
           width: 500,
         }}>
-        <Image
-          style={{
-            width: 9.5,
-            height: 16,
-          }}
-          source={require('../../asset/images/icon_back.png')}
-        />
+        {
+          backIcon ? backIcon : (
+            <Image
+              style={{
+                width: 9.5,
+                height: 16,
+              }}
+              source={require('../../asset/images/icon_back.png')}
+            />
+          )
+        }
         <Text
           style={{
             fontSize: 17,
@@ -106,6 +114,8 @@ WrappedHeader.propTypes = {
   centerStyle: PropTypes.object,
   leftContainerStyle: PropTypes.object,
   backTitle: PropTypes.string,
+  backFunc: PropTypes.func,
+  backIcon: PropTypes.element,
 };
 
 WrappedHeader.defaultProps = {
