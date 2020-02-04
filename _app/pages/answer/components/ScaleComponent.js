@@ -21,7 +21,7 @@ function ScaleComponent (props) {
         style={{
           marginBottom: 16,
           fontSize: 18,
-          color: '#68d686'
+          color: '#54B982'
         }}
       >
         您的选择：{props.options.filter(v => v._checked)[0]?.optionValue}
@@ -48,7 +48,7 @@ function ScaleComponent (props) {
                         width: 15,
                         height: 15.5,
                         borderLeftWidth: 1,
-                        borderLeftColor: index ? '#68d686' : '#fff',
+                        borderLeftColor: index ? '#54B982' : '#fff',
                       }}
                     />
 
@@ -57,9 +57,9 @@ function ScaleComponent (props) {
                         width: 15,
                         height: 15.5,
                         borderTopWidth: 1,
-                        borderTopColor: '#68d686',
+                        borderTopColor: '#54B982',
                         borderLeftWidth: 1,
-                        borderLeftColor: index === props.options.length - 1 ? '#fff' :'#68d686',
+                        borderLeftColor: index === props.options.length - 1 ? '#fff' :'#54B982',
                         alignSelf: 'flex-end',
                       }}
                     />
@@ -82,7 +82,7 @@ function ScaleComponent (props) {
                         minWidth: 67,
                         paddingHorizontal: 12,
                         marginLeft: 15,
-                        backgroundColor: item._checked ? '#68d686' : '#E5F9EF'
+                        backgroundColor: item._checked ? '#54B982' : '#E5F9EF'
                       }}
                     >
                       <Text
@@ -90,7 +90,7 @@ function ScaleComponent (props) {
                           lineHeight: 31,
                           textAlign: 'center',
                           fontSize: 17,
-                          color: item._checked ? '#fff' : '#68d686'
+                          color: item._checked ? '#fff' : '#54B982'
                         }}
                         numberOfLines={1}
                         ellipsizeMode={'tail'}
@@ -107,7 +107,7 @@ function ScaleComponent (props) {
                         height: 15,
                         width: 1,
                         borderLeftWidth: 1,
-                        borderLeftColor: '#68d686'
+                        borderLeftColor: '#54B982'
                       }}
                     />
                   ) : null

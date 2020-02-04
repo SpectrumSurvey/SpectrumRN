@@ -12,7 +12,7 @@ import TouchComponent from '../../../components/touch';
 import { PickerView } from '@ant-design/react-native';
 import { Button, CheckBox } from 'react-native-elements';
 import { connect } from 'react-redux';
-import _ from 'lodash'
+import _ from 'lodash';
 import { useImmer } from 'use-immer';
 import { showToast } from '../../../utils/utils';
 
@@ -24,13 +24,13 @@ function DropDownList (props) {
 
   useEffect(() => {
     if (_.isEmpty(props.options)) {
-      setSelect(null)
+      setSelect(null);
     } else {
       const filters = props.options.filter(v => v._checked);
       if (!_.isEmpty(filters)) {
-        setSelect(filters[0].optionId)
+        setSelect(filters[0].optionId);
       } else {
-        setSelect(props.options[0].optionId)
+        setSelect(null);
       }
     }
   }, [props.options]);
@@ -77,11 +77,8 @@ function DropDownList (props) {
             name={'down'}
             size={20}
           />
-
         </View>
       </TouchComponent>
-
-
       {
         props.type === 'single' ? (
           <SingleModal
@@ -113,9 +110,20 @@ function SingleModal (props) {
 
   useEffect(() => {
     if (!show) {
-      setSelect(null)
+      setSelect(null);
     }
   }, [show]);
+
+  useEffect(() => {
+    if (!_.isEmpty(options)) {
+      props.dispatch({
+        type: 'answer/updateOptionByDropDownSingle',
+        payload: {
+          _index: 0,
+        },
+      });
+    }
+  }, []);
 
   return (
     <Modal
@@ -154,13 +162,13 @@ function SingleModal (props) {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              paddingHorizontal: 16
+              paddingHorizontal: 16,
             }}
           >
             <Button
               type={'clear'}
               titleStyle={{
-                color: '#1e1e1e'
+                color: '#1e1e1e',
               }}
               onPress={() => setShow(false)}
               title={'取消'}
@@ -175,8 +183,8 @@ function SingleModal (props) {
                   type: 'answer/updateOptionByDropDownSingle',
                   payload: {
                     _index: props.options.findIndex(v => v.optionId === select),
-                  }
-                })
+                  },
+                });
               }}
             />
           </View>
@@ -189,10 +197,10 @@ function SingleModal (props) {
             itemStyle={{
               color: '#1e1e1e',
               fontSize: 17,
-              lineHeight: 30
+              lineHeight: 30,
             }}
             onChange={value => {
-              setSelect(value[0])
+              setSelect(value[0]);
             }}
           />
 
@@ -202,9 +210,8 @@ function SingleModal (props) {
       </View>
 
     </Modal>
-  )
+  );
 }
-
 
 function MultipleModal (props) {
 
@@ -213,30 +220,30 @@ function MultipleModal (props) {
   const [ids, setIds] = useImmer([]);
 
   useEffect(() => {
-    parseOptions()
+    parseOptions();
   }, [options]);
 
   useEffect(() => {
     if (!show) {
-      setIds(draft => draft = [])
+      setIds(draft => draft = []);
     } else {
-      parseOptions()
+      parseOptions();
     }
   }, [show]);
 
   function parseOptions () {
     if (_.isEmpty(options)) {
-      setIds(draft => draft = [])
+      setIds(draft => draft = []);
     } else {
       const filters = options.filter(v => v._checked);
       if (!_.isEmpty(filters)) {
         setIds(draft => {
           filters.forEach(v => {
-            draft.push(v.optionId)
-          })
-        })
+            draft.push(v.optionId);
+          });
+        });
       } else {
-        setIds(draft => draft = [])
+        setIds(draft => draft = []);
       }
     }
   }
@@ -278,13 +285,13 @@ function MultipleModal (props) {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              paddingHorizontal: 16
+              paddingHorizontal: 16,
             }}
           >
             <Button
               type={'clear'}
               titleStyle={{
-                color: '#1e1e1e'
+                color: '#1e1e1e',
               }}
               onPress={() => setShow(false)}
               title={'取消'}
@@ -296,7 +303,7 @@ function MultipleModal (props) {
 
                 if (_.isEmpty(ids)) {
                   showToast('请选择选项');
-                  return
+                  return;
                 }
 
                 setShow(false);
@@ -304,9 +311,9 @@ function MultipleModal (props) {
                 props.dispatch({
                   type: 'answer/updateOptionByDropDownMultiple',
                   payload: {
-                    ids
-                  }
-                })
+                    ids,
+                  },
+                });
               }}
             />
           </View>
@@ -322,13 +329,13 @@ function MultipleModal (props) {
                       style={{
                         flexDirection: 'row',
                         alignItems: 'center',
-                        paddingLeft: 22
+                        paddingLeft: 22,
                       }}
                     >
                       <Text
                         style={{
                           flex: 1,
-                          fontSize: 17
+                          fontSize: 17,
                         }}
                         numberOfLines={1}
                         ellipsizeMode={'tail'}
@@ -341,7 +348,7 @@ function MultipleModal (props) {
                       />
                     </View>
                   </TouchComponent>
-                )
+                );
               })
             }
           </ScrollView>
@@ -359,13 +366,13 @@ function MultipleModal (props) {
       // 包含
       setIds(draft => {
         const index = draft.findIndex(v => v === item.optionId);
-        draft.splice(index, 1)
-      })
+        draft.splice(index, 1);
+      });
     } else {
       // 不包含
       setIds(draft => {
-        draft.push(item.optionId)
-      })
+        draft.push(item.optionId);
+      });
     }
   }
 }

@@ -7,7 +7,7 @@
 
 const HeadLeftTitle = {
   fontSize: 18,
-  color: '#000000',
+  color: '#fff',
 };
 
-export {HeadLeftTitle};
+export { HeadLeftTitle };

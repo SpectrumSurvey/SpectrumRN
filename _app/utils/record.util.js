@@ -116,6 +116,7 @@ function _recordLocation () {
       const { latitude, longitude } = res;
       HTTP.post('/app-user-terminal-record/reported', {
         latitude, longitude,
+        $skipLoading: true,
       });
     })
     .catch(error => {
@@ -130,6 +131,7 @@ function _recordAccelerometer () {
       // 提交到后台
       HTTP.post('/app-user-terminal-record/reported', {
         x, y, z,
+        $skipLoading: true,
       });
     })
     .catch(e => {

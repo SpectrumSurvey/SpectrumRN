@@ -32,12 +32,14 @@ function Index (props) {
       }}
     >
       <Header
-        color={'white'}
-        statusBarProps={{
-          barStyle: 'dark-content',
-          backgroundColor: 'white',
-        }}
         leftComponent={<Text style={HeadLeftTitle}>我的</Text>}
+        color={'#4E97FD'}
+        back={true}
+        statusBarProps={{
+          barStyle: 'light-content',
+          translucent: true,
+          backgroundColor: '#4E97FD',
+        }}
       />
       <SafeAreaView
         style={{

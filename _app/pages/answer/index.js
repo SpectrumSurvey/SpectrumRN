@@ -126,10 +126,13 @@ function Index (props) {
                       color: '#dde1e9',
                       borderRadius: 1,
                       borderWidth: 1,
-                      lineHeight: 20,
+                      height: 26,
+                      textAlign: 'center',
+                      lineHeight: 24,
+                      fontSize: 14,
                       borderColor: '#dde1e9',
                       paddingHorizontal: 5,
-                      paddingVertical: 3,
+                      flexShrink: 0
                     }}
                   >
                     {curItem?.subjectTypeName}
@@ -174,9 +177,7 @@ function Index (props) {
   );
 
   function renderImage () {
-    return curItem.subjectImage && (
-      curItem?.subjectType !== SUBJECT_ENUM.GUIDE
-    ) ? (
+    return curItem.subjectImage ? (
       <View
         style={{
           paddingHorizontal: 22.5,
@@ -185,11 +186,11 @@ function Index (props) {
           style={{
             width: '100%',
             height: 145,
-            backgroundColor: 'lightgray',
             alignSelf: 'center',
             marginTop: 20,
             borderRadius: 8,
           }}
+          resizeMode={'contain'}
           source={{ uri: curItem.subjectImage }}
         />
       </View>
@@ -351,6 +352,9 @@ function Index (props) {
 
             <Button
               title="上一题"
+              titleStyle={{
+                color: '#4084FF'
+              }}
               type="clear"
               onPress={() => {
                 if (!curIndex) {
@@ -384,14 +388,34 @@ function Index (props) {
                 flexDirection: 'row',
               }}
             >
-              <Text>{curIndex + 1}</Text>
-              <Text>/{subjects?.length}</Text>
+              <Text
+                style={{
+                  color: '#4084FF',
+                  fontSize: 18
+                }}
+              >
+                {curIndex + 1}
+              </Text>
+              <Text
+                style={{
+                  color: 'lightgray',
+                  fontSize: 14,
+                  paddingTop: 4
+                }}
+              >
+                /{subjects?.length}
+              </Text>
             </View>
 
             <Button
               title={(isLast) ? '完成' : '下一题'}
               buttonStyle={{
-                height: 32
+                height: 32,
+                paddingHorizontal: 10,
+                backgroundColor: '#4084FF'
+              }}
+              titleStyle={{
+                fontSize: 15
               }}
               onPress={() => {
 

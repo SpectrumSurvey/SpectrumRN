@@ -71,7 +71,7 @@ function ListOptions (props) {
               borderRadius: 8,
               paddingHorizontal: 15,
               justifyContent: 'center',
-              backgroundColor: item._checked ? '#68d686' : '#fff'
+              backgroundColor: item._checked ? '#54B982' : '#fff'
             }}
           >
             <Text
