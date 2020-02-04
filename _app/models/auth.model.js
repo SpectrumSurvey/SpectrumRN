@@ -23,6 +23,8 @@ const initState = {
   userDetails: {},
   // 是否已经初始化
   init: false,
+  // 数据字典
+  appDict: {},
 };
 
 const model = {
@@ -45,6 +47,11 @@ const model = {
         draft.userDetails = payload;
       });
     },
+    updateAppDict (state, { payload }) {
+      return produce(state, draft => {
+        draft.appDict = payload;
+      });
+    },
   },
   effects: {
     login: [
@@ -58,12 +65,19 @@ const model = {
 
         const timeStamp = new Date().getTime();
 
+        try {
+          // 更新用户信息
+          yield put.resolve({ type: 'loadDict' });
+        } catch (e) {
+
+        }
+
         yield put({
           type: 'loginSuccess',
           payload: {
             token: data.token,
             init: true,
-            timeStamp
+            timeStamp,
           },
         });
 
@@ -108,6 +122,13 @@ const model = {
 
           const timeStamp = new Date().getTime();
 
+          try {
+            // 更新用户信息
+            yield put.resolve({ type: 'loadDict' });
+          } catch (e) {
+
+          }
+
           yield put({
             type: 'loginSuccess',
             payload: {
@@ -118,7 +139,6 @@ const model = {
           });
 
           try {
-            // 更新用户信息
             const data = yield put.resolve({ type: 'userDetails' });
             if (data) {
               JPush.setAlias({
@@ -128,6 +148,7 @@ const model = {
             }
           } catch (e) {
           }
+
           return true;
         } else {
           yield put({
@@ -151,6 +172,23 @@ const model = {
 
         yield put({
           type: 'updateUserDetail',
+          payload: data,
+        });
+
+        return data;
+      },
+      { take: 'Latest' },
+    ],
+
+    loadDict: [
+      function * ({ payload }, { call, put }) {
+        const [error, data] = yield call(ApiService.appDict, payload);
+        if (error) {
+          return Promise.reject(error);
+        }
+
+        yield put({
+          type: 'updateAppDict',
           payload: data,
         });
 

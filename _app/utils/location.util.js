@@ -31,9 +31,6 @@ export async function getLocation () {
         const { latitude, longitude } = coords || {};
 
         if (latitude && longitude) {
-          HTTP.post('/app-user-terminal-record/reported', {
-            latitude, longitude,
-          });
           resolve(coords);
         } else {
           reject({});

@@ -96,6 +96,9 @@ function Task (props) {
           flex: 1,
         }}>
         <FlatList
+          style={{
+            marginTop: 14,
+          }}
           data={task}
           refreshing={loading}
           onRefresh={fetchData}

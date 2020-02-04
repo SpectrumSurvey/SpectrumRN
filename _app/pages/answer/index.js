@@ -390,6 +390,9 @@ function Index (props) {
 
             <Button
               title={(isLast) ? '完成' : '下一题'}
+              buttonStyle={{
+                height: 32
+              }}
               onPress={() => {
 
                 if (
@@ -419,7 +422,15 @@ function Index (props) {
                 if (isLast) {
                   // 最后一题
 
-                  Modal.alert('提交问卷', '确认提交当前问卷？一旦提交答案不可修改哦~', [
+                  Modal.alert('提交问卷', (
+                    <Text
+                      style={{
+                        textAlign: 'center'
+                      }}
+                    >
+                      确认提交当前问卷？一旦提交答案不可修改哦~
+                    </Text>
+                  ), [
                     { text: '取消', onPress: () => {}, style: 'cancel' },
                     {
                       text: '确认', onPress: () => {

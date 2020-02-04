@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { Text, ImageBackground, View, FlatList, Image } from 'react-native';
+import { Text, ImageBackground, View, FlatList, Image, Alert, StatusBar, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
@@ -15,6 +15,11 @@ import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { useFocusEffect } from '@react-navigation/native';
+import BackgroundTimer from 'react-native-background-timer';
+import { getLocation, initAMap } from '../../utils/location.util';
+import { getAccelerometer, getSteps } from '../../utils/sensors.util';
+import { ApiService } from '../../http/APIService';
+import { recordState } from '../../utils/record.util';
 
 const WEEKS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 
@@ -22,19 +27,19 @@ function Index (props) {
 
   const { appHomeQuestionnaire, monthEn, week, year, day, motto, quotes } = props.info;
 
-  useEffect(() => {
-  }, []);
-
   const [now, setNow] = useState(moment());
 
-  const appState = useAppState();
-
-  useEffect(() => {
-
-  }, [appState]);
+  // 记录App状态
+  recordState();
 
   useFocusEffect(
     React.useCallback(() => {
+
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      StatusBar.setBarStyle('light-content');
+      // android
+      Platform.OS === 'android' && StatusBar.setBackgroundColor('#6769FB');
+
       // 更新当前界面
       setNow(moment());
       fetchData();

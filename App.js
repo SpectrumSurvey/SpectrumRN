@@ -39,9 +39,11 @@ import { getBottomSpace } from './_app/utils/iphonex.util';
 import { getLocation, initAMap } from './_app/utils/location.util';
 import { getAccelerometer, getSteps } from './_app/utils/sensors.util';
 
-Sentry.init({
-  dsn: 'https://8452e9e120ca4143b4149e48b72f1638@sentry.io/1886648',
-});
+if (!__DEV__) {
+  Sentry.init({
+    dsn: 'https://8452e9e120ca4143b4149e48b72f1638@sentry.io/1886648',
+  });
+}
 
 if (__DEV__) {
   require('./_app/utils/network.inspect');
@@ -168,16 +170,6 @@ const App: () => React$Node = () => {
     store.dispatch({
       type: 'auth/checkLogin',
     });
-
-    initAMap()
-      .then(getLocation)
-      .catch(error => {
-        console.log(error);
-      });
-
-    getAccelerometer();
-
-    getSteps();
 
     // checkUpdate
     (

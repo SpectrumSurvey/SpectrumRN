@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { Header } from 'react-native-elements';
-import { Image, Platform, StatusBar, Text, View } from 'react-native';
+import { Alert, Image, Platform, StatusBar, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { useFocusEffect } from '@react-navigation/native';
 import TouchComponent from '../touch';

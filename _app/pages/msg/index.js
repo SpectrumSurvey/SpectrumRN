@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
+import { Alert, FlatList, Image, SafeAreaView, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import React from 'react';
 import Header from '../../components/header';
@@ -53,6 +53,7 @@ function Msg (props) {
         <FlatList
           style={{
             marginBottom: 14,
+            marginTop: 14,
           }}
           data={list}
           refreshing={loading}
