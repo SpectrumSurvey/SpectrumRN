@@ -18,10 +18,11 @@ const map = new Map();
 // 待开始
 map.set(2, {
   tag: {
-    backgroundColor: '#75CE7D',
+    backgroundColor: '#58C295',
     color: '#fff',
   },
-  txtColor: '#51ce83',
+  txtColor: '#58C295',
+  txt: '倒计时(天)',
   progress: {
     percentColor: '#E4E5E6',
     border: '#c0c0c0',
@@ -32,14 +33,15 @@ map.set(2, {
 // 进行中
 map.set(3, {
   tag: {
-    backgroundColor: '#4BA3FF',
+    backgroundColor: '#4E97FD',
     color: '#fff',
   },
-  txtColor: '#20a3ff',
+  txtColor: '#4D97FE',
+  txt: '剩余',
   progress: {
-    percentColor: '#4BA3FF',
-    border: '#0d81d3',
-    txtColor: '#0d81d3',
+    percentColor: '#4E97FD',
+    border: '#3573E0',
+    txtColor: '#3573E0',
   },
 });
 // 已结束
@@ -49,6 +51,7 @@ map.set(4, {
     color: '#c0c0c0',
   },
   txtColor: '#c6c6c6',
+  txt: '历时(天)',
   progress: {
     percentColor: '#F5C639',
     border: '#d0c9c9',
@@ -181,7 +184,7 @@ function Task (props) {
           style={{
             flexDirection: 'row',
             paddingHorizontal: 10,
-            height: 63,
+            height: 55,
             marginBottom: 20,
           }}
         >
@@ -230,7 +233,7 @@ function Task (props) {
                   color: '#c6c6c6',
                 }}
               >
-                历时(天)
+                {style?.txt}
               </Text>
             </View>
 

@@ -32,13 +32,12 @@ function Index (props) {
       }}
     >
       <Header
-        leftComponent={<Text style={HeadLeftTitle}>我的</Text>}
-        color={'#4E97FD'}
-        back={true}
+        leftComponent={<Text style={[HeadLeftTitle, { color: 'black' }]}>我的</Text>}
+        color={'white'}
         statusBarProps={{
-          barStyle: 'light-content',
+          barStyle: 'dark-content',
           translucent: true,
-          backgroundColor: '#4E97FD',
+          backgroundColor: 'white',
         }}
       />
       <SafeAreaView
@@ -51,12 +50,14 @@ function Index (props) {
           style={{
             paddingTop: 12,
             paddingBottom: 12,
+            backgroundColor: 'white',
           }}>
           <View
             style={{
-              height: 170,
-              padding: 16,
+              height: 180,
+              padding: 15,
               backgroundColor: '#4E97FD',
+              justifyContent: 'space-between',
               marginHorizontal: 15,
               borderRadius: 4,
               ...elevationShadowStyle(5),
@@ -67,25 +68,39 @@ function Index (props) {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <Icon raised name="user" type="font-awesome" color="#517fa4"/>
+              <Icon
+                raised
+                name="user"
+                type="font-awesome"
+                color="#517fa4"
+              />
               <View
                 style={{
                   marginLeft: 15,
                 }}>
                 <Text
-                  style={{ marginBottom: 4, fontSize: 12, color: '#bbcbfd' }}>
+                  style={{
+                    marginBottom: 4,
+                    fontSize: 18,
+                    color: '#bbcbfd',
+                  }}>
                   登录码：
                 </Text>
-                <Text style={{ fontSize: 17, color: '#fff' }}>{userDetails?.loginCode ?? ''}</Text>
+                <Text style={{
+                  fontSize: 20,
+                  color: '#fff',
+                }}>
+                  {userDetails?.loginCode ?? ''}
+                </Text>
               </View>
             </View>
 
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-around',
+                justifyContent: 'space-between',
                 alignItems: 'center',
-                marginTop: 20,
+                marginBottom: 4,
               }}
             >
 
@@ -119,6 +134,10 @@ function Index (props) {
 
         <ListItem
           title={'您还可以选择'}
+          titleStyle={{
+            fontSize: 20,
+            color: 'black',
+          }}
           containerStyle={styles.itemStyle}
           rightTitle={' '}
           bottomDivider
@@ -127,25 +146,54 @@ function Index (props) {
         <ListItem
           title={'我的报告'}
           rightTitle={' '}
-          containerStyle={styles.itemStyle}
+          titleStyle={{
+            marginLeft: -8,
+          }}
+          containerStyle={[
+            styles.itemStyle,
+            {
+              borderBottomWidth: 0,
+            },
+          ]}
           leftIcon={(
             <Image
               style={styles.icon}
+              resizeMode={'contain'}
               source={require('../../asset/images/icon_my_task.png')}
             />
           )}
-          bottomDivider
+          bottomDivider={false}
           chevron={{ color: '#878787' }}
           onPress={() => props.navigation.navigate('report')}
         />
+
+        <View
+          style={{
+            backgroundColor: '#fff'
+          }}
+        >
+          <View
+            style={{
+              borderBottomColor: '#F3F4F4',
+              borderBottomWidth: 1,
+              marginLeft: 16,
+              marginRight: 16,
+              backgroundColor: '#fff'
+            }}
+          />
+        </View>
 
         <ListItem
           rightTitle={' '}
           title={'我的任务'}
           containerStyle={styles.itemStyle}
+          titleStyle={{
+            marginLeft: -8,
+          }}
           leftIcon={(
             <Image
               style={styles.icon}
+              resizeMode={'contain'}
               source={require('../../asset/images/icon_my_report.png')}
             />
           )}
@@ -166,9 +214,13 @@ function Index (props) {
           containerStyle={[
             styles.itemStyle,
           ]}
+          titleStyle={{
+            marginLeft: -8,
+          }}
           leftIcon={(
             <Image
               style={styles.icon}
+              resizeMode={'contain'}
               source={require('../../asset/images/icon_logout.png')}
             />
           )}
@@ -195,25 +247,28 @@ const styles = {
   },
   txt1: {
     color: 'white',
-    fontSize: 17.5,
+    fontSize: 22,
   },
   txt2: {
     color: 'white',
     marginTop: 3,
-    fontSize: 10.5,
+    fontSize: 15,
   },
   line: {
     borderLeftWidth: 1,
     borderLeftColor: '#779dff',
-    height: 16.5,
+    height: 17,
   },
   icon: {
-    width: px2dp(18.5),
-    height: px2dp(19),
+    width: 22,
+    height: 22,
+    marginRight: 0,
   },
   itemStyle: {
-    height: px2dp(47),
-    // borderBottomColor: '#ebebeb'
+    height: 47,
+    paddingHorizontal: 20,
+    borderBottomColor: '#F3F4F4',
+    borderBottomWidth: 1,
   },
 };
 

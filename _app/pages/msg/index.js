@@ -84,13 +84,13 @@ function Msg (props) {
       <View
         style={{
           marginHorizontal: 12.5,
-          height: 85.5,
+          // height: 85.5,
           backgroundColor: 'white',
           marginBottom: 15,
           borderRadius: 4,
           flexDirection: 'row',
           paddingHorizontal: 11,
-          paddingVertical: 11,
+          paddingVertical: 16,
           ...elevationShadowStyle(3),
         }}
       >
