@@ -12,6 +12,7 @@ import { HeadLeftTitle } from '../../asset/styles/AppStyle';
 import moment from 'moment';
 import { useFocusEffect } from '@react-navigation/native';
 import { elevationShadowStyle, handleCatch } from '../../utils/utils';
+import { ApiService } from '../../http/APIService';
 
 function Msg (props) {
 
@@ -19,12 +20,38 @@ function Msg (props) {
 
   useFocusEffect(
     React.useCallback(() => {
-      fetchData();
+      (
+        async () => {
+          try {
+            const _msgList = await fetchData();
+
+            if (_.isEmpty(_msgList)) {
+              return;
+            }
+            // 重置为已读
+            await ApiService.readMsg({
+              userMessageIds: _msgList.filter(v => v.userMessageId).join(','),
+            })
+              .then((res) => {
+                const [error, resp] = res;
+                if (!error) {
+                  // 所有重置为已读
+                  props
+                    .dispatch({
+                      type: 'msg/updateMsgRead',
+                    });
+                }
+              })
+              .catch(handleCatch);
+          } catch (e) {
+          }
+        }
+      )();
     }, []),
   );
 
   function fetchData () {
-    props
+    return props
       .dispatch({
         type: 'msg/loadData',
       })
@@ -67,12 +94,12 @@ function Msg (props) {
               <Text
                 style={{
                   textAlign: 'center',
-                  color: '#1e1e1e'
+                  color: '#1e1e1e',
                 }}
               >
                 没有更多了~
               </Text>
-            )
+            );
           }}
         />
       </SafeAreaView>

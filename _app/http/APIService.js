@@ -37,6 +37,10 @@ const ApiService = {
   appDict: async (params = {}) => {
     return HTTP.get('app-data-dictionary/list', { params: { ...params, $skipLoading: true } });
   },
+
+  readMsg: async (data = {}) => {
+    return HTTP.post('app-user-message/read', { ...data, $skipLoading: true });
+  },
 };
 
 export { ApiService };

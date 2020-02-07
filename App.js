@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Image, View, Text, Platform, AppState, Linking } from 'react-native';
+import { ActivityIndicator, Image, View, Text, Platform, AppState, Linking, PermissionsAndroid, Permission } from 'react-native';
 import { Provider } from 'react-redux';
 import models from './_app/models';
 import { navigationRef } from './_app/utils/NavigationService';
@@ -15,7 +15,7 @@ import { Modal, Provider as AntdProvider } from '@ant-design/react-native';
 import { HTTP } from './_app/http';
 
 import { DvaInstance } from './_app/utils/dva';
-import { NavigationNativeContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { createStackNavigator } from '@react-navigation/stack';
@@ -36,8 +36,7 @@ import RNVersion from 'react-native-version-number';
 import * as Sentry from '@sentry/react-native';
 import { handleCatch } from './_app/utils/utils';
 import { getBottomSpace } from './_app/utils/iphonex.util';
-import { getLocation, initAMap } from './_app/utils/location.util';
-import { getAccelerometer, getSteps } from './_app/utils/sensors.util';
+import NativePermissionsAndroid from 'react-native/Libraries/PermissionsAndroid/NativePermissionsAndroid';
 
 if (!__DEV__) {
   Sentry.init({
@@ -58,11 +57,6 @@ store.dispatch({
   type: 'auth/checkLogin',
 });
 
-if (Platform.OS === 'android') {
-  // 请求权限
-  JPush.requestPermission();
-}
-
 window.__cached_model__ = window.__cached_model__ || {};
 
 models.forEach(model => {
@@ -72,6 +66,129 @@ models.forEach(model => {
     window.__cached_model__[model.namespace] = 1;
   }
 });
+
+const Tabs = createBottomTabNavigator();
+
+function renderBottomTab (props) {
+  return (
+    <Tabs.Navigator
+      backBehavior={'none'}
+      tabBarOptions={{
+        scrollEnabled: true,
+        activeTintColor: '#558FFB',
+        inactiveTintColor: '#BBBBBB',
+        safeAreaInset: {},
+        style: {
+          backgroundColor: 'white',
+          borderTopColor: '#dddddd',
+          borderTopWidth: 1,
+          marginBottom: 0,
+          height: 50 + getBottomSpace(),
+          paddingBottom: getBottomSpace(),
+        },
+      }}>
+      <Tabs.Screen
+        name={'首页'}
+        component={Home}
+        options={{
+          tabBarLabel: '首页',
+          tabBarIcon: ({ focused, size }) => {
+            const icon = focused
+              ? require('./_app/asset/images/tab_home_active.png')
+              : require('./_app/asset/images/tab_home.png');
+            return (
+              <Image
+                style={{
+                  width: size,
+                  height: size,
+                }}
+                source={icon}
+              />
+            );
+          },
+        }}
+      />
+      <Tabs.Screen
+        name={'消息'}
+        component={Msg}
+        options={{
+          tabBarLabel: '消息',
+          tabBarIcon: ({ focused, size }) => {
+            const icon = focused
+              ? require('./_app/asset/images/tab_msg_active.png')
+              : require('./_app/asset/images/tab_msg.png');
+
+            const badgeCount = props.msg.list.filter(v => !v.read).length;
+
+            return (
+              <View
+                style={{
+                  width: 24,
+                  height: 24,
+                }}>
+                <Image
+                  style={{
+                    width: size,
+                    height: size,
+                  }}
+                  source={icon}
+                />
+                {badgeCount > 0 && (
+                  <View
+                    style={{
+                      position: 'absolute',
+                      right: -12,
+                      top: -6,
+                      backgroundColor: 'red',
+                      borderRadius: 8,
+                      width: 16,
+                      height: 16,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Text
+                      style={{
+                        color: 'white',
+                        fontSize: 10,
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      {badgeCount}
+                    </Text>
+                  </View>
+                )}
+              </View>
+            );
+          },
+        }}
+      />
+      <Tabs.Screen
+        name={'mine'}
+        component={Mine}
+        options={{
+          tabBarLabel: '我的',
+          tabBarIcon: ({ focused, size }) => {
+            const icon = focused
+              ? require('./_app/asset/images/tab_mine_active.png')
+              : require('./_app/asset/images/tab_mine.png');
+            return (
+              <Image
+                style={{
+                  width: size,
+                  height: size,
+                }}
+                source={icon}
+              />
+            );
+          },
+        }}
+      />
+    </Tabs.Navigator>
+  );
+}
+
+const HomeBottomTab = connect(state => ({ msg: state.msg }))(renderBottomTab);
 
 /**
  * @return {null}
@@ -101,7 +218,7 @@ function StackNavigator (props) {
   }
 
   return (
-    <NavigationNativeContainer ref={navigationRef}>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
         headerMode="none"
       >
@@ -109,14 +226,14 @@ function StackNavigator (props) {
           <Stack.Screen name="Login" component={Login}/>
         ) : (
           <React.Fragment>
-            <Stack.Screen name="Root" component={renderBottomTab}/>
+            <Stack.Screen name="Root" component={HomeBottomTab}/>
             <Stack.Screen name="Answer" component={Answer}/>
             <Stack.Screen name="task" component={MyTask}/>
             <Stack.Screen name="report" component={MyReport}/>
           </React.Fragment>
         )}
       </Stack.Navigator>
-    </NavigationNativeContainer>
+    </NavigationContainer>
   );
 }
 
@@ -128,11 +245,24 @@ function mapStateToProps (state) {
 
 const ConnectStackNavigator = connect(mapStateToProps)(StackNavigator);
 
-const Tabs = createBottomTabNavigator();
-
 const App: () => React$Node = () => {
 
   function initJPush () {
+
+    if (Platform.OS === 'android') {
+      // 请求权限
+      JPush.requestPermission();
+      PermissionsAndroid
+        .requestMultiple([
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE,
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        ])
+        .then()
+        .catch(handleCatch);
+    }
+
     // 初始化
     JPush.init();
 
@@ -207,67 +337,6 @@ const App: () => React$Node = () => {
     </Provider>
   );
 };
-
-function renderBottomTab () {
-  return (
-    <Tabs.Navigator
-      backBehavior={'none'}
-      tabBarOptions={{
-        scrollEnabled: true,
-        activeTintColor: '#558FFB',
-        inactiveTintColor: '#BBBBBB',
-        safeAreaInset: {},
-        style: {
-          backgroundColor: 'white',
-          borderTopColor: '#dddddd',
-          borderTopWidth: 1,
-          marginBottom: 0,
-          height: 50 + getBottomSpace(),
-          paddingBottom: getBottomSpace(),
-        },
-      }}>
-      <Tabs.Screen
-        name={'首页'}
-        component={Home}
-        options={{
-          tabBarLabel: '首页',
-          tabBarIcon: ({ focused }) => {
-            const icon = focused
-              ? require('./_app/asset/images/tab_home_active.png')
-              : require('./_app/asset/images/tab_home.png');
-            return <Image style={styles.iconStyle} source={icon}/>;
-          },
-        }}
-      />
-      <Tabs.Screen
-        name={'消息'}
-        component={Msg}
-        options={{
-          tabBarLabel: '消息',
-          tabBarIcon: ({ focused }) => {
-            const icon = focused
-              ? require('./_app/asset/images/tab_msg_active.png')
-              : require('./_app/asset/images/tab_msg.png');
-            return <Image style={styles.iconStyle} source={icon}/>;
-          },
-        }}
-      />
-      <Tabs.Screen
-        name={'mine'}
-        component={Mine}
-        options={{
-          tabBarLabel: '我的',
-          tabBarIcon: ({ focused }) => {
-            const icon = focused
-              ? require('./_app/asset/images/tab_mine_active.png')
-              : require('./_app/asset/images/tab_mine.png');
-            return <Image style={styles.iconStyle} source={icon}/>;
-          },
-        }}
-      />
-    </Tabs.Navigator>
-  );
-}
 
 const styles = {
   iconStyle: {

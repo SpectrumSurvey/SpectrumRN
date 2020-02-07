@@ -123,7 +123,7 @@ function Index (props) {
               />
 
               <View style={styles.item}>
-                <Text style={styles.txt1}>{userDetails?.projectNum ?? 0}</Text>
+                <Text style={styles.txt1}>{userDetails?.taskNum ?? 0}</Text>
                 <Text style={styles.txt2}>参与任务</Text>
               </View>
 

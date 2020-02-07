@@ -26,6 +26,13 @@ const model = {
         draft.loading = payload;
       });
     },
+    updateMsgRead (state) {
+      return produce(state, draft => {
+        draft.list.forEach(v => {
+          v.read = true;
+        });
+      });
+    },
   },
   effects: {
     loadData: [
@@ -40,6 +47,7 @@ const model = {
           type: 'updateList',
           payload: data,
         });
+        return data;
       },
       { take: 'Latest' },
     ],
