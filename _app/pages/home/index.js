@@ -29,6 +29,14 @@ function Index (props) {
 
   const [now, setNow] = useState(moment());
 
+  useEffect(() => {
+    props
+      .dispatch({
+        type: 'msg/loadData',
+      })
+      .catch(handleCatch);
+  }, []);
+
   // 记录App状态
   recordState();
 

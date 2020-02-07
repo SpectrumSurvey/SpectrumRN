@@ -28,12 +28,14 @@ function WrappedHeader (props) {
   } = props;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  useFocusEffect(() => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    StatusBar.setBarStyle(statusBarProps.barStyle || 'light-content');
-    // android
-    Platform.OS === 'android' && StatusBar.setBackgroundColor(statusBarProps.backgroundColor || '#4E97FD');
-  });
+  useFocusEffect(
+    React.useCallback(() => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      StatusBar.setBarStyle(statusBarProps.barStyle || 'light-content');
+      // android
+      Platform.OS === 'android' && StatusBar.setBackgroundColor(statusBarProps.backgroundColor || '#4E97FD');
+    }, []),
+  );
 
   const centerComponent = back
     ? {}

@@ -5,7 +5,7 @@
  * @Email: middle2021@gmail.com
  */
 import React, { useEffect, useState } from 'react';
-import { Image, Clipboard, Text, TouchableWithoutFeedback, View, Modal as NativeModal, SafeAreaView, ScrollView, Platform } from 'react-native';
+import { Image, Clipboard, Text, TouchableWithoutFeedback, View, Modal as NativeModal, Platform } from 'react-native';
 import Header from '../../components/header';
 import { Input, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
@@ -132,7 +132,7 @@ function Index (props) {
         </View>
       </View>
       {
-        renderModal()
+        modalVisible && renderModal()
       }
       {
         renderPermissionModal()
@@ -143,7 +143,7 @@ function Index (props) {
   function renderModal () {
     return (
       <AntdModal
-        visible={modalVisible}
+        visible={true}
         footer={[
           { text: '不同意', onPress: () => RNExitApp.exitApp() },
           { text: '同意并继续', onPress: () => setPermissionVisible(true) },
@@ -230,10 +230,10 @@ function Index (props) {
             title={'下一步'}
             disabled={disabled}
             onPress={() => {
-              setVisible(false)
+              setVisible(false);
               setPermissionVisible(false);
               // 设置为完成状态
-              AsyncStorage.setItem('isRead', '1').catch(handleCatch)
+              AsyncStorage.setItem('isRead', '1').catch(handleCatch);
             }}
           />
         </View>

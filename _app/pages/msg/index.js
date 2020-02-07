@@ -13,6 +13,7 @@ import moment from 'moment';
 import { useFocusEffect } from '@react-navigation/native';
 import { elevationShadowStyle, handleCatch } from '../../utils/utils';
 import { ApiService } from '../../http/APIService';
+import _ from 'lodash';
 
 function Msg (props) {
 
@@ -20,17 +21,20 @@ function Msg (props) {
 
   useFocusEffect(
     React.useCallback(() => {
+      console.log('useCallback');
       (
         async () => {
           try {
             const _msgList = await fetchData();
+
+            console.log(_msgList);
 
             if (_.isEmpty(_msgList)) {
               return;
             }
             // 重置为已读
             await ApiService.readMsg({
-              userMessageIds: _msgList.filter(v => v.userMessageId).join(','),
+              userMessageIds: _msgList.filter(v => v.userMessageId).map(v => v.userMessageId).join(','),
             })
               .then((res) => {
                 const [error, resp] = res;
@@ -41,8 +45,7 @@ function Msg (props) {
                       type: 'msg/updateMsgRead',
                     });
                 }
-              })
-              .catch(handleCatch);
+              });
           } catch (e) {
           }
         }
@@ -50,7 +53,7 @@ function Msg (props) {
     }, []),
   );
 
-  function fetchData () {
+  async function fetchData () {
     return props
       .dispatch({
         type: 'msg/loadData',
