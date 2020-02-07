@@ -21,13 +21,10 @@ function Msg (props) {
 
   useFocusEffect(
     React.useCallback(() => {
-      console.log('useCallback');
       (
         async () => {
           try {
             const _msgList = await fetchData();
-
-            console.log(_msgList);
 
             if (_.isEmpty(_msgList)) {
               return;
