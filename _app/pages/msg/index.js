@@ -4,16 +4,17 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { Alert, FlatList, Image, SafeAreaView, Text, View } from 'react-native';
+import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import React from 'react';
 import Header from '../../components/header';
 import { HeadLeftTitle } from '../../asset/styles/AppStyle';
 import moment from 'moment';
 import { useFocusEffect } from '@react-navigation/native';
-import { elevationShadowStyle, handleCatch } from '../../utils/utils';
+import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils';
 import { ApiService } from '../../http/APIService';
 import _ from 'lodash';
+import TouchComponent from '../../components/touch';
 
 function Msg (props) {
 
@@ -108,77 +109,91 @@ function Msg (props) {
 
   function renderItem ({ item }) {
     return (
-      <View
-        style={{
-          marginHorizontal: 12.5,
-          // height: 85.5,
-          backgroundColor: 'white',
-          marginBottom: 15,
-          borderRadius: 4,
-          flexDirection: 'row',
-          paddingHorizontal: 11,
-          paddingVertical: 16,
-          ...elevationShadowStyle(3),
+      <TouchComponent
+        onPress={() => {
+          if (item.messageType === 2) {
+            // 报告
+          } else {
+            // 问卷消息
+            if (item.userQuestionnaireStatus !== 2) {
+              props.navigation.navigate('Answer', { ...item });
+            } else {
+              showToast('该问卷已答题!');
+            }
+          }
         }}
       >
-        <Image
-          source={item.messageType === 2 ?
-            require('../../asset/images/icon_msg_report.png') :
-            require('../../asset/images/icon_msg_img1.png')}
-          style={{
-            width: 44,
-            height: 44,
-          }}
-        />
-
         <View
           style={{
-            flex: 1,
-            marginLeft: 15,
+            marginHorizontal: 12.5,
+            // height: 85.5,
+            backgroundColor: 'white',
+            marginBottom: 15,
+            borderRadius: 4,
+            flexDirection: 'row',
+            paddingHorizontal: 11,
+            paddingVertical: 16,
+            ...elevationShadowStyle(3),
           }}
         >
+          <Image
+            source={item.messageType === 2 ?
+              require('../../asset/images/icon_msg_report.png') :
+              require('../../asset/images/icon_msg_img1.png')}
+            style={{
+              width: 44,
+              height: 44,
+            }}
+          />
+
           <View
             style={{
-              justifyContent: 'space-between',
-              flexDirection: 'row',
-              marginBottom: 10,
+              flex: 1,
+              marginLeft: 15,
             }}
           >
+            <View
+              style={{
+                justifyContent: 'space-between',
+                flexDirection: 'row',
+                marginBottom: 10,
+              }}
+            >
+              <Text
+                style={{
+                  flex: 1,
+                  fontSize: 17,
+                }}
+                numberOfLines={1}
+                ellipsizeMode={'tail'}
+              >
+                {item.messageTypeName}
+              </Text>
+              <Text
+                style={{
+                  color: '#CACACA',
+                  fontSize: 14,
+                  marginLeft: 16,
+                }}
+              >
+                {moment(item.sendTime).format('YYYY.MM.DD HH:mm')}
+              </Text>
+            </View>
+
             <Text
               style={{
-                flex: 1,
-                fontSize: 17,
+                color: '#999999',
+                fontSize: 16,
+                lineHeight: 20,
               }}
-              numberOfLines={1}
+              numberOfLines={2}
               ellipsizeMode={'tail'}
             >
-              {item.messageTypeName}
-            </Text>
-            <Text
-              style={{
-                color: '#CACACA',
-                fontSize: 14,
-                marginLeft: 16,
-              }}
-            >
-              {moment(item.sendTime).format('YYYY.MM.DD HH:mm')}
+              {item.message}
             </Text>
           </View>
-
-          <Text
-            style={{
-              color: '#999999',
-              fontSize: 16,
-              lineHeight: 20,
-            }}
-            numberOfLines={2}
-            ellipsizeMode={'tail'}
-          >
-            {item.message}
-          </Text>
         </View>
-
-      </View>
+      </TouchComponent>
     );
   }
 }

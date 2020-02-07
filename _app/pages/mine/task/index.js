@@ -53,9 +53,9 @@ map.set(4, {
   txtColor: '#c6c6c6',
   txt: '历时(天)',
   progress: {
-    percentColor: '#F5C639',
+    percentColor: '#dddddd',
     border: '#d0c9c9',
-    txtColor: '#e09d0c',
+    txtColor: '#c6c6c6',
   },
 });
 
@@ -112,12 +112,12 @@ function Task (props) {
               <Text
                 style={{
                   textAlign: 'center',
-                  color: '#1e1e1e'
+                  color: '#1e1e1e',
                 }}
               >
                 没有更多了~
               </Text>
-            )
+            );
           }}
         />
       </SafeAreaView>
@@ -205,7 +205,7 @@ function Task (props) {
               <View
                 style={{
                   flexDirection: 'row',
-                  justifyContent: 'flex-start'
+                  justifyContent: 'flex-start',
                 }}
               >
                 <Text
@@ -221,7 +221,7 @@ function Task (props) {
                   style={{
                     fontSize: 12,
                     color: style?.txtColor,
-                    marginTop: 13
+                    marginTop: 13,
                   }}
                 >
                   天
@@ -250,13 +250,13 @@ function Task (props) {
               <View
                 style={{
                   paddingLeft: 16,
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
                 }}
               >
                 <Text
                   style={{
                     fontSize: 15,
-                    color: '#000'
+                    color: '#000',
                   }}
                 >
                   {item.taskQuestionnaireNum}
@@ -264,7 +264,7 @@ function Task (props) {
                 <Text
                   style={{
                     fontSize: 12,
-                    color: '#c1c5cb'
+                    color: '#c1c5cb',
                   }}
                 >
                   问卷总数
@@ -274,13 +274,13 @@ function Task (props) {
               <View
                 style={{
                   marginLeft: 32,
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
                 }}
               >
                 <Text
                   style={{
                     fontSize: 15,
-                    color: '#000'
+                    color: '#000',
                   }}
                 >
                   {item.completedNum}
@@ -288,7 +288,7 @@ function Task (props) {
                 <Text
                   style={{
                     fontSize: 12,
-                    color: '#c1c5cb'
+                    color: '#c1c5cb',
                   }}
                 >
                   已完成
@@ -312,7 +312,7 @@ function Task (props) {
               width: 64,
               height: 64,
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
             }}
           >
             <AnimatedCircularProgress
@@ -324,6 +324,7 @@ function Task (props) {
               style={{
                 flexShrink: 0,
               }}
+              onAnimationComplete={() => {}}
             />
             <Text
               style={{
@@ -332,7 +333,7 @@ function Task (props) {
                 color: style?.progress?.txtColor,
               }}
             >
-              {item.taskStatus === 2 ? '未完成' :`${parseInt(item.completePercentage.replace('%'))}%`}
+              {item.taskStatus === 2 ? '未完成' : `${parseInt(item.completePercentage.replace('%'))}%`}
             </Text>
           </View>
 

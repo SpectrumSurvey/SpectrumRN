@@ -36,7 +36,7 @@ import RNVersion from 'react-native-version-number';
 import * as Sentry from '@sentry/react-native';
 import { handleCatch } from './_app/utils/utils';
 import { getBottomSpace } from './_app/utils/iphonex.util';
-import NativePermissionsAndroid from 'react-native/Libraries/PermissionsAndroid/NativePermissionsAndroid';
+import { Badge } from 'react-native-elements';
 
 if (!__DEV__) {
   Sentry.init({
@@ -134,29 +134,15 @@ function renderBottomTab (props) {
                   source={icon}
                 />
                 {badgeCount > 0 && (
-                  <View
-                    style={{
+                  <Badge
+                    value={badgeCount}
+                    status="error"
+                    containerStyle={{
                       position: 'absolute',
-                      right: -12,
-                      top: -6,
-                      backgroundColor: 'red',
-                      borderRadius: 8,
-                      width: 16,
-                      height: 16,
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      right: -14,
+                      top: -3,
                     }}
-                  >
-                    <Text
-                      style={{
-                        color: 'white',
-                        fontSize: 10,
-                        fontWeight: 'bold',
-                      }}
-                    >
-                      {badgeCount}
-                    </Text>
-                  </View>
+                  />
                 )}
               </View>
             );

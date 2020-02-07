@@ -24,7 +24,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 function Index (props) {
 
-  const { userQuestionnaireId = 7, questionnaireId = 3, questionnaireName } = props.route.params || {};
+  const { userQuestionnaireId, questionnaireId, questionnaireName } = props.route.params || {};
 
   const { answerStore } = props;
 
@@ -86,7 +86,7 @@ function Index (props) {
         backIcon={(
           <Icon
             name={'close'}
-            size={16}
+            size={22}
             color={'white'}
           />
         )}
@@ -119,36 +119,51 @@ function Index (props) {
                     paddingBottom: 15,
                     borderBottomWidth: 0.5,
                     borderBottomColor: '#d7dce5',
+                    position: 'relative',
                   }}
                 >
                   <Text
                     style={{
-                      color: '#dde1e9',
-                      borderRadius: 1,
-                      borderWidth: 1,
-                      height: 26,
-                      textAlign: 'center',
-                      lineHeight: 24,
-                      fontSize: 14,
-                      borderColor: '#dde1e9',
-                      paddingHorizontal: 5,
-                      flexShrink: 0
-                    }}
-                  >
-                    {curItem?.subjectTypeName}
-                  </Text>
-                  <Text
-                    style={{
                       fontSize: 17,
                       color: '#000000',
-                      marginLeft: 10,
                       flex: 1,
+                      lineHeight: 26,
                     }}
                     numberOfLines={2}
                     ellipsizeMode={'tail'}
                   >
-                    {curIndex + 1}、{curItem?.subjectTitle}
+                    {
+                      curItem?.subjectTypeName &&
+                      curItem?.subjectType !== SUBJECT_ENUM.GUIDE
+                      && _.range((curItem?.subjectTypeName).length + 1)
+                        .map((v, index) => (<Text key={index}>&emsp;</Text>))
+                    }
+                    {curItem?.subjectType !== SUBJECT_ENUM.GUIDE && `${curIndex + 1}、`}
+                    {curItem?.subjectTitle}
                   </Text>
+
+                  {
+                    curItem?.subjectType !== SUBJECT_ENUM.GUIDE && (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          left: 15,
+                          color: '#dde1e9',
+                          borderRadius: 1,
+                          borderWidth: 1,
+                          height: 26,
+                          textAlign: 'center',
+                          lineHeight: 24,
+                          fontSize: 14,
+                          borderColor: '#dde1e9',
+                          paddingHorizontal: 5,
+                          flexShrink: 0,
+                        }}
+                      >
+                        {curItem?.subjectTypeName}
+                      </Text>
+                    )
+                  }
                 </View>
                 <View
                   style={{
@@ -180,12 +195,12 @@ function Index (props) {
     return curItem.subjectImage ? (
       <View
         style={{
-          paddingHorizontal: 22.5,
+          paddingHorizontal: 15,
         }}>
         <Image
           style={{
             width: '100%',
-            height: 145,
+            height: 180,
             alignSelf: 'center',
             marginTop: 20,
             borderRadius: 8,
@@ -294,12 +309,18 @@ function Index (props) {
         return (
           <View
             style={{
-              paddingHorizontal: 22.5,
+              paddingHorizontal: 15,
               paddingTop: 30,
-              paddingBottom: 30,
+              marginBottom: 15,
             }}
           >
-            <Text>
+            <Text
+              style={{
+                fontSize: 15,
+                color: '#666666',
+                lineHeight: 23,
+              }}
+            >
               {curItem.guide}
             </Text>
           </View>
@@ -353,7 +374,7 @@ function Index (props) {
             <Button
               title="上一题"
               titleStyle={{
-                color: '#4084FF'
+                color: '#4084FF',
               }}
               type="clear"
               onPress={() => {
@@ -391,7 +412,7 @@ function Index (props) {
               <Text
                 style={{
                   color: '#4084FF',
-                  fontSize: 18
+                  fontSize: 18,
                 }}
               >
                 {curIndex + 1}
@@ -400,7 +421,7 @@ function Index (props) {
                 style={{
                   color: 'lightgray',
                   fontSize: 14,
-                  paddingTop: 4
+                  paddingTop: 4,
                 }}
               >
                 /{subjects?.length}
@@ -412,10 +433,10 @@ function Index (props) {
               buttonStyle={{
                 height: 32,
                 paddingHorizontal: 10,
-                backgroundColor: '#4084FF'
+                backgroundColor: '#4084FF',
               }}
               titleStyle={{
-                fontSize: 15
+                fontSize: 15,
               }}
               onPress={() => {
 
@@ -449,7 +470,7 @@ function Index (props) {
                   Modal.alert('提交问卷', (
                     <Text
                       style={{
-                        textAlign: 'center'
+                        textAlign: 'center',
                       }}
                     >
                       确认提交当前问卷？一旦提交答案不可修改哦~
