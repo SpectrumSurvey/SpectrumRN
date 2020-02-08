@@ -32,14 +32,17 @@ export function hideLoopToast () {
   });
 }
 
-export function handleCatch () {
+export function handleCatch (error) {
   // 默认异常
+  if (__DEV__) {
+    console.debug(error);
+  }
 }
 
 export function elevationShadowStyle (elevation) {
   return {
     elevation,
-    shadowColor: 'black',
+    shadowColor: '#00000088',
     shadowOffset: { width: 0, height: 0.5 * elevation },
     shadowOpacity: 0.3,
     shadowRadius: 0.8 * elevation,

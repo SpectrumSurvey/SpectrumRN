@@ -54,19 +54,20 @@ function Index (props) {
           }}>
           <View
             style={{
-              height: 180,
-              padding: 15,
-              backgroundColor: '#4E97FD',
+              height: 151.5,
+              paddingVertical: 15,
+              backgroundColor: '#4F97FD',
               justifyContent: 'space-between',
               marginHorizontal: 15,
-              borderRadius: 4,
-              ...elevationShadowStyle(5),
+              borderRadius: 5,
+              ...elevationShadowStyle(10),
             }}
           >
             <View
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
+                marginLeft: 15,
               }}>
               <Image
                 style={{
@@ -255,6 +256,7 @@ const styles = {
   txt1: {
     color: 'white',
     fontSize: 17.5,
+    fontWeight: '700',
   },
   txt2: {
     color: 'white',
