@@ -98,10 +98,7 @@ function renderBottomTab (props) {
               : require('./_app/asset/images/tab_home.png');
             return (
               <Image
-                style={{
-                  width: size,
-                  height: size,
-                }}
+                style={styles.iconStyle}
                 source={icon}
               />
             );
@@ -127,10 +124,7 @@ function renderBottomTab (props) {
                   height: 24,
                 }}>
                 <Image
-                  style={{
-                    width: size,
-                    height: size,
-                  }}
+                  style={styles.iconStyle}
                   source={icon}
                 />
                 {badgeCount > 0 && (
@@ -160,10 +154,7 @@ function renderBottomTab (props) {
               : require('./_app/asset/images/tab_mine.png');
             return (
               <Image
-                style={{
-                  width: size,
-                  height: size,
-                }}
+                style={styles.iconStyle}
                 source={icon}
               />
             );

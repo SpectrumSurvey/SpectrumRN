@@ -107,6 +107,29 @@ function Task (props) {
           onRefresh={fetchData}
           renderItem={renderItem}
           keyExtractor={(item => `${item.taskId}`)}
+          ListEmptyComponent={() => {
+            return (
+              <View>
+                <Image
+                  style={{
+                    width: 80,
+                    height: 66,
+                    alignSelf: 'center',
+                    marginBottom: 22.5,
+                  }}
+                  source={require('../../../asset/images/icon_home_empty.png')}
+                />
+                <Text
+                  style={{
+                    fontSize: 15,
+                    color: '#c4c8cd',
+                  }}
+                >
+                  亲，当前列表为空~
+                </Text>
+              </View>
+            )
+          }}
           ListFooterComponent={() => {
             return (
               <Text

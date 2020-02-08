@@ -90,6 +90,29 @@ function Msg (props) {
           renderItem={renderItem}
           onRefresh={fetchData}
           keyExtractor={(item) => `${item.userMessageId}`}
+          ListEmptyComponent={() => {
+            return (
+              <View>
+                <Image
+                  style={{
+                    width: 80,
+                    height: 66,
+                    alignSelf: 'center',
+                    marginBottom: 22.5,
+                  }}
+                  source={require('../../asset/images/icon_home_empty.png')}
+                />
+                <Text
+                  style={{
+                    fontSize: 15,
+                    color: '#c4c8cd',
+                  }}
+                >
+                  亲，您当前没有新消息哦~
+                </Text>
+              </View>
+            )
+          }}
           ListFooterComponent={() => {
             return (
               <Text
@@ -115,8 +138,8 @@ function Msg (props) {
             // 报告
           } else {
             // 问卷消息
-            if (item.userQuestionnaireStatus !== 2) {
-              props.navigation.navigate('Answer', { ...item });
+            if (item?.extension?.userQuestionnaireStatus !== 2) {
+              props.navigation.navigate('Answer', { ...item?.extension });
             } else {
               showToast('该问卷已答题!');
             }

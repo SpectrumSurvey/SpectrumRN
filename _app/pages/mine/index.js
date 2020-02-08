@@ -258,7 +258,7 @@ const styles = {
   },
   txt2: {
     color: 'white',
-    marginTop: 8,
+    marginTop: 4,
     fontSize: 12,
   },
   line: {
