@@ -84,17 +84,17 @@ function Index (props) {
             >
               <Image
                 style={{
-                  width: 81,
-                  height: 71.5,
+                  width: 80,
+                  height: 66,
                   alignSelf: 'center',
-                  marginBottom: 20,
+                  marginBottom: 22.5,
                 }}
                 source={require('../../asset/images/icon_home_empty.png')}
               />
               <Text
                 style={{
                   fontSize: 15,
-                  color: '#d1d1d1',
+                  color: '#c4c8cd',
                 }}
               >
                 任务待启动，请耐心等待
@@ -313,7 +313,7 @@ function Index (props) {
       <ImageBackground
         style={{
           width: 200,
-          height: 40,
+          height: 37,
           alignSelf: 'center',
           position: 'absolute',
           bottom: 50,

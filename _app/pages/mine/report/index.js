@@ -41,8 +41,8 @@ function Index (props) {
             >
               <Image
                 style={{
-                  width: 81,
-                  height: 71.5,
+                  width: 80,
+                  height: 66,
                   marginBottom: 20,
                 }}
                 source={require('../../../asset/images/icon_home_empty.png')}

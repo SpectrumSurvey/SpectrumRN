@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { Header } from 'react-native-elements';
-import { Alert, Image, Platform, StatusBar, Text, View } from 'react-native';
+import { Image, Platform, StatusBar, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { useFocusEffect } from '@react-navigation/native';
 import TouchComponent from '../touch';
@@ -79,7 +79,8 @@ function backComponent (backTitle, backIcon, backFunc) {
         style={{
           flexDirection: 'row',
           alignItems: 'center',
-          width: 500,
+          maxWidth: 370,
+          width: 370,
         }}>
         {
           backIcon ? backIcon : (
@@ -87,6 +88,7 @@ function backComponent (backTitle, backIcon, backFunc) {
               style={{
                 width: 9.5,
                 height: 16,
+                flexShrink: 0,
               }}
               source={require('../../asset/images/icon_back.png')}
             />
@@ -97,7 +99,11 @@ function backComponent (backTitle, backIcon, backFunc) {
             fontSize: 17,
             color: '#fff',
             marginLeft: 10,
-          }}>
+            flex: 1,
+          }}
+          numberOfLines={1}
+          ellipsizeMode={'tail'}
+        >
           {backTitle || ''}
         </Text>
       </View>

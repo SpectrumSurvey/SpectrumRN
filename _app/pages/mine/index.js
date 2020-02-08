@@ -49,7 +49,7 @@ function Index (props) {
         <View
           style={{
             paddingTop: 12,
-            paddingBottom: 12,
+            paddingBottom: 16,
             backgroundColor: 'white',
           }}>
           <View
@@ -68,26 +68,27 @@ function Index (props) {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <Icon
-                raised
-                name="user"
-                type="font-awesome"
-                color="#517fa4"
+              <Image
+                style={{
+                  width: 41,
+                  height: 41,
+                }}
+                source={require('../../asset/images/icon_mine_user_logo.png')}
               />
               <View
                 style={{
-                  marginLeft: 15,
+                  marginLeft: 13,
                 }}>
                 <Text
                   style={{
-                    marginBottom: 4,
-                    fontSize: 18,
-                    color: '#bbcbfd',
+                    marginBottom: 5,
+                    fontSize: 14,
+                    color: '#bdcbfd',
                   }}>
                   登录码：
                 </Text>
                 <Text style={{
-                  fontSize: 20,
+                  fontSize: 17,
                   color: '#fff',
                 }}>
                   {userDetails?.loginCode ?? ''}
@@ -100,7 +101,7 @@ function Index (props) {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                marginBottom: 4,
+                marginBottom: 2,
               }}
             >
 
@@ -135,8 +136,8 @@ function Index (props) {
         <ListItem
           title={'您还可以选择'}
           titleStyle={{
-            fontSize: 20,
-            color: 'black',
+            fontSize: 18,
+            color: '#000000',
           }}
           containerStyle={styles.itemStyle}
           rightTitle={' '}
@@ -148,6 +149,8 @@ function Index (props) {
           rightTitle={' '}
           titleStyle={{
             marginLeft: -8,
+            fontSize: 14,
+            color: '#000000'
           }}
           containerStyle={[
             styles.itemStyle,
@@ -169,7 +172,7 @@ function Index (props) {
 
         <View
           style={{
-            backgroundColor: '#fff'
+            backgroundColor: '#fff',
           }}
         >
           <View
@@ -178,7 +181,7 @@ function Index (props) {
               borderBottomWidth: 1,
               marginLeft: 16,
               marginRight: 16,
-              backgroundColor: '#fff'
+              backgroundColor: '#fff',
             }}
           />
         </View>
@@ -189,6 +192,8 @@ function Index (props) {
           containerStyle={styles.itemStyle}
           titleStyle={{
             marginLeft: -8,
+            fontSize: 14,
+            color: '#000000'
           }}
           leftIcon={(
             <Image
@@ -216,6 +221,8 @@ function Index (props) {
           ]}
           titleStyle={{
             marginLeft: -8,
+            fontSize: 14,
+            color: '#000000'
           }}
           leftIcon={(
             <Image
@@ -247,12 +254,12 @@ const styles = {
   },
   txt1: {
     color: 'white',
-    fontSize: 22,
+    fontSize: 17.5,
   },
   txt2: {
     color: 'white',
-    marginTop: 3,
-    fontSize: 15,
+    marginTop: 8,
+    fontSize: 12,
   },
   line: {
     borderLeftWidth: 1,
@@ -260,8 +267,8 @@ const styles = {
     height: 17,
   },
   icon: {
-    width: 22,
-    height: 22,
+    width: 19.5,
+    height: 17,
     marginRight: 0,
   },
   itemStyle: {

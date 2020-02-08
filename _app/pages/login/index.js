@@ -11,12 +11,13 @@ import { Input, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { Modal as AntdModal } from '@ant-design/react-native';
 import { connect } from 'react-redux';
-import { handleCatch, showToast } from '../../utils/utils';
+import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils';
 import { AsyncStorage } from '../../utils/storage';
 import RNExitApp from 'react-native-exit-app';
 import { WebView } from 'react-native-webview';
 import htmlStr from '../../utils/text.util';
 import { getBottomSpace, getStatusBarHeight } from '../../utils/iphonex.util';
+import TouchComponent from '../../components/touch';
 
 function Index (props) {
   const [code, setCode] = useState('');
@@ -62,9 +63,32 @@ function Index (props) {
         style={{
           flex: 1,
         }}>
-        <Text style={styles.welcome}>Hi,欢迎加入我们的调查</Text>
 
-        <Text style={styles.welcome2}>请输入您的登录码</Text>
+        <View
+          style={{
+            alignItems: 'center',
+            marginBottom: 108,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 22.5,
+              color: '#000000',
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 27.5,
+                color: '#000000',
+                textAlign: 'left',
+                width: '100%',
+              }}
+            >
+              Hi~{'\n'}
+            </Text>
+            欢迎加入我们的调查
+          </Text>
+        </View>
 
         <View
           style={{
@@ -77,11 +101,20 @@ function Index (props) {
               borderBottomColor: '#dddddd',
               marginBottom: 40,
             }}
-            leftIcon={{
-              type: 'feather',
-              name: 'user',
-              color: '#558FFB',
+            inputStyle={{
+              fontSize: 15,
+              color: '#333333',
             }}
+            placeholderTextColor={'#d4d4d4'}
+            leftIcon={(
+              <Image
+                style={{
+                  width: 20,
+                  height: 20,
+                }}
+                source={require('../../asset/images/icon_login_input.png')}
+              />
+            )}
             leftIconContainerStyle={{
               marginLeft: 0,
               marginRight: 8,
@@ -89,18 +122,31 @@ function Index (props) {
             onChangeText={onInput}
           />
 
-          <Button
+          <TouchComponent
             onPress={go}
-            title={'登录'}
-            raised={true}
-            buttonStyle={styles.button}
-            linearGradientProps={{
-              colors: ['#4F97FD', '#4F97FD', '#4F97FD'],
-              start: { x: 0, y: 0.5 },
-              end: { x: 1, y: 0.5 },
-            }}
-            ViewComponent={LinearGradient}
-          />
+            disabled={!code.length}
+          >
+            <View
+              style={{
+                height: 47,
+                borderRadius: 23.5,
+                backgroundColor: !code.length ? '#d4d6da' : '#4F97FD',
+                alignItems: 'center',
+                justifyContent: 'center',
+                ...elevationShadowStyle(5),
+              }}
+            >
+              <Text
+                style={{
+                  color: '#fefefe',
+                  fontSize: 17,
+                }}
+              >
+                登录
+              </Text>
+            </View>
+          </TouchComponent>
+
         </View>
 
         <View
@@ -144,10 +190,14 @@ function Index (props) {
     return (
       <AntdModal
         visible={true}
+        bodyStyle={{
+          marginTop: 12,
+        }}
         footer={[
           { text: '不同意', onPress: () => RNExitApp.exitApp() },
           { text: '同意并继续', onPress: () => setPermissionVisible(true) },
         ]}
+        title={'温馨提示'}
         maskClosable={false}
         closable={false}
         transparent
@@ -156,7 +206,7 @@ function Index (props) {
         <View>
           <Text
             style={{
-              lineHeight: 24,
+              lineHeight: 28,
               fontSize: 16,
             }}
           >
@@ -308,9 +358,8 @@ const styles = {
     textAlign: 'center',
   },
   button: {
-    backgroundColor: '#405DF6',
-    height: 50,
-    borderRadius: 25,
+    height: 47,
+    borderRadius: 23.5,
   },
 };
 
