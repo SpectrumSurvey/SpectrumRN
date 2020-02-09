@@ -116,6 +116,9 @@ function SingleModal (props) {
 
   useEffect(() => {
     if (!_.isEmpty(options)) {
+      if (_.some(options, { _checked: true })) {
+        return;
+      }
       props.dispatch({
         type: 'answer/updateOptionByDropDownSingle',
         payload: {

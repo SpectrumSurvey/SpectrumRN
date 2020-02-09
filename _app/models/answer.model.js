@@ -152,18 +152,40 @@ const model = {
      * @param payload
      */
     updateOptionsByFeedBack (state, { payload }) {
+
+      const { data, subjectType } = payload;
+
+      if (_.isEmpty(data)) {
+        return produce(state, draft => {});
+      }
+
       return produce(state, draft => {
         try {
-          const options = draft.info.questionnaire.subjects[draft.curIndex - 1].options;
-          options.forEach(v => {
-            const hasOption = _.some(payload, { optionId: v.optionId });
-            if (hasOption) {
-              // 有匹配到
-              v._checked = true;
-            }
-          });
-          // 更新单选题
-          draft.info.questionnaire.subjects[draft.curIndex - 1].options = options;
+          if (
+            subjectType === SUBJECT_ENUM.MULTIPLE_CHOICE ||
+            subjectType === SUBJECT_ENUM.SINGLE_CHOICE ||
+            subjectType === SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE ||
+            subjectType === SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE ||
+            subjectType === SUBJECT_ENUM.SCALE
+          ) {
+            // 选择题 量表题
+            const options = draft.info.questionnaire.subjects[draft.curIndex - 1].options;
+            options.forEach(v => {
+              const option = _.find(data, { optionId: v.optionId });
+              if (option) {
+                // 有匹配到
+                v._checked = true;
+                v.fillingValue = option.fillingValue;
+              }
+            });
+            // 更新单选题
+            draft.info.questionnaire.subjects[draft.curIndex - 1].options = options;
+          }
+
+          if (subjectType === SUBJECT_ENUM.COMPLETION) {
+            // 填空题
+            draft.info.questionnaire.subjects[draft.curIndex - 1].options[0].optionKey = data[0].optionKey;
+          }
         } catch (e) {
         }
       });
@@ -183,13 +205,14 @@ const model = {
           return Promise.reject(error);
         }
 
-        const { feedback } = data;
+        const { feedback, questionnaire } = data;
 
         if (feedback) {
-          const { feedbackSubjectNum } = feedback;
+          const { lastSubjectId } = feedback;
+          const lastIndex = _.findIndex(questionnaire.subjects, { subjectId: lastSubjectId });
           yield put({
             type: 'updateCurIndex',
-            payload: feedbackSubjectNum,
+            payload: lastIndex + 1,
           });
         }
 
@@ -225,7 +248,10 @@ const model = {
 
         yield put({
           type: 'updateOptionsByFeedBack',
-          payload: data,
+          payload: {
+            data,
+            subjectType: curItem?.subjectType,
+          },
         });
 
         yield put({
