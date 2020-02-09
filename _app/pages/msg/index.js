@@ -126,7 +126,7 @@ function Msg (props) {
               <Text
                 style={{
                   textAlign: 'center',
-                  color: '#1e1e1e',
+                  color: '#999999',
                 }}
               >
                 没有更多了~
