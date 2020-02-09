@@ -108,8 +108,16 @@ function Task (props) {
           renderItem={renderItem}
           keyExtractor={(item => `${item.taskId}`)}
           ListEmptyComponent={() => {
+            if (loading) {
+              return null;
+            }
             return (
-              <View>
+              <View
+                style={{
+                  alignItems: 'center',
+                  paddingTop: 80,
+                }}
+              >
                 <Image
                   style={{
                     width: 80,
@@ -128,9 +136,12 @@ function Task (props) {
                   亲，当前列表为空~
                 </Text>
               </View>
-            )
+            );
           }}
           ListFooterComponent={() => {
+            if (!task.length) {
+              return null;
+            }
             return (
               <Text
                 style={{

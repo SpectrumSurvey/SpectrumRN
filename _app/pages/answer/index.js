@@ -371,38 +371,44 @@ function Index (props) {
             }}
           >
 
-            <Button
-              title="上一题"
-              titleStyle={{
-                color: '#4084FF',
-              }}
-              type="clear"
-              onPress={() => {
-                if (!curIndex) {
-                  return;
-                }
+            {
+              curIndex !== 0 ? (
+                <Button
+                  title="上一题"
+                  titleStyle={{
+                    color: '#4084FF',
+                  }}
+                  type="clear"
+                  onPress={() => {
+                    if (!curIndex) {
+                      return;
+                    }
 
-                if (subjects[curIndex - 1].subjectType === SUBJECT_ENUM.GUIDE) {
-                  // 上一题是引导题不请求，直接跳到上一题
-                  props.dispatch({
-                    type: 'answer/updateCurIndex',
-                    payload: curIndex - 1,
-                  });
-                  return;
-                }
+                    if (subjects[curIndex - 1].subjectType === SUBJECT_ENUM.GUIDE) {
+                      // 上一题是引导题不请求，直接跳到上一题
+                      props.dispatch({
+                        type: 'answer/updateCurIndex',
+                        payload: curIndex - 1,
+                      });
+                      return;
+                    }
 
-                props
-                  .dispatch({
-                    type: 'answer/feedbackOptions',
-                    payload: {
-                      curItem: subjects[curIndex - 1],
-                      userQuestionnaireId,
-                      questionnaireId,
-                    },
-                  })
-                  .catch(handleCatch);
-              }}
-            />
+                    props
+                      .dispatch({
+                        type: 'answer/feedbackOptions',
+                        payload: {
+                          curItem: subjects[curIndex - 1],
+                          userQuestionnaireId,
+                          questionnaireId,
+                        },
+                      })
+                      .catch(handleCatch);
+                  }}
+                />
+              ) : (
+                <View/>
+              )
+            }
 
             <View
               style={{

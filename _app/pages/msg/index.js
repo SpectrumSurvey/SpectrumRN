@@ -92,7 +92,12 @@ function Msg (props) {
           keyExtractor={(item) => `${item.userMessageId}`}
           ListEmptyComponent={() => {
             return (
-              <View>
+              <View
+                style={{
+                  alignItems: 'center',
+                  paddingTop: 80
+                }}
+              >
                 <Image
                   style={{
                     width: 80,
@@ -111,9 +116,12 @@ function Msg (props) {
                   亲，您当前没有新消息哦~
                 </Text>
               </View>
-            )
+            );
           }}
           ListFooterComponent={() => {
+            if (!list.length) {
+              return null;
+            }
             return (
               <Text
                 style={{
@@ -139,6 +147,7 @@ function Msg (props) {
           } else {
             // 问卷消息
             if (item?.extension?.userQuestionnaireStatus !== 2) {
+              // 答题
               props.navigation.navigate('Answer', { ...item?.extension });
             } else {
               showToast('该问卷已答题!');

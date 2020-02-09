@@ -77,6 +77,7 @@ function Index (props) {
                 borderRadius: 6,
                 alignItems: 'center',
                 marginHorizontal: 16,
+                marginBottom: 30,
                 backgroundColor: 'white',
                 justifyContent: 'center',
                 ...elevationShadowStyle(5),
