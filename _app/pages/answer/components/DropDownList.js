@@ -60,7 +60,6 @@ function DropDownList (props) {
             paddingHorizontal: 14,
           }}
         >
-
           <Text
             style={{
               flex: 1,
@@ -69,10 +68,13 @@ function DropDownList (props) {
             ellipsizeMode={'tail'}
           >
             {
-              props.options.filter(v => v._checked).map(v => v.optionValue).join(',')
+              props
+                .options
+                .filter(v => v._checked)
+                .map(v => v.optionValue)
+                .join(',')
             }
           </Text>
-
           <Icon
             name={'down'}
             size={20}
@@ -134,8 +136,6 @@ function SingleModal (props) {
       transparent={true}
       animationType={'fade'}
     >
-
-
       <View
         style={{
           flex: 1,
@@ -151,7 +151,6 @@ function SingleModal (props) {
             }}
           />
         </TouchableWithoutFeedback>
-
         <View
           style={{
             height: 300,
@@ -160,7 +159,6 @@ function SingleModal (props) {
             borderTopRightRadius: 12,
           }}
         >
-
           <View
             style={{
               flexDirection: 'row',
@@ -191,8 +189,6 @@ function SingleModal (props) {
               }}
             />
           </View>
-
-
           <PickerView
             cols={1}
             data={options.map(v => ({ label: v.optionValue, value: v.optionId }))}
@@ -206,12 +202,8 @@ function SingleModal (props) {
               setSelect(value[0]);
             }}
           />
-
         </View>
-
-
       </View>
-
     </Modal>
   );
 }

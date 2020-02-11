@@ -314,11 +314,12 @@ function Index (props) {
       <ImageBackground
         style={{
           width: 200,
-          height: 37,
+          height: 50,
           alignSelf: 'center',
           position: 'absolute',
           bottom: 50,
         }}
+        resizeMode={'contain'}
         source={require('../../asset/images/home_logo.png')}
       />
 
