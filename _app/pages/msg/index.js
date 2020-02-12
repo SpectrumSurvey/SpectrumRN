@@ -199,7 +199,9 @@ function Msg (props) {
                 numberOfLines={1}
                 ellipsizeMode={'tail'}
               >
-                {item.messageTypeName}
+                {
+                  item.messageType === 2 ? '报告消息' : '问卷消息'
+                }
               </Text>
               <Text
                 style={{
