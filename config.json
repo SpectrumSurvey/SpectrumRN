@@ -1,10 +1,10 @@
 {
   "dev": {
     "JPush": "fab53794aab9e1c30043f28a",
-    "url": "http://47.98.216.5:9010/"
+    "url": "https://dev-api.dg.fortune-net.cn/"
   },
   "prod": {
     "JPush": "fab53794aab9e1c30043f28a",
-    "url": "http://47.98.216.5:9010/"
+    "url": "https://api.dg.fortune-net.cn/"
   }
 }
