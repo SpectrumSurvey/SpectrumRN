@@ -19,12 +19,19 @@ function ScaleComponent (props) {
     >
       <Text
         style={{
-          marginBottom: 16,
-          fontSize: 18,
+          marginBottom: 20,
+          fontSize: 15,
           color: '#54B982'
         }}
       >
-        您的选择：{props.options.filter(v => v._checked)[0]?.optionValue}
+        <Text
+          style={{
+            color: '#a8a8a8'
+          }}
+        >
+          您的选择：
+        </Text>
+        {props.options.filter(v => v._checked)[0]?.optionValue}
       </Text>
 
       <ScrollView>
@@ -48,7 +55,7 @@ function ScaleComponent (props) {
                         width: 15,
                         height: 15.5,
                         borderLeftWidth: 1,
-                        borderLeftColor: index ? '#54B982' : '#fff',
+                        borderLeftColor: index ? '#d0d0d0' : '#fff',
                       }}
                     />
 
@@ -57,9 +64,9 @@ function ScaleComponent (props) {
                         width: 15,
                         height: 15.5,
                         borderTopWidth: 1,
-                        borderTopColor: '#54B982',
+                        borderTopColor: '#d0d0d0',
                         borderLeftWidth: 1,
-                        borderLeftColor: index === props.options.length - 1 ? '#fff' :'#54B982',
+                        borderLeftColor: index === props.options.length - 1 ? '#fff' :'#d0d0d0',
                         alignSelf: 'flex-end',
                       }}
                     />
@@ -89,7 +96,7 @@ function ScaleComponent (props) {
                         style={{
                           lineHeight: 31,
                           textAlign: 'center',
-                          fontSize: 17,
+                          fontSize: 15,
                           color: item._checked ? '#fff' : '#54B982'
                         }}
                         numberOfLines={1}
@@ -107,7 +114,7 @@ function ScaleComponent (props) {
                         height: 15,
                         width: 1,
                         borderLeftWidth: 1,
-                        borderLeftColor: '#54B982'
+                        borderLeftColor: '#d0d0d0'
                       }}
                     />
                   ) : null
