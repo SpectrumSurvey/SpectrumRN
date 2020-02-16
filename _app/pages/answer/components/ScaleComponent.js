@@ -5,7 +5,7 @@
  * @Email: middle2021@gmail.com
  */
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { Image, ScrollView, Text, View } from 'react-native';
 import TouchComponent from '../../../components/touch';
 import { connect } from 'react-redux'
 
@@ -13,20 +13,22 @@ function ScaleComponent (props) {
   return (
     <View
       style={{
-        padding: 22.5,
+        paddingTop: 23,
+        paddingHorizontal: 20,
         flex: 1
       }}
     >
       <Text
         style={{
-          marginBottom: 20,
+          marginBottom: 22.5,
           fontSize: 15,
-          color: '#54B982'
+          color: '#4ec295'
         }}
       >
         <Text
           style={{
-            color: '#a8a8a8'
+            color: '#a8a8a8',
+            fontSize: 15,
           }}
         >
           您的选择：
@@ -52,20 +54,19 @@ function ScaleComponent (props) {
 
                     <View
                       style={{
-                        width: 15,
+                        width: 9,
                         height: 15.5,
-                        borderLeftWidth: 1,
+                        borderLeftWidth: 0.5,
                         borderLeftColor: index ? '#d0d0d0' : '#fff',
                       }}
                     />
-
                     <View
                       style={{
-                        width: 15,
+                        width: 9,
                         height: 15.5,
-                        borderTopWidth: 1,
+                        borderTopWidth: 0.5,
                         borderTopColor: '#d0d0d0',
-                        borderLeftWidth: 1,
+                        borderLeftWidth: 0.5,
                         borderLeftColor: index === props.options.length - 1 ? '#fff' :'#d0d0d0',
                         alignSelf: 'flex-end',
                       }}
@@ -85,25 +86,40 @@ function ScaleComponent (props) {
                   >
                     <View
                       style={{
-                        height: 31,
-                        minWidth: 67,
-                        paddingHorizontal: 12,
-                        marginLeft: 15,
-                        backgroundColor: item._checked ? '#54B982' : '#E5F9EF'
+                        height: 31.5,
+                        width: 71,
+                        marginLeft: 12,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: item._checked ? '#6FC292' : '#E7F8EF'
                       }}
                     >
-                      <Text
-                        style={{
-                          lineHeight: 31,
-                          textAlign: 'center',
-                          fontSize: 15,
-                          color: item._checked ? '#fff' : '#54B982'
-                        }}
-                        numberOfLines={1}
-                        ellipsizeMode={'tail'}
-                      >
-                        {item.optionValue}
-                      </Text>
+                      {
+                        item._checked ? (
+                          <Image
+                            style={{
+                              width: 14,
+                              height: 14,
+                            }}
+                            source={require('../../../asset/images/icon_check.png')}
+                          />
+                        ) : (
+                          <Text
+                            style={{
+                              lineHeight: 19,
+                              textAlign: 'center',
+                              fontSize: 13,
+                              color: item._checked ? '#fff' : '#7BBF9B'
+                            }}
+                            numberOfLines={1}
+                            ellipsizeMode={'tail'}
+                          >
+                            {
+                              item.optionValue
+                            }
+                          </Text>
+                        )
+                      }
                     </View>
                   </TouchComponent>
                 </View>
@@ -111,9 +127,9 @@ function ScaleComponent (props) {
                   index !== props.options.length - 1 ? (
                     <View
                       style={{
-                        height: 15,
+                        height: 17.5,
                         width: 1,
-                        borderLeftWidth: 1,
+                        borderLeftWidth: 0.5,
                         borderLeftColor: '#d0d0d0'
                       }}
                     />

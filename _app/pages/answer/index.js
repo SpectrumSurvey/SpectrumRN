@@ -138,7 +138,6 @@ function Index (props) {
                       && _.range((curItem?.subjectTypeName).length + 1)
                         .map((v, index) => (<Text key={index}>&emsp;</Text>))
                     }
-                    {curItem?.subjectType !== SUBJECT_ENUM.GUIDE && `${curIndex + 1}、`}
                     {curItem?.subjectTitle}
                   </Text>
 

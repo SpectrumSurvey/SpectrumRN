@@ -1,6 +1,10 @@
 {
   "dev": {
     "JPush": "fab53794aab9e1c30043f28a",
+    "url": "http://47.98.216.5:9010/"
+  },
+  "uat": {
+    "JPush": "fab53794aab9e1c30043f28a",
     "url": "https://dev-api-dg.fortune-net.cn/"
   },
   "prod": {
