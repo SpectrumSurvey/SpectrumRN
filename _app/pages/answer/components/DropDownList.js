@@ -35,6 +35,8 @@ function DropDownList (props) {
     }
   }, [props.options]);
 
+  const checks = props.options.filter(v => v._checked);
+
   return (
     <View
       style={{
@@ -68,15 +70,20 @@ function DropDownList (props) {
             ellipsizeMode={'tail'}
           >
             {
-              props
-                .options
-                .filter(v => v._checked)
-                .map(v => v.optionValue)
-                .join(',')
+              _.isEmpty(checks) ? (
+                <Text
+                  style={{
+                    color: '#dfdfdf'
+                  }}
+                >
+                  请选择
+                </Text>
+              ) : checks.map(v => v.optionValue).join(',')
             }
           </Text>
           <Icon
             name={'down'}
+            color='#dfdfdf'
             size={20}
           />
         </View>
@@ -117,17 +124,17 @@ function SingleModal (props) {
   }, [show]);
 
   useEffect(() => {
-    if (!_.isEmpty(options)) {
-      if (_.some(options, { _checked: true })) {
-        return;
-      }
-      props.dispatch({
-        type: 'answer/updateOptionByDropDownSingle',
-        payload: {
-          _index: 0,
-        },
-      });
-    }
+    // if (!_.isEmpty(options)) {
+    //   if (_.some(options, { _checked: true })) {
+    //     return;
+    //   }
+    //   props.dispatch({
+    //     type: 'answer/updateOptionByDropDownSingle',
+    //     payload: {
+    //       _index: 0,
+    //     },
+    //   });
+    // }
   }, []);
 
   return (

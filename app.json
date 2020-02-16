@@ -1,7 +1,7 @@
 {
   "name": "dgApp",
   "displayName": "dgApp",
-  "env": "dev",
+  "env": "uat",
   "url": "https://dev-api-dg.fortune-net.cn/",
   "JPushAppKey": "fab53794aab9e1c30043f28a"
 }

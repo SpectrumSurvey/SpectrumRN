@@ -158,13 +158,13 @@ function Msg (props) {
         <View
           style={{
             marginHorizontal: 12.5,
-            // height: 85.5,
             backgroundColor: 'white',
             marginBottom: 15,
             borderRadius: 4,
             flexDirection: 'row',
             paddingHorizontal: 11,
-            paddingVertical: 16,
+            paddingTop: 17,
+            paddingBottom: 16,
             ...elevationShadowStyle(3),
           }}
         >
@@ -194,7 +194,8 @@ function Msg (props) {
               <Text
                 style={{
                   flex: 1,
-                  fontSize: 17,
+                  fontSize: 15,
+                  color: '#000000'
                 }}
                 numberOfLines={1}
                 ellipsizeMode={'tail'}
@@ -206,8 +207,8 @@ function Msg (props) {
               <Text
                 style={{
                   color: '#CACACA',
-                  fontSize: 14,
-                  marginLeft: 16,
+                  fontSize: 10,
+                  marginRight: 13,
                 }}
               >
                 {moment(item.sendTime).format('YYYY.MM.DD HH:mm')}
@@ -217,8 +218,8 @@ function Msg (props) {
             <Text
               style={{
                 color: '#999999',
-                fontSize: 16,
-                lineHeight: 20,
+                fontSize: 13,
+                lineHeight: 19,
               }}
               numberOfLines={2}
               ellipsizeMode={'tail'}
