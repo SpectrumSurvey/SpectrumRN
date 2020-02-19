@@ -37,7 +37,6 @@ import * as Sentry from '@sentry/react-native';
 import { handleCatch } from './_app/utils/utils';
 import { getBottomSpace } from './_app/utils/iphonex.util';
 import { Badge } from 'react-native-elements';
-import { getAccelerometer } from './_app/utils/sensors.util';
 import ProcessUtil from './_app/utils/process.util';
 
 if (!__DEV__) {
@@ -275,6 +274,19 @@ const App: () => React$Node = () => {
 
   useEffect(() => {
     initJPush();
+
+    if (Platform.OS === 'android') {
+      // 请求
+      ProcessUtil
+        .isPermission()
+        .then(granted => {
+          if (!granted) {
+            // 弹窗
+            ProcessUtil.showDialog()
+          }
+        })
+        .catch(() => {});
+    }
 
     store.dispatch({
       type: 'auth/checkLogin',

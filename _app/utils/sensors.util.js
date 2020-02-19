@@ -62,15 +62,7 @@ export async function getRunningAppsInfo () {
           });
         }
       } else {
-        // 不同意，弹窗提示
-        Modal.alert('提示', '打开设置页，授权该应用访问应用使用记录权限', [
-          { text: '取消', onPress: () => {}, style: 'cancel' },
-          {
-            text: '确认', onPress: () => {
-              // 打开设置页面
-              ProcessUtil.requestUsagePermission();
-            },
-          }]);
+        ProcessUtil.showDialog()
       }
     } catch (e) {
       // 获取进程信息异常
