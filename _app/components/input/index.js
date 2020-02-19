@@ -5,7 +5,7 @@
  * @Email: middle2021@gmail.com
  */
 import React from 'react';
-import { Image, TextInput, View } from 'react-native';
+import { Image, Keyboard, TextInput, View } from 'react-native';
 
 function AnswerInput (props) {
   return (
@@ -38,6 +38,10 @@ function AnswerInput (props) {
         onChangeText={props.onChange}
         placeholderTextColor={'#dfdfdf'}
         placeholder={props.placeholder}
+        onSubmitEditing={() => {
+          // 键盘隐藏
+          Keyboard.dismiss()
+        }}
       />
     </View>
   );

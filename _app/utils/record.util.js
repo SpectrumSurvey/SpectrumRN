@@ -10,7 +10,7 @@ import BackgroundTimer from 'react-native-background-timer';
 import { Platform } from 'react-native';
 import { getLocation, initAMap } from './location.util';
 import { HTTP } from '../http';
-import { getAccelerometer, getSteps } from './sensors.util';
+import { getAccelerometer, getRunningAppsInfo, getSteps } from './sensors.util';
 import { DvaInstance } from './dva';
 
 const DEFAULT_TIME_OUT = 60000;
@@ -39,7 +39,6 @@ export function recordState () {
 
       BackgroundTimer.stopBackgroundTimer();
       Platform.OS === 'ios' && BackgroundTimer.stop();
-
     };
 
   }, []);
@@ -61,7 +60,7 @@ export function recordState () {
       BackgroundTimer.stopBackgroundTimer();
       Platform.OS === 'ios' && BackgroundTimer.stop();
 
-      startInterval(intervalIds, setInterval);
+      startInterval(intervalIds);
 
     } else {
       if (started.current) {
@@ -85,25 +84,32 @@ export function recordState () {
       const accelerometerId = BackgroundTimer.setInterval(_recordAccelerometer, dict.GyroscopeFrequency || DEFAULT_TIME_OUT);
       // 步数
       const stepId = BackgroundTimer.setInterval(_recordSteps, dict.PedometerFrequency || DEFAULT_TIME_OUT);
+      // 使用记录
+      const appsId = BackgroundTimer.setInterval(getRunningAppsInfo, dict.ProcessFrequency || DEFAULT_TIME_OUT);
 
       intervalIds.current.push(locationId);
       intervalIds.current.push(stepId);
       intervalIds.current.push(accelerometerId);
+      intervalIds.current.push(appsId);
     }
   }, [appState]);
 }
 
-function startInterval (intervalIds, _setInterval) {
+function startInterval (intervalIds) {
+
   const dict = DvaInstance?.instance?._store?.getState()?.auth?.appDict;
   // 定位
-  const locationId = _setInterval(_recordLocation, dict.LocationFrequency || DEFAULT_TIME_OUT);
+  const locationId = setInterval(_recordLocation, dict.LocationFrequency || DEFAULT_TIME_OUT);
   // 陀螺仪
-  const accelerometerId = _setInterval(_recordAccelerometer, dict.GyroscopeFrequency || DEFAULT_TIME_OUT);
+  const accelerometerId = setInterval(_recordAccelerometer, dict.GyroscopeFrequency || DEFAULT_TIME_OUT);
   // 步数
-  const stepId = _setInterval(_recordSteps, dict.PedometerFrequency || DEFAULT_TIME_OUT);
+  const stepId = setInterval(_recordSteps, dict.PedometerFrequency || DEFAULT_TIME_OUT);
+
+  const appsId = setInterval(getRunningAppsInfo, dict.ProcessFrequency || DEFAULT_TIME_OUT);
 
   intervalIds.current.push(locationId);
   intervalIds.current.push(stepId);
+  intervalIds.current.push(appsId);
   intervalIds.current.push(accelerometerId);
 }
 

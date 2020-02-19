@@ -1,5 +1,8 @@
 package com.dg.wenjuan.app;
 
+import android.content.res.Configuration;
+import android.os.Build;
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -24,5 +27,13 @@ public class MainActivity extends ReactActivity {
                 return new RNGestureHandlerEnabledRootView(MainActivity.this);
             }
         };
+    }
+
+    @Override
+    public void applyOverrideConfiguration(Configuration overrideConfiguration) {
+        if (Build.VERSION.SDK_INT >= 21 && Build.VERSION.SDK_INT <= 25) {
+            return;
+        }
+        super.applyOverrideConfiguration(overrideConfiguration);
     }
 }

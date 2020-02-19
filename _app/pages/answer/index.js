@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { Image, Text, View } from 'react-native';
+import { Image, Keyboard, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import Header from '../../components/header';
@@ -164,21 +164,28 @@ function Index (props) {
                     )
                   }
                 </View>
-                <View
-                  style={{
-                    flex: 1,
+                <TouchableWithoutFeedback
+                  onPress={() => {
+                    // 隐藏键盘
+                    Keyboard.dismiss()
                   }}
                 >
-                  {
-                    curItem?.subjectType !== SUBJECT_ENUM.GUIDE && renderImage()
-                  }
-                  {
-                    renderContent()
-                  }
-                  {
-                    curItem?.subjectType === SUBJECT_ENUM.GUIDE && renderImage()
-                  }
-                </View>
+                  <View
+                    style={{
+                      flex: 1,
+                    }}
+                  >
+                    {
+                      curItem?.subjectType !== SUBJECT_ENUM.GUIDE && renderImage()
+                    }
+                    {
+                      renderContent()
+                    }
+                    {
+                      curItem?.subjectType === SUBJECT_ENUM.GUIDE && renderImage()
+                    }
+                  </View>
+                </TouchableWithoutFeedback>
                 {
                   renderFooter()
                 }

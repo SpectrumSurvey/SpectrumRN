@@ -7,10 +7,10 @@
  */
 
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Image, View, Text, Platform, AppState, Linking, PermissionsAndroid, Permission } from 'react-native';
+import { ActivityIndicator, Image, View, Text, Platform, AppState, Linking, PermissionsAndroid, NativeModules } from 'react-native';
 import { Provider } from 'react-redux';
 import models from './_app/models';
-import { navigationRef } from './_app/utils/NavigationService';
+import { goBack, navigationRef } from './_app/utils/NavigationService';
 import { Modal, Provider as AntdProvider } from '@ant-design/react-native';
 import { HTTP } from './_app/http';
 
@@ -37,6 +37,8 @@ import * as Sentry from '@sentry/react-native';
 import { handleCatch } from './_app/utils/utils';
 import { getBottomSpace } from './_app/utils/iphonex.util';
 import { Badge } from 'react-native-elements';
+import { getAccelerometer } from './_app/utils/sensors.util';
+import ProcessUtil from './_app/utils/process.util';
 
 if (!__DEV__) {
   Sentry.init({

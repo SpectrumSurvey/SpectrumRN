@@ -150,7 +150,7 @@ function Msg (props) {
               // 答题
               props.navigation.navigate('Answer', { ...item?.extension });
             } else {
-              showToast('该问卷已答题!');
+              showToast('该问卷已完成~');
             }
           }
         }}

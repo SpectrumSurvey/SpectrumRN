@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.multidex.MultiDexApplication;
 
+import com.dg.wenjuan.app.packages.ProcessPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -14,7 +15,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import cn.jiguang.plugins.push.JPushModule;
-import cn.jiguang.plugins.push.helper.JPushHelper;
 
 public class MainApplication extends MultiDexApplication implements ReactApplication {
 
@@ -31,6 +31,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
                     List<ReactPackage> packages = new PackageList(this).getPackages();
                     // Packages that cannot be autolinked yet can be added manually here, for example:
                     // packages.add(new MyReactNativePackage());
+                    packages.add(new ProcessPackage());
                     return packages;
                 }
 
