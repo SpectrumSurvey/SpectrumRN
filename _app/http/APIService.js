@@ -34,6 +34,9 @@ const ApiService = {
   taskList: async (params = {}) => {
     return HTTP.get('app-user-task/list', { params: { ...params, $skipLoading: true } });
   },
+  reportList: async (params = {}) => {
+    return HTTP.get('app-user-report/list', { params: { ...params, $skipLoading: true } });
+  },
   appDict: async (params = {}) => {
     return HTTP.get('app-data-dictionary/list', { params: { ...params, $skipLoading: true } });
   },

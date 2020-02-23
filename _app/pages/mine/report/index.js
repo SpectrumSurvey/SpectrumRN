@@ -6,10 +6,36 @@
  */
 import { SafeAreaView, Text, StatusBar, View, Platform, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../../components/header';
+import { useFocusEffect } from '@react-navigation/native';
+import { ApiService } from '../../../http/APIService';
+import { elevationShadowStyle } from '../../../utils/utils';
+import moment from 'moment';
+import TouchComponent from '../../../components/touch';
 
 function Index (props) {
+
+  const [reports, setReports] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      fetchData();
+    }, []),
+  );
+
+  async function fetchData () {
+    try {
+      setLoading(true);
+      const [error, data] = await ApiService.reportList();
+      setLoading(false);
+      if (!error) {
+        setReports(data);
+      }
+    } catch (e) {
+    }
+  }
 
   return (
     <View
@@ -29,8 +55,10 @@ function Index (props) {
         }}
       />
       <FlatList
-        data={[]}
+        data={reports}
         renderItem={renderItem}
+        onRefresh={fetchData}
+        refreshing={loading}
         ListEmptyComponent={() => {
           return (
             <View
@@ -61,8 +89,71 @@ function Index (props) {
     </View>
   );
 
-  function renderItem () {
+  function renderItem ({ item }) {
+    return (
+      <TouchComponent
+        onPress={() => {
+          props.navigation.navigate('webview', { userReportId: item.userReportId });
+        }}
+      >
+        <View
+          style={{
+            backgroundColor: 'white',
+            padding: 15,
+            marginHorizontal: 15,
+            marginTop: 15,
+            flexDirection: 'row',
+            alignItems: 'center',
+            ...elevationShadowStyle(5)
+          }}
+        >
 
+          <Image
+            source={require('../../../asset/images/icon_my_report_list.png')}
+            style={{
+              width: 44,
+              height: 44,
+              flexShrink: 0
+            }}
+          />
+
+          <View
+            style={{
+              flex: 1,
+              marginLeft: 12,
+              height: 44,
+              justifyContent: 'space-between',
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16
+              }}
+              numberOfLines={1}
+              ellipsizeMode={'tail'}
+            >
+              {item.reportName}SD卡SDK点击萨克担惊受恐极客时间打卡机山东矿机看
+            </Text>
+            <Text
+              style={{
+                color: '#999999'
+              }}
+            >
+              {moment(item.generateTime).format('YYYY-MM-DD')}
+            </Text>
+          </View>
+
+          <Image
+            source={require('../../../asset/images/icon_arrow_right.png')}
+            style={{
+              width: 14,
+              height: 24
+            }}
+          />
+
+        </View>
+      </TouchComponent>
+    )
   }
 }
 

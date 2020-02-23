@@ -38,6 +38,7 @@ import { handleCatch } from './_app/utils/utils';
 import { getBottomSpace } from './_app/utils/iphonex.util';
 import { Badge } from 'react-native-elements';
 import ProcessUtil from './_app/utils/process.util';
+import WebViewPage from './_app/pages/webview';
 
 if (!__DEV__) {
   Sentry.init({
@@ -208,6 +209,7 @@ function StackNavigator (props) {
             <Stack.Screen name="Answer" component={Answer}/>
             <Stack.Screen name="task" component={MyTask}/>
             <Stack.Screen name="report" component={MyReport}/>
+            <Stack.Screen name="webview" component={WebViewPage}/>
           </React.Fragment>
         )}
       </Stack.Navigator>

@@ -8,7 +8,6 @@ import React, { useEffect, useState } from 'react';
 import { Image, Clipboard, Text, TouchableWithoutFeedback, View, Modal as NativeModal, Platform } from 'react-native';
 import Header from '../../components/header';
 import { Input, Button } from 'react-native-elements';
-import LinearGradient from 'react-native-linear-gradient';
 import { Modal as AntdModal } from '@ant-design/react-native';
 import { connect } from 'react-redux';
 import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils';
