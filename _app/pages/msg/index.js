@@ -144,6 +144,7 @@ function Msg (props) {
         onPress={() => {
           if (item.messageType === 2) {
             // 报告
+            props.navigation.navigate('webview', { ...item?.extension });
           } else {
             // 问卷消息
             if (item?.extension?.userQuestionnaireStatus !== 2) {
