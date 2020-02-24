@@ -56,8 +56,8 @@ export async function getRunningAppsInfo () {
         if (!_.isEmpty(infos)) {
           const str = JSON.stringify(infos);
 
-          await HTTP.post('/app-user-terminal-record/reported', {
-            processName: str,
+          await HTTP.post('/app-user-process-record/reported', {
+            json: str,
             $skipLoading: true,
           });
         }

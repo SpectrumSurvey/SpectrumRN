@@ -56,6 +56,9 @@ function Index (props) {
       />
       <FlatList
         data={reports}
+        style={{
+          flex: 1,
+        }}
         renderItem={renderItem}
         onRefresh={fetchData}
         refreshing={loading}
@@ -89,7 +92,7 @@ function Index (props) {
     </View>
   );
 
-  function renderItem ({ item }) {
+  function renderItem ({ item, index }) {
     return (
       <TouchComponent
         onPress={() => {
@@ -101,8 +104,10 @@ function Index (props) {
             backgroundColor: 'white',
             padding: 15,
             marginHorizontal: 15,
-            marginTop: 15,
+            marginTop: index === 0 ? 15 : 0,
+            marginBottom: 15,
             flexDirection: 'row',
+            borderRadius: 4,
             alignItems: 'center',
             ...elevationShadowStyle(5)
           }}
@@ -132,7 +137,7 @@ function Index (props) {
               numberOfLines={1}
               ellipsizeMode={'tail'}
             >
-              {item.reportName}SD卡SDK点击萨克担惊受恐极客时间打卡机山东矿机看
+              {item.reportName}
             </Text>
             <Text
               style={{
@@ -146,8 +151,8 @@ function Index (props) {
           <Image
             source={require('../../../asset/images/icon_arrow_right.png')}
             style={{
-              width: 14,
-              height: 24
+              width: 7,
+              height: 12
             }}
           />
 

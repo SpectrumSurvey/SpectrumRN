@@ -180,7 +180,11 @@ public class ProcessModule extends ReactContextBaseJavaModule {
                                 // 第三方应用
                                 info.putString("appName", appName);
 
-                                info.putString("package", applicationInfo.packageName);
+                                info.putString("package", stats.getPackageName());
+
+                                info.putInt("mLastTimeUsed", (int) stats.getLastTimeUsed());
+
+                                info.putInt("mTotalTimeInForeground", (int) stats.getTotalTimeInForeground());
 
                                 array.pushMap(info);
                             }
