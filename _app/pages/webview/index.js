@@ -5,7 +5,7 @@
  * @Email: middle2021@gmail.com
  */
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import Header from '../../components/header';
 import config from '../../../app.json';
@@ -29,15 +29,10 @@ function WebViewPage (props) {
         flex: 1,
       }}
     >
-      <Header
-        color={'#4E97FD'}
-        back={true}
-        backTitle={'我的报告'}
-        statusBarProps={{
-          barStyle: 'light-content',
-          translucent: true,
-          backgroundColor: '#4E97FD',
-        }}
+      <StatusBar
+        barStyle={'light-content'}
+        translucent={true}
+        backgroundColor={'#4E97FD'}
       />
       <WebView
         javaScriptEnabled={true}
@@ -45,6 +40,8 @@ function WebViewPage (props) {
         style={{
           flex: 1,
         }}
+        cacheEnabled={false}
+        incognito={true}
         source={{ uri: webUrl }}
       />
     </View>

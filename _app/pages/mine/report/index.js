@@ -62,6 +62,7 @@ function Index (props) {
         renderItem={renderItem}
         onRefresh={fetchData}
         refreshing={loading}
+        keyExtractor={(item) => `${item.userReportId}`}
         ListEmptyComponent={() => {
           return (
             <View
