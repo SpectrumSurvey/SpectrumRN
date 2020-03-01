@@ -129,8 +129,6 @@ function Index (props) {
                       flex: 1,
                       lineHeight: 26,
                     }}
-                    numberOfLines={2}
-                    ellipsizeMode={'tail'}
                   >
                     {
                       curItem?.subjectTypeName &&

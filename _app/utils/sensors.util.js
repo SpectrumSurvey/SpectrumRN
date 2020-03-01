@@ -11,6 +11,7 @@ import { Platform } from 'react-native';
 import { HTTP } from '../http';
 import ProcessUtil from './process.util';
 import { Modal } from '@ant-design/react-native';
+import { isLogin } from './record.util';
 
 export function getAccelerometer () {
   return new Promise((resolve, reject) => {
@@ -45,7 +46,9 @@ export function getSteps () {
 }
 
 export async function getRunningAppsInfo () {
-  console.log('getRunningAppsInfo');
+  if (!isLogin()) {
+    return
+  }
   if (Platform.OS === 'android') {
     // 获取进程信息
     try {

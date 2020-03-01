@@ -207,15 +207,6 @@ const model = {
 
         const { feedback, questionnaire } = data;
 
-        if (feedback) {
-          const { lastSubjectId } = feedback;
-          const lastIndex = _.findIndex(questionnaire.subjects, { subjectId: lastSubjectId });
-          yield put({
-            type: 'updateCurIndex',
-            payload: lastIndex + 1,
-          });
-        }
-
         yield put({
           type: 'updateInfo',
           payload: data,
@@ -224,6 +215,18 @@ const model = {
         yield put({
           type: 'updateSubjectStartTime',
         });
+
+        if (feedback) {
+          const { lastSubjectId } = feedback;
+          const lastIndex = _.findIndex(questionnaire.subjects, { subjectId: lastSubjectId });
+          if (lastIndex !== questionnaire.subjects.length - 1) {
+            // 最后一题未答完
+            yield put({
+              type: 'updateCurIndex',
+              payload: lastIndex + 1,
+            });
+          }
+        }
       },
       { take: 'Latest' },
     ],

@@ -187,10 +187,12 @@ function SingleModal (props) {
               onPress={() => {
                 setShow(false);
 
+                const _index = props.options.findIndex(v => v.optionId === select);
+
                 props.dispatch({
                   type: 'answer/updateOptionByDropDownSingle',
                   payload: {
-                    _index: props.options.findIndex(v => v.optionId === select),
+                    _index: _index === -1 ? 0 : _index,
                   },
                 });
               }}

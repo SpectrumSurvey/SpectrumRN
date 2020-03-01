@@ -113,8 +113,15 @@ function startInterval (intervalIds) {
   intervalIds.current.push(accelerometerId);
 }
 
+export function isLogin () {
+  return !!DvaInstance?.instance?._store?.getState()?.auth?.token
+}
+
 // 定位
 function _recordLocation () {
+  if (!isLogin()) {
+    return
+  }
   // 定位
   initAMap()
     .then(getLocation)
@@ -131,6 +138,9 @@ function _recordLocation () {
 }
 
 function _recordAccelerometer () {
+  if (!isLogin()) {
+    return
+  }
   getAccelerometer()
     .then(res => {
       const { x, y, z } = res;
@@ -146,6 +156,9 @@ function _recordAccelerometer () {
 }
 
 function _recordSteps () {
+  if (!isLogin()) {
+    return
+  }
   getSteps()
     .then(res => {
       // 上传到后台
