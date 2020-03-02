@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
+import { FlatList, Image, Platform, SafeAreaView, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import React from 'react';
 import Header from '../../components/header';
@@ -38,11 +38,13 @@ function Msg (props) {
               .then((res) => {
                 const [error, resp] = res;
                 if (!error) {
-                  // 所有重置为已读
-                  JPush.setBadge({
-                    badge: 0,
-                    appBadge: 0
-                  });
+                  if (Platform.OS === 'ios') {
+                    // 所有重置为已读
+                    JPush.setBadge({
+                      badge: 0,
+                      appBadge: 0
+                    });
+                  }
                   props
                     .dispatch({
                       type: 'msg/updateMsgRead',
