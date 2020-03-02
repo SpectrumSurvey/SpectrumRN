@@ -15,6 +15,7 @@ import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils'
 import { ApiService } from '../../http/APIService';
 import _ from 'lodash';
 import TouchComponent from '../../components/touch';
+import JPush from 'jpush-react-native';
 
 function Msg (props) {
 
@@ -38,6 +39,10 @@ function Msg (props) {
                 const [error, resp] = res;
                 if (!error) {
                   // 所有重置为已读
+                  JPush.setBadge({
+                    badge: 0,
+                    appBadge: 0
+                  });
                   props
                     .dispatch({
                       type: 'msg/updateMsgRead',
