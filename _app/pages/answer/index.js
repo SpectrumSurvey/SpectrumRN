@@ -457,10 +457,18 @@ function Index (props) {
                     SUBJECT_ENUM.DROPDOWN_MULTIPLE_CHOICE,
                     SUBJECT_ENUM.SCALE,
                   ].includes(curItem.subjectType)) {
-                  const noChecked = _.every(curItem.options, (v) => !v._checked);
-                  if (noChecked) {
+                  const checkedItem = _.find(curItem.options, (v) => v._checked);
+                  if (!checkedItem) {
                     showToast('请完成作答~');
                     return;
+                  }
+
+                  if  (checkedItem.filling) {
+                    // 有填空
+                    if (_.isEmpty(checkedItem.fillingValue)) {
+                      showToast('请完成填写~');
+                      return
+                    }
                   }
                 }
 

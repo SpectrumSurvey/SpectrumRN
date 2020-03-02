@@ -131,6 +131,11 @@ def getIncreasedVersionCode() {
     return (int) (System.currentTimeMillis() / (1000 * 60 * 60 * 24))
 }
 
+//按日期生成的包名
+def versionTag() {
+    return new Date().format("MMdd", TimeZone.getTimeZone("UTC"))
+}
+
 def getJPushAppKey() {
     def jsonFile = file('../../app.json')
     def parsedJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
@@ -151,7 +156,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode getIncreasedVersionCode()
-        versionName "1.0"
+        versionName getIncreasedVersionCode() + versionTag()
 
         multiDexEnabled true
 
