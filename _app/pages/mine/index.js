@@ -12,6 +12,8 @@ import { HeadLeftTitle } from '../../asset/styles/AppStyle';
 import { ListItem, Icon } from 'react-native-elements';
 import { elevationShadowStyle, handleCatch, px2dp } from '../../utils/utils';
 import { useFocusEffect } from '@react-navigation/native';
+import { Modal } from '@ant-design/react-native';
+import { goBack } from '../../utils/NavigationService';
 
 function Index (props) {
 
@@ -241,10 +243,17 @@ function Index (props) {
   );
 
   function logout () {
-    // 移除登录信息
-    props.dispatch({
-      type: 'auth/logOut',
-    });
+    // 退出确认
+    Modal.alert('提示', '确认退出答题吗？', [
+      { text: '取消', onPress: () => {}, style: 'cancel' },
+      {
+        text: '是的', onPress: () => {
+          // 移除登录信息
+          props.dispatch({
+            type: 'auth/logOut',
+          });
+        },
+      }]);
   }
 }
 

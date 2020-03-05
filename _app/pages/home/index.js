@@ -241,7 +241,7 @@ function Index (props) {
                   fontSize: 14,
                   color: isEnd ? '#999999' : '#1f1e1e',
                 }}>
-                {moment(item.sendTime).format('YYYY-MM-DD HH:mm:ss')}
+                {moment(isEnd ? item.completeTime : item.sendTime).format('YYYY-MM-DD HH:mm:ss')}
               </Text>
             </View>
           </View>

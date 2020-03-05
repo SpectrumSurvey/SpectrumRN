@@ -6,5 +6,10 @@
  */
 module.exports = {
   dependencies: {
+    '@ovalmoney/react-native-fitness': {
+      platforms: {
+        android: null,
+      },
+    },
   },
 };

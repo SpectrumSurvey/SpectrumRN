@@ -89,6 +89,21 @@ function Index (props) {
             </View>
           );
         }}
+        ListFooterComponent={() => {
+          if (!reports.length) {
+            return null;
+          }
+          return (
+            <Text
+              style={{
+                textAlign: 'center',
+                color: '#999999',
+              }}
+            >
+              没有更多了~
+            </Text>
+          );
+        }}
       />
     </View>
   );
