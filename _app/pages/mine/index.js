@@ -244,7 +244,7 @@ function Index (props) {
 
   function logout () {
     // 退出确认
-    Modal.alert('提示', '确认退出答题吗？', [
+    Modal.alert('', '确认退出答题吗？', [
       { text: '取消', onPress: () => {}, style: 'cancel' },
       {
         text: '是的', onPress: () => {

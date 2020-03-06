@@ -14,9 +14,10 @@ import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils'
 import { AsyncStorage } from '../../utils/storage';
 import RNExitApp from 'react-native-exit-app';
 import { WebView } from 'react-native-webview';
-import htmlStr from '../../utils/text.util';
+import htmlStr, { permissionHtml } from '../../utils/text.util';
 import { getBottomSpace, getStatusBarHeight } from '../../utils/iphonex.util';
 import TouchComponent from '../../components/touch';
+import { set } from 'react-native-reanimated';
 
 function Index (props) {
   const [code, setCode] = useState('');
@@ -24,14 +25,20 @@ function Index (props) {
   const [modalVisible, setVisible] = useState(false);
 
   const [permissionVisible, setPermissionVisible] = useState(false);
+  const [permissionVisible1, setPermissionVisible1] = useState(false);
 
   const [disabled, setDisabled] = useState(true);
+  const [disabled1, setDisabled1] = useState(true);
 
   useEffect(() => {
     if (permissionVisible) {
       setDisabled(true);
     }
-  }, [permissionVisible]);
+
+    if (permissionVisible1) {
+      setDisabled1(true)
+    }
+  }, [permissionVisible, permissionVisible1]);
 
   useEffect(() => {
     AsyncStorage
@@ -182,6 +189,9 @@ function Index (props) {
       {
         renderPermissionModal()
       }
+      {
+        renderUserPermissionModal()
+      }
     </View>
   );
 
@@ -223,6 +233,20 @@ function Index (props) {
                 《知情同意书》
               </Text>
             </TouchableWithoutFeedback>
+            及
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setPermissionVisible1(true);
+              }}
+            >
+              <Text
+                style={{
+                  color: 'blue',
+                }}
+              >
+                《用户隐私协议》
+              </Text>
+            </TouchableWithoutFeedback>
             中的所有条款。请您务必审慎阅读、充分理解
             <TouchableWithoutFeedback
               onPress={() => {
@@ -235,6 +259,20 @@ function Index (props) {
                 }}
               >
                 《知情同意书》
+              </Text>
+            </TouchableWithoutFeedback>
+            及
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setPermissionVisible1(true);
+              }}
+            >
+              <Text
+                style={{
+                  color: 'blue',
+                }}
+              >
+                《用户隐私协议》
               </Text>
             </TouchableWithoutFeedback>
             中的各条款内容。您同意并接受全部条款后再开始使用我们的服务。
@@ -287,6 +325,51 @@ function Index (props) {
               setPermissionVisible(false);
               // 设置为完成状态
               AsyncStorage.setItem('isRead', '1').catch(handleCatch);
+            }}
+          />
+        </View>
+      </NativeModal>
+    );
+  }
+
+  function renderUserPermissionModal () {
+
+    return (
+      <NativeModal
+        transparent={false}
+        animationType={'fade'}
+        visible={permissionVisible1}
+      >
+        <View
+          style={{
+            flex: 1,
+            paddingTop: Platform.OS === 'ios' ? getStatusBarHeight(true) : 0,
+            paddingBottom: Platform.OS === 'ios' ? getBottomSpace() : 0,
+          }}
+        >
+          <WebView
+            javaScriptEnabled={true}
+            scalesPageToFit={false}
+            style={{
+              flex: 1,
+            }}
+            onScroll={e => {
+              const offsetY = e.nativeEvent.contentOffset.y; //滑动距离
+              const contentSizeHeight = e.nativeEvent.contentSize.height; //scrollView contentSize高度
+              const oriageScrollHeight = e.nativeEvent.layoutMeasurement.height; //scrollView高度
+
+              if (parseInt(offsetY + oriageScrollHeight) >= parseInt(contentSizeHeight)) {
+                setDisabled1(false);
+              }
+
+            }}
+            source={{ html: permissionHtml }}
+          />
+          <Button
+            title={'完成'}
+            disabled={disabled1}
+            onPress={() => {
+              setPermissionVisible1(false);
             }}
           />
         </View>

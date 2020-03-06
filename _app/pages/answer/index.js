@@ -345,20 +345,24 @@ function Index (props) {
           flexShrink: 0,
         }}
       >
-        <Progress
-          percent={((curIndex + 1) / subjects?.length) * 100}
-          unfilled={true}
+        <View
           style={{
-            marginHorizontal: 10,
-            marginTop: 10,
             height: 7.5,
+            borderRadius: 7.5,
+            marginHorizontal: 15,
+            backgroundColor: '#e2ecff'
           }}
-          barStyle={{
-            borderRadius: 4,
-            height: '100%',
-            backgroundColor: '#e2ecff',
-          }}
-        />
+        >
+          <View
+            style={{
+              width: `${((curIndex + 1) / subjects?.length) * 100}%`,
+              height: '100%',
+              borderRadius: 7.5,
+              backgroundColor: '#4084FF'
+            }}
+          >
+          </View>
+        </View>
         <View
           style={{
             width: '100%',
@@ -381,6 +385,7 @@ function Index (props) {
                   title="上一题"
                   titleStyle={{
                     color: '#4084FF',
+                    fontSize: 15
                   }}
                   type="clear"
                   onPress={() => {
