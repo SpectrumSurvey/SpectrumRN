@@ -430,7 +430,7 @@ function Index (props) {
                   fontSize: 18,
                 }}
               >
-                {curIndex + 1}
+                {(curItem?.subjectType === SUBJECT_ENUM.GUIDE && curIndex !== 0) ? curIndex : curIndex + 1}
               </Text>
               <Text
                 style={{
@@ -439,7 +439,7 @@ function Index (props) {
                   paddingTop: 4,
                 }}
               >
-                /{subjects?.length}
+                /{subjects?.filter(v => v.subjectType !== SUBJECT_ENUM.GUIDE).length}
               </Text>
             </View>
 
