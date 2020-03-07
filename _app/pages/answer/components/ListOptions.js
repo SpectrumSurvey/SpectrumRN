@@ -66,12 +66,12 @@ function ListOptions (props) {
           <View
             style={{
               height: 50,
-              borderWidth: item._checked ? 0 : 0.5,
+              borderWidth: item._checked ? 0 : 1,
               borderColor: '#d7dce5',
               borderRadius: 8,
               paddingHorizontal: 15,
               justifyContent: 'center',
-              backgroundColor: item._checked ? '#54B982' : '#fff'
+              backgroundColor: item._checked ? '#54B982' : '#F8F8F8'
             }}
           >
             <Text

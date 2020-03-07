@@ -24,7 +24,7 @@ function AnswerInput (props) {
       <Image
         source={require('../../asset/images/icon_edit.png')}
         style={{
-          width: 15,
+          width: 16,
           height: 15,
         }}
       />
@@ -33,10 +33,11 @@ function AnswerInput (props) {
           flex: 1,
           fontSize: 15,
           marginLeft: 8,
+          color: '#333333'
         }}
         value={props.value}
         onChangeText={props.onChange}
-        placeholderTextColor={'#dfdfdf'}
+        placeholderTextColor={'#cbcdd0'}
         placeholder={props.placeholder}
         onSubmitEditing={() => {
           // 键盘隐藏
