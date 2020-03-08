@@ -42,6 +42,7 @@ function ScaleComponent (props) {
         }}
         data={props.options}
         renderItem={renderItem}
+        keyExtractor={((item, index) => `${index}`)}
       />
 
     </View>
@@ -96,7 +97,7 @@ function ScaleComponent (props) {
             <View
               style={{
                 height: 31.5,
-                width: 71,
+                width: 90,
                 marginLeft: 12,
                 alignItems: 'center',
                 justifyContent: 'center',

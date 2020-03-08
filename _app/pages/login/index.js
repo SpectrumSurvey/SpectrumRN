@@ -230,7 +230,7 @@ function Index (props) {
                   color: 'blue',
                 }}
               >
-                《知情同意书》
+                《用户隐私协议》
               </Text>
             </TouchableWithoutFeedback>
             及
@@ -244,38 +244,10 @@ function Index (props) {
                   color: 'blue',
                 }}
               >
-                《用户隐私协议》
-              </Text>
-            </TouchableWithoutFeedback>
-            中的所有条款。请您务必审慎阅读、充分理解
-            <TouchableWithoutFeedback
-              onPress={() => {
-                setPermissionVisible(true);
-              }}
-            >
-              <Text
-                style={{
-                  color: 'blue',
-                }}
-              >
                 《知情同意书》
               </Text>
             </TouchableWithoutFeedback>
-            及
-            <TouchableWithoutFeedback
-              onPress={() => {
-                setPermissionVisible1(true);
-              }}
-            >
-              <Text
-                style={{
-                  color: 'blue',
-                }}
-              >
-                《用户隐私协议》
-              </Text>
-            </TouchableWithoutFeedback>
-            中的各条款内容。您同意并接受全部条款后再开始使用我们的服务。
+            中的所有条款。请您务必审慎阅读、充分理解《知情同意书》及《用户隐私协议》中的各条款内容。您同意并接受全部条款后再开始使用我们的服务。
           </Text>
         </View>
       </AntdModal>

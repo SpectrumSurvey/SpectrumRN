@@ -56,7 +56,32 @@ function Index (props) {
         });
     };
   }, []);
+
   //
+
+  function showCurIndex () {
+    if (curIndex === 0) {
+      return 0;
+    }
+
+    if (_.isEmpty(subjects)) {
+      return 0;
+    } else {
+      const guideLength = subjects.filter((v, index) => v.subjectType === SUBJECT_ENUM.GUIDE && index <= curIndex).length;
+      return curIndex - guideLength;
+    }
+    // return curIndex;
+  }
+
+  function showTotalSubject () {
+    if (_.isEmpty(subjects)) {
+      return 0;
+    } else {
+      // 去除引导题数量
+      return subjects?.filter(v => v.subjectType !== SUBJECT_ENUM.GUIDE).length;
+    }
+    // return subjects.length
+  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -165,7 +190,7 @@ function Index (props) {
                 <TouchableWithoutFeedback
                   onPress={() => {
                     // 隐藏键盘
-                    Keyboard.dismiss()
+                    Keyboard.dismiss();
                   }}
                 >
                   <View
@@ -350,15 +375,15 @@ function Index (props) {
             height: 7.5,
             borderRadius: 7.5,
             marginHorizontal: 15,
-            backgroundColor: '#e2ecff'
+            backgroundColor: '#e2ecff',
           }}
         >
           <View
             style={{
-              width: `${((curIndex + 1) / subjects?.length) * 100}%`,
+              width: `${((showCurIndex() + 1) / showTotalSubject()) * 100}%`,
               height: '100%',
               borderRadius: 7.5,
-              backgroundColor: '#4084FF'
+              backgroundColor: '#4084FF',
             }}
           >
           </View>
@@ -378,46 +403,43 @@ function Index (props) {
               justifyContent: 'space-between',
             }}
           >
+            <Button
+              title="上一题"
+              titleStyle={{
+                color: '#4084FF',
+                fontSize: 15,
+              }}
+              buttonStyle={{
+                opacity: curIndex === 0 ? 0 : 1
+              }}
+              disabled={curIndex === 0}
+              type="clear"
+              onPress={() => {
+                if (!curIndex) {
+                  return;
+                }
 
-            {
-              curIndex !== 0 ? (
-                <Button
-                  title="上一题"
-                  titleStyle={{
-                    color: '#4084FF',
-                    fontSize: 15
-                  }}
-                  type="clear"
-                  onPress={() => {
-                    if (!curIndex) {
-                      return;
-                    }
+                if (subjects[curIndex - 1].subjectType === SUBJECT_ENUM.GUIDE) {
+                  // 上一题是引导题不请求，直接跳到上一题
+                  props.dispatch({
+                    type: 'answer/updateCurIndex',
+                    payload: curIndex - 1,
+                  });
+                  return;
+                }
 
-                    if (subjects[curIndex - 1].subjectType === SUBJECT_ENUM.GUIDE) {
-                      // 上一题是引导题不请求，直接跳到上一题
-                      props.dispatch({
-                        type: 'answer/updateCurIndex',
-                        payload: curIndex - 1,
-                      });
-                      return;
-                    }
-
-                    props
-                      .dispatch({
-                        type: 'answer/feedbackOptions',
-                        payload: {
-                          curItem: subjects[curIndex - 1],
-                          userQuestionnaireId,
-                          questionnaireId,
-                        },
-                      })
-                      .catch(handleCatch);
-                  }}
-                />
-              ) : (
-                <View/>
-              )
-            }
+                props
+                  .dispatch({
+                    type: 'answer/feedbackOptions',
+                    payload: {
+                      curItem: subjects[curIndex - 1],
+                      userQuestionnaireId,
+                      questionnaireId,
+                    },
+                  })
+                  .catch(handleCatch);
+              }}
+            />
 
             <View
               style={{
@@ -430,7 +452,7 @@ function Index (props) {
                   fontSize: 18,
                 }}
               >
-                {(curItem?.subjectType === SUBJECT_ENUM.GUIDE && curIndex !== 0) ? curIndex : curIndex + 1}
+                {showCurIndex() + 1}
               </Text>
               <Text
                 style={{
@@ -439,7 +461,7 @@ function Index (props) {
                   paddingTop: 4,
                 }}
               >
-                /{subjects?.filter(v => v.subjectType !== SUBJECT_ENUM.GUIDE).length}
+                /{showTotalSubject()}
               </Text>
             </View>
 
@@ -468,11 +490,11 @@ function Index (props) {
                     return;
                   }
 
-                  if  (checkedItem.filling) {
+                  if (checkedItem.filling) {
                     // 有填空
                     if (_.isEmpty(checkedItem.fillingValue)) {
                       showToast('请完成填写~');
-                      return
+                      return;
                     }
                   }
                 }

@@ -88,10 +88,6 @@ function Msg (props) {
         }}
       >
         <FlatList
-          style={{
-            marginBottom: 14,
-            marginTop: 14,
-          }}
           data={list}
           refreshing={loading}
           renderItem={renderItem}
@@ -134,6 +130,7 @@ function Msg (props) {
                 style={{
                   textAlign: 'center',
                   color: '#999999',
+                  marginBottom: 14,
                 }}
               >
                 没有更多了~
@@ -145,7 +142,7 @@ function Msg (props) {
     </View>
   );
 
-  function renderItem ({ item }) {
+  function renderItem ({ item, index }) {
     return (
       <TouchComponent
         onPress={() => {
@@ -173,6 +170,7 @@ function Msg (props) {
             paddingHorizontal: 11,
             paddingTop: 17,
             paddingBottom: 16,
+            marginTop: index === 0 ? 14 : 0,
             ...elevationShadowStyle(3),
           }}
         >

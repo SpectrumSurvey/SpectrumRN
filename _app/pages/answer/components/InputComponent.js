@@ -18,7 +18,6 @@ function InputComponent (props) {
         paddingHorizontal: 20,
       }}
     >
-
       <AnswerInput
         value={props.options[0].optionKey}
         placeholder={'请输入'}

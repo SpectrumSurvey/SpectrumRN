@@ -127,21 +127,10 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
-def getIncreasedVersionCode() {
-    return (int) (System.currentTimeMillis() / (1000 * 60 * 60 * 24))
-}
+def jsonFile = file('../../app.json')
+def configJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
 
-//按日期生成的包名
-def versionTag() {
-    return new Date().format("MMdd", TimeZone.getTimeZone("UTC"))
-}
-
-def getJPushAppKey() {
-    def jsonFile = file('../../app.json')
-    def parsedJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
-    return parsedJson.JPushAppKey
-}
-
+println(configJson)
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -155,8 +144,8 @@ android {
         applicationId "com.dg.wenjuan.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode getIncreasedVersionCode()
-        versionName getIncreasedVersionCode() + versionTag()
+        versionCode configJson.appVersion
+        versionName configJson.appVersionName
 
         multiDexEnabled true
 
@@ -165,7 +154,7 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_APPKEY : getJPushAppKey(),         //在此替换你的APPKey
+                JPUSH_APPKEY : configJson.JPushAppKey,         //在此替换你的APPKey
                 JPUSH_CHANNEL: "default"                 //在此替换你的channel
         ]
     }
