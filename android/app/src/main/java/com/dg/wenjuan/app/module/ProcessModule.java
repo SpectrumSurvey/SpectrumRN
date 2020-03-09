@@ -70,11 +70,11 @@ public class ProcessModule extends ReactContextBaseJavaModule {
 
                             if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) <= 0) {
                                 // 第三方应用
-                                _info.putString("appName", appName);
+                                _info.putString("processName", appName);
 
-                                _info.putString("package", applicationInfo.packageName);
+                                _info.putString("packageName", applicationInfo.packageName);
 
-                                _info.putString("processName", processName);
+                                _info.putString("appName", processName);
 
                                 array.pushMap(_info);
                             }
@@ -178,13 +178,13 @@ public class ProcessModule extends ReactContextBaseJavaModule {
 
                             if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) <= 0) {
                                 // 第三方应用
-                                info.putString("appName", appName);
+                                info.putString("processName", appName);
 
-                                info.putString("package", stats.getPackageName());
+                                info.putString("packageName", stats.getPackageName());
 
-                                info.putInt("mLastTimeUsed", (int) stats.getLastTimeUsed());
+                                info.putInt("lastTimeUsed", (int) stats.getLastTimeUsed());
 
-                                info.putInt("mTotalTimeInForeground", (int) stats.getTotalTimeInForeground());
+                                info.putInt("totalTimeForeground", (int) stats.getTotalTimeInForeground());
 
                                 array.pushMap(info);
                             }

@@ -29,6 +29,11 @@ function Msg (props) {
             const _msgList = await fetchData();
 
             if (_.isEmpty(_msgList)) {
+              // 所有重置为已读
+              JPush.setBadge({
+                badge: 0,
+                appBadge: 0
+              });
               return;
             }
             // 重置为已读

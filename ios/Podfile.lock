@@ -196,7 +196,7 @@ PODS:
     - React
   - react-native-background-timer (2.1.1):
     - React
-  - react-native-fitness (0.2.4):
+  - react-native-fitness (0.3.0):
     - React
   - react-native-safe-area-context (0.6.2):
     - React
@@ -266,6 +266,7 @@ PODS:
   - Yoga (1.14.0)
 
 DEPENDENCIES:
+  - boost-for-react-native (from `https://gitee.com/damon-s/boost-for-react-native.git`)
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -315,14 +316,14 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - boost-for-react-native
   trunk:
     - AMapFoundation
     - AMapLocation
     - Sentry
 
 EXTERNAL SOURCES:
+  boost-for-react-native:
+    :git: https://gitee.com/damon-s/boost-for-react-native.git
   BVLinearGradient:
     :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
@@ -412,6 +413,11 @@ EXTERNAL SOURCES:
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
+CHECKOUT OPTIONS:
+  boost-for-react-native:
+    :commit: 6bbccdd8146ffb75e1ae5e92472f7affb3375c1c
+    :git: https://gitee.com/damon-s/boost-for-react-native.git
+
 SPEC CHECKSUMS:
   AMapFoundation: 672dc3a4759cb733f447c1e1b020f7ba2729f4ab
   AMapLocation: b4162db67f813508a14ee7e05c7ee4073785221d
@@ -435,7 +441,7 @@ SPEC CHECKSUMS:
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
   react-native-amap-geolocation: 0c548f405f2150e4c0304027a674a04c448b1689
   react-native-background-timer: 1b6e6b4e10f1b74c367a1fdc3c72b67c619b222b
-  react-native-fitness: 62684c849e280c521da4cb1e70d8ef02837521a1
+  react-native-fitness: 888ce4bc82128f0eb7b5fb880351e6dffb3bcc44
   react-native-safe-area-context: 25260c5d0b9c53fd7aa88e569e2edae72af1f6a3
   react-native-version-number: b415bbec6a13f2df62bf978e85bc0d699462f37f
   react-native-webview: e32e5ced4c99d7240362690a65e3467d7ef535ef
@@ -462,6 +468,6 @@ SPEC CHECKSUMS:
   Sentry: 14bdd673870e8cf64932b149fad5bbbf39a9b390
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 28321e740adaa92c9a14619773c49f64944dc1e5
+PODFILE CHECKSUM: 407706ebc38592b26cc48167a84568731238abde
 
 COCOAPODS: 1.8.4

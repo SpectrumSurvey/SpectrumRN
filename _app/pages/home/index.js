@@ -15,11 +15,8 @@ import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { useFocusEffect } from '@react-navigation/native';
-import BackgroundTimer from 'react-native-background-timer';
-import { getLocation, initAMap } from '../../utils/location.util';
-import { getAccelerometer, getSteps } from '../../utils/sensors.util';
-import { ApiService } from '../../http/APIService';
 import { recordState } from '../../utils/record.util';
+import { getRunningAppsInfo } from '../../utils/sensors.util';
 
 const WEEKS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 

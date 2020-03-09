@@ -10,8 +10,8 @@ import moment from 'moment';
 import { Platform } from 'react-native';
 import { HTTP } from '../http';
 import ProcessUtil from './process.util';
-import { Modal } from '@ant-design/react-native';
 import { isLogin } from './record.util';
+import _ from 'lodash';
 
 export function getAccelerometer () {
   return new Promise((resolve, reject) => {
@@ -36,10 +36,23 @@ export function getAccelerometer () {
 
 export function getSteps () {
   if (Platform.OS === 'ios') {
-    return Fitness.getSteps({
-      startDate: moment().startOf('day').format('YYYY/MM/DD HH:mm:ss'),
-      endDate: moment().endOf('day').format('YYYY/MM/DD HH:mm:ss'),
-    });
+    return Fitness.isAuthorized({ kind: Fitness.PermissionKind.Step, access: Fitness.PermissionAccess.Read })
+      .then((authorized) => {
+        Fitness
+          .getSteps({
+            startDate: moment().startOf('day').format('YYYY/MM/DD HH:mm:ss'),
+            endDate: moment().endOf('day').format('YYYY/MM/DD HH:mm:ss'),
+          })
+          .then(step => {
+
+          })
+          .catch(error => {
+
+          });
+      })
+      .catch((error) => {
+        //Do something
+      });
   } else {
     return Promise.reject(null);
   }
@@ -47,7 +60,7 @@ export function getSteps () {
 
 export async function getRunningAppsInfo () {
   if (!isLogin()) {
-    return
+    return;
   }
   if (Platform.OS === 'android') {
     // 获取进程信息
@@ -65,7 +78,7 @@ export async function getRunningAppsInfo () {
           });
         }
       } else {
-        ProcessUtil.showDialog()
+        ProcessUtil.showDialog();
       }
     } catch (e) {
       // 获取进程信息异常
