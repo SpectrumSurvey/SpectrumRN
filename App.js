@@ -39,6 +39,7 @@ import { getBottomSpace } from './_app/utils/iphonex.util';
 import { Badge } from 'react-native-elements';
 import ProcessUtil from './_app/utils/process.util';
 import WebViewPage from './_app/pages/webview';
+import Fitness from '@ovalmoney/react-native-fitness';
 
 if (!__DEV__) {
   Sentry.init({
@@ -284,10 +285,16 @@ const App: () => React$Node = () => {
         .then(granted => {
           if (!granted) {
             // 弹窗
-            ProcessUtil.showDialog()
+            ProcessUtil.showDialog();
           }
         })
         .catch(() => {});
+    } else {
+      // ios 请求health 步数数据
+      Fitness
+        .requestPermissions([{ kind: Fitness.PermissionKind.Steps, access: Fitness.PermissionAccess.Read }])
+        .then(r => {})
+        .catch(e => {});
     }
 
     store.dispatch({
