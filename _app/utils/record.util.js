@@ -114,13 +114,13 @@ function startInterval (intervalIds) {
 }
 
 export function isLogin () {
-  return !!DvaInstance?.instance?._store?.getState()?.auth?.token
+  return !!DvaInstance?.instance?._store?.getState()?.auth?.token;
 }
 
 // 定位
 function _recordLocation () {
   if (!isLogin()) {
-    return
+    return;
   }
   // 定位
   initAMap()
@@ -139,16 +139,19 @@ function _recordLocation () {
 
 function _recordAccelerometer () {
   if (!isLogin()) {
-    return
+    return;
   }
   getAccelerometer()
     .then(res => {
       const { x, y, z } = res;
       // 提交到后台
-      HTTP.post('/app-user-terminal-record/reported', {
-        x, y, z,
-        $skipLoading: true,
-      });
+      HTTP
+        .post('/app-user-terminal-record/reported', {
+          x, y, z,
+          $skipLoading: true,
+        })
+        .then(r => {})
+        .catch(e => {});
     })
     .catch(e => {
 
@@ -157,7 +160,7 @@ function _recordAccelerometer () {
 
 function _recordSteps () {
   if (!isLogin()) {
-    return
+    return;
   }
   getSteps()
     .then(res => {

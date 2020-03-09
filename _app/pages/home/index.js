@@ -9,14 +9,12 @@ import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import moment from 'moment';
-import { useAppState } from '../../utils/hooks.utils';
 import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { useFocusEffect } from '@react-navigation/native';
 import { recordState } from '../../utils/record.util';
-import { getRunningAppsInfo } from '../../utils/sensors.util';
 
 const WEEKS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 

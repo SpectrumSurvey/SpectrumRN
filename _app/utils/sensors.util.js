@@ -34,25 +34,28 @@ export function getAccelerometer () {
   });
 }
 
-export function getSteps () {
+export async function getSteps () {
   if (Platform.OS === 'ios') {
-    return Fitness.isAuthorized({ kind: Fitness.PermissionKind.Step, access: Fitness.PermissionAccess.Read })
-      .then((authorized) => {
-        Fitness
-          .getSteps({
-            startDate: moment().startOf('day').format('YYYY/MM/DD HH:mm:ss'),
-            endDate: moment().endOf('day').format('YYYY/MM/DD HH:mm:ss'),
-          })
-          .then(step => {
-
-          })
-          .catch(error => {
-
-          });
-      })
-      .catch((error) => {
-        //Do something
+    try {
+      await Fitness.requestPermissions([{ kind: Fitness.PermissionKind.Steps, access: Fitness.PermissionAccess.Read }]);
+      await Fitness.isAuthorized([{ kind: Fitness.PermissionKind.Steps, access: Fitness.PermissionAccess.Read }]);
+      const steps = await Fitness.getSteps({
+        startDate: moment().startOf('day').format('YYYY-MM-DD HH:mm:ss'),
+        endDate: moment().endOf('day').format('YYYY-MM-DD HH:mm:ss'),
       });
+      if (!_.isEmpty(steps)) {
+        // 步数不为空
+        const { quantity, startDate, endDate } = steps[0];
+
+        await HTTP.post('/app-user-pedometer/reported', {
+          pedometer: quantity,
+          $skipLoading: true,
+        });
+
+      }
+    } catch (e) {
+      console.warn(e);
+    }
   } else {
     return Promise.reject(null);
   }
