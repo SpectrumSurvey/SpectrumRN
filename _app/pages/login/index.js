@@ -25,20 +25,14 @@ function Index (props) {
   const [modalVisible, setVisible] = useState(false);
 
   const [permissionVisible, setPermissionVisible] = useState(false);
-  const [permissionVisible1, setPermissionVisible1] = useState(false);
 
   const [disabled, setDisabled] = useState(true);
-  const [disabled1, setDisabled1] = useState(true);
 
   useEffect(() => {
     if (permissionVisible) {
       setDisabled(true);
     }
-
-    if (permissionVisible1) {
-      setDisabled1(true)
-    }
-  }, [permissionVisible, permissionVisible1]);
+  }, [permissionVisible]);
 
   useEffect(() => {
     AsyncStorage
@@ -222,7 +216,7 @@ function Index (props) {
             &emsp;&emsp;欢迎您使用张江国际脑库App！在您使用我们的服务前，请您阅读
             <TouchableWithoutFeedback
               onPress={() => {
-                setPermissionVisible1(true);
+                setPermissionVisible(true);
               }}
             >
               <Text
@@ -283,51 +277,6 @@ function Index (props) {
               setPermissionVisible(false);
               // 设置为完成状态
               AsyncStorage.setItem('isRead', '1').catch(handleCatch);
-            }}
-          />
-        </View>
-      </NativeModal>
-    );
-  }
-
-  function renderUserPermissionModal () {
-
-    return (
-      <NativeModal
-        transparent={false}
-        animationType={'fade'}
-        visible={permissionVisible1}
-      >
-        <View
-          style={{
-            flex: 1,
-            paddingTop: Platform.OS === 'ios' ? getStatusBarHeight(true) : 0,
-            paddingBottom: Platform.OS === 'ios' ? getBottomSpace() : 0,
-          }}
-        >
-          <WebView
-            javaScriptEnabled={true}
-            scalesPageToFit={false}
-            style={{
-              flex: 1,
-            }}
-            onScroll={e => {
-              const offsetY = e.nativeEvent.contentOffset.y; //滑动距离
-              const contentSizeHeight = e.nativeEvent.contentSize.height; //scrollView contentSize高度
-              const oriageScrollHeight = e.nativeEvent.layoutMeasurement.height; //scrollView高度
-
-              if (parseInt(offsetY + oriageScrollHeight) >= parseInt(contentSizeHeight)) {
-                setDisabled1(false);
-              }
-
-            }}
-            source={{ html: permissionHtml }}
-          />
-          <Button
-            title={'完成'}
-            disabled={disabled1}
-            onPress={() => {
-              setPermissionVisible1(false);
             }}
           />
         </View>

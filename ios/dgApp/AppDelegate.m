@@ -6,6 +6,7 @@
  */
 
 #import "AppDelegate.h"
+#import "Container+SentryDeepSearch.h"
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
