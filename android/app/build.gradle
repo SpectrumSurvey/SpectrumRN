@@ -133,6 +133,7 @@ def configJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
 println(configJson)
 
 android {
+    ndkVersion '21.0.6113669'
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     compileOptions {
