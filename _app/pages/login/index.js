@@ -14,10 +14,9 @@ import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils'
 import { AsyncStorage } from '../../utils/storage';
 import RNExitApp from 'react-native-exit-app';
 import { WebView } from 'react-native-webview';
-import htmlStr, { permissionHtml } from '../../utils/text.util';
+import htmlStr from '../../utils/text.util';
 import { getBottomSpace, getStatusBarHeight } from '../../utils/iphonex.util';
 import TouchComponent from '../../components/touch';
-import { set } from 'react-native-reanimated';
 
 function Index (props) {
   const [code, setCode] = useState('');
@@ -260,12 +259,9 @@ function Index (props) {
               const contentSizeHeight = e.nativeEvent.contentSize.height; //scrollView contentSize高度
               const oriageScrollHeight = e.nativeEvent.layoutMeasurement.height; //scrollView高度
 
-              if (parseInt(offsetY + oriageScrollHeight) >= parseInt(contentSizeHeight)) {
+              if (parseInt(offsetY + oriageScrollHeight * 1.1) >= parseInt(contentSizeHeight)) {
                 setDisabled(false);
-              } else {
-                // setDisabled(true);
               }
-
             }}
             source={{ html: htmlStr }}
           />
