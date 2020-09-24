@@ -23,7 +23,7 @@ platform :ios do
       password: "2018"
     )
     build_app(
-      scheme: "i点集",
+      scheme: "dgApp",
       export_method: "ad-hoc",
       codesigning_identity: "iPhone Distribution: Fortune Network"
     )
