@@ -18,8 +18,12 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
   lane :ad_hoc do
+    unlock_keychain(
+      path: "/Users/blade/Library/Keychains/login.keychain-db",
+      password: "2018"
+    )
     build_app(
-      scheme: "dgApp",
+      scheme: "i点集",
       export_method: "ad-hoc",
       codesigning_identity: "iPhone Distribution: Fortune Network"
     )
