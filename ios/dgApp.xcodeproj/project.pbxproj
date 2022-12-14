@@ -305,8 +305,8 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = GVWBSMDMT2;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = PZPSNN4SR2;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -711,11 +711,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = dgApp/dgApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = GVWBSMDMT2;
+				DEVELOPMENT_TEAM = PZPSNN4SR2;
 				INFOPLIST_FILE = dgApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 13.0310;
@@ -726,7 +726,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.wenjuan.app;
 				PRODUCT_NAME = "i点集";
-				PROVISIONING_PROFILE_SPECIFIER = "dg-adhoc";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -737,10 +737,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = dgApp/dgApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = GVWBSMDMT2;
+				DEVELOPMENT_TEAM = PZPSNN4SR2;
 				INFOPLIST_FILE = dgApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 13.0310;
@@ -751,7 +751,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.wenjuan.app;
 				PRODUCT_NAME = "i点集";
-				PROVISIONING_PROFILE_SPECIFIER = "dg-adhoc";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

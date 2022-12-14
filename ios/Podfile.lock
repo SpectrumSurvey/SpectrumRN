@@ -266,7 +266,7 @@ PODS:
   - Yoga (1.14.0)
 
 DEPENDENCIES:
-  - boost-for-react-native (from `https://gitee.com/damon-s/boost-for-react-native.git`)
+  - boost-for-react-native (from `https://gitee.com/r4ggj/boost-for-react-native`)
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -323,7 +323,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   boost-for-react-native:
-    :git: https://gitee.com/damon-s/boost-for-react-native.git
+    :git: https://gitee.com/r4ggj/boost-for-react-native
   BVLinearGradient:
     :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
@@ -416,7 +416,7 @@ EXTERNAL SOURCES:
 CHECKOUT OPTIONS:
   boost-for-react-native:
     :commit: 6bbccdd8146ffb75e1ae5e92472f7affb3375c1c
-    :git: https://gitee.com/damon-s/boost-for-react-native.git
+    :git: https://gitee.com/r4ggj/boost-for-react-native
 
 SPEC CHECKSUMS:
   AMapFoundation: 672dc3a4759cb733f447c1e1b020f7ba2729f4ab
@@ -468,6 +468,6 @@ SPEC CHECKSUMS:
   Sentry: 14bdd673870e8cf64932b149fad5bbbf39a9b390
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 407706ebc38592b26cc48167a84568731238abde
+PODFILE CHECKSUM: 7b84210296202ea26da4930dda44440bbdda9935
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.11.3
