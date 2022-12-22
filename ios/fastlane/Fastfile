@@ -35,4 +35,9 @@ platform :ios do
       output_directory: "build"
     )
   end
+
+  lane :sync_devices do
+    register_devices(devices_file: "./fastlane/devices.txt")
+    match(type: "adhoc", force_for_new_devices: true)
+  end
 end
