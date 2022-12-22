@@ -82,7 +82,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
-apply from: "../../node_modules/@sentry/react-native/sentry.gradle"
+//apply from: "../../node_modules/@sentry/react-native/sentry.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -217,7 +217,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.facebook.react:react-native:0.61.5"  // From node_modules
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
     implementation project(':jcore-react-native')
