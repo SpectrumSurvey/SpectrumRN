@@ -414,7 +414,7 @@ function Index (props) {
               }}
               disabled={curIndex === 0}
               type="clear"
-              onPress={() => {
+              onPress={async () => {
                 if (!curIndex) {
                   return;
                 }
@@ -427,6 +427,66 @@ function Index (props) {
                   });
                   return;
                 }
+
+
+                 // 处理跳转逻辑，如果当前题目被其他题目关联，则需要处理跳转逻辑
+                  // 1. 判断当前题目是否是某一个题目A的关联题目
+                  // 2. 判断 题目A选中的选项就是 logic里面的选项，如果是无条件跳转，则直接到对应题目
+                  // 3. 如果是，则计算题目A的索引
+
+                  if (_.isArray(logicList) && logicList.length > 0) {
+                    // 当前题目被关联的逻辑
+                    const curLogic = logicList.find(
+                      item =>
+                        item.logicSubjectIdentifier === curItem.identifier,
+                    );
+
+                    if (curLogic) {
+                      // if (curLogic.logicType === 2) {
+                      //   // 选项关联
+
+                      //   // 查找对应题目的关联选项是否和答案是一致
+
+                      // } else if (curLogic.logicType === 3) {
+                      //   // 题目关联
+                      // } else if (curLogic.logicType === 4) {
+
+                      // } else {
+                      //   console.log("logicType illegal");
+                      // }
+
+                      const [err, data] = await ApiService.preSubject({
+                        questionnaireId,
+                        subjectId: curItem.subjectId,
+                        userQuestionnaireId,
+                      });
+
+                      if (!err) {
+                        // 根据上一道题目的id，计算在当前题目列表里的索引
+                        const preSubjectIndex = subjects.findIndex(
+                          item => item.subjectId == data,
+                        );
+
+                        props
+                          .dispatch({
+                            type: 'answer/preFeedbackOptions',
+                            payload: {
+                              curItem: subjects[preSubjectIndex], // 加1是因为在里面会减1
+                              userQuestionnaireId,
+                              questionnaireId,
+                            },
+                          })
+                          .catch(handleCatch);
+
+                        props.dispatch({
+                          type: 'answer/updateCurIndex',
+                          payload: preSubjectIndex,
+                        });
+
+                        return;
+                      }
+                    }
+                  }
 
                 props
                   .dispatch({
@@ -594,9 +654,60 @@ function Index (props) {
           // 最后一题
         } else {
           // 下一题
+
+          /**
+           * 计算下一题的index
+           * 0. 如果是单选题
+           * 1. 判断当前题目是否有相关的逻辑配置,检查logicList字段
+           * 2. 如果有判断逻辑配置的类型，根据选项跳转到其他题目或，跳转结束
+           * 3. 如果没有，则按照原来逻辑执行
+           */
+          if (
+            curItem.subjectType === SUBJECT_ENUM.SINGLE_CHOICE ||
+            curItem.subjectType === SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE
+          ) {
+            const curLogic = logicList.find(
+              item => item.subjectIdentifier === curItem.identifier,
+            );
+
+            // 存在逻辑配置，判断逻辑类型
+            if (curLogic) {
+              // 选中的选项
+              const selectOption = curItem.options.find(
+                item => item._checked === true,
+              );
+
+              if (
+                curLogic.logicType === 2 &&
+                curLogic.optionIdentifier === selectOption.identifier
+              ) {
+                // 选项跳转到指定题目
+                // 获取对应的index
+                desIndex = subjects.findIndex(
+                  item => item.identifier === curLogic.logicSubjectIdentifier,
+                );
+              } else if (curLogic.logicType === 3) {
+                // 无条件跳转到指定题目
+                desIndex = subjects.findIndex(
+                  item => item.identifier === curLogic.logicSubjectIdentifier,
+                );
+              } else if (
+                curLogic.logicType === 4 &&
+                curLogic.optionIdentifier === selectOption.identifier
+              ) {
+                // 选项跳转结束
+                desIndex = subjects.length - 1;
+              }
+            } else {
+              desIndex = curIndex + 1;
+            }
+          } else {
+            desIndex = curIndex + 1;
+          }
+
           props.dispatch({
             type: 'answer/updateCurIndex',
-            payload: curIndex + 1,
+            payload: desIndex,
           });
         }
         return res;

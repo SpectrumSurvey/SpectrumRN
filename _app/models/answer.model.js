@@ -266,6 +266,41 @@ const model = {
       { take: 'Latest' },
     ],
 
+
+    preFeedbackOptions: [
+      function*({payload}, {call, put, select}) {
+        /*eslint prettier/prettier:0*/
+        const {curItem, userQuestionnaireId, questionnaireId} = payload;
+
+        const params = {
+          userQuestionnaireId,
+          questionnaireId,
+          subjectId: curItem.subjectId,
+        };
+
+        const [error, data] = yield call(ApiService.feedbackOptions, params);
+        if (error) {
+          return Promise.reject(error);
+        }
+
+        const curIndex = yield select(state => state.answer.curIndex);
+
+        yield put({
+          type: 'updateOptionsByFeedBack',
+          payload: {
+            data,
+            subjectType: curItem?.subjectType,
+          },
+        });
+
+        yield put({
+          type: 'updateCurIndex',
+          payload: curIndex,
+        });
+      },
+      {take: 'Latest'},
+    ],
+
     answer: [
       function * ({ payload }, { call, select }) {
         /*eslint prettier/prettier:0*/
