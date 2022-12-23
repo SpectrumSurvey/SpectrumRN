@@ -1,2 +1,3 @@
 Device ID	Device Name	Device Platform
-00008030-0012602C2278802E	dylan	ios
+00008030-0012602C2278802E   dylan   ios
+00008030-0006311A0A2A802E   anqi    ios
