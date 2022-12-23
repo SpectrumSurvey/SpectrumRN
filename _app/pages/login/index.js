@@ -4,21 +4,29 @@
  * @Date: 2020/1/5 17:15
  * @Email: middle2021@gmail.com
  */
-import React, { useEffect, useState } from 'react';
-import { Image, Clipboard, Text, TouchableWithoutFeedback, View, Modal as NativeModal, Platform } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  Image,
+  Clipboard,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  Modal as NativeModal,
+  Platform,
+} from 'react-native';
 import Header from '../../components/header';
-import { Input, Button } from 'react-native-elements';
-import { Modal as AntdModal } from '@ant-design/react-native';
-import { connect } from 'react-redux';
-import { elevationShadowStyle, handleCatch, showToast } from '../../utils/utils';
-import { AsyncStorage } from '../../utils/storage';
+import {Input, Button} from 'react-native-elements';
+import {Modal as AntdModal} from '@ant-design/react-native';
+import {connect} from 'react-redux';
+import {elevationShadowStyle, handleCatch, showToast} from '../../utils/utils';
+import {AsyncStorage} from '../../utils/storage';
 import RNExitApp from 'react-native-exit-app';
-import { WebView } from 'react-native-webview';
+import {WebView} from 'react-native-webview';
 import htmlStr from '../../utils/text.util';
-import { getBottomSpace, getStatusBarHeight } from '../../utils/iphonex.util';
+import {getBottomSpace, getStatusBarHeight} from '../../utils/iphonex.util';
 import TouchComponent from '../../components/touch';
 
-function Index (props) {
+function Index(props) {
   const [code, setCode] = useState('');
 
   const [modalVisible, setVisible] = useState(false);
@@ -34,8 +42,7 @@ function Index (props) {
   }, [permissionVisible]);
 
   useEffect(() => {
-    AsyncStorage
-      .getItem('isRead')
+    AsyncStorage.getItem('isRead')
       .then(res => {
         if (!res) {
           setVisible(true);
@@ -62,27 +69,23 @@ function Index (props) {
         style={{
           flex: 1,
         }}>
-
         <View
           style={{
             alignItems: 'center',
             marginBottom: 108,
-          }}
-        >
+          }}>
           <Text
             style={{
               fontSize: 22.5,
               color: '#000000',
-            }}
-          >
+            }}>
             <Text
               style={{
                 fontSize: 27.5,
                 color: '#000000',
                 textAlign: 'left',
                 width: '100%',
-              }}
-            >
+              }}>
               Hi~{'\n'}
             </Text>
             欢迎加入我们的调查
@@ -105,7 +108,7 @@ function Index (props) {
               color: '#333333',
             }}
             placeholderTextColor={'#d4d4d4'}
-            leftIcon={(
+            leftIcon={
               <Image
                 style={{
                   width: 20,
@@ -113,7 +116,7 @@ function Index (props) {
                 }}
                 source={require('../../asset/images/icon_login_input.png')}
               />
-            )}
+            }
             leftIconContainerStyle={{
               marginLeft: 0,
               marginRight: 8,
@@ -121,10 +124,7 @@ function Index (props) {
             onChangeText={onInput}
           />
 
-          <TouchComponent
-            onPress={go}
-            disabled={!code.length}
-          >
+          <TouchComponent onPress={go} disabled={!code.length}>
             <View
               style={{
                 height: 47,
@@ -133,35 +133,28 @@ function Index (props) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 ...elevationShadowStyle(5),
-              }}
-            >
+              }}>
               <Text
                 style={{
                   color: '#fefefe',
                   fontSize: 17,
-                }}
-              >
+                }}>
                 登录
               </Text>
             </View>
           </TouchComponent>
-
         </View>
 
         <View
           style={{
             alignItems: 'center',
-          }}
-        >
-          <TouchableWithoutFeedback
-            onPress={showDialog}
-          >
+          }}>
+          <TouchableWithoutFeedback onPress={showDialog}>
             <Text
               style={{
                 marginBottom: 16,
                 color: '#4F97FD',
-              }}
-            >
+              }}>
               登录遇到问题？
             </Text>
           </TouchableWithoutFeedback>
@@ -173,22 +166,17 @@ function Index (props) {
             }}
             source={require('../../asset/images/icon_login_bottom.png')}
           />
-
         </View>
       </View>
-      {
-        modalVisible && renderModal()
-      }
-      {
-        renderPermissionModal()
-      }
+      {modalVisible && renderModal()}
+      {renderPermissionModal()}
       {
         // renderUserPermissionModal()
       }
     </View>
   );
 
-  function renderModal () {
+  function renderModal() {
     return (
       <AntdModal
         visible={true}
@@ -196,33 +184,29 @@ function Index (props) {
           marginTop: 12,
         }}
         footer={[
-          { text: '不同意', onPress: () => RNExitApp.exitApp() },
-          { text: '同意并继续', onPress: () => setPermissionVisible(true) },
+          {text: '不同意', onPress: () => RNExitApp.exitApp()},
+          {text: '同意并继续', onPress: () => setPermissionVisible(true)},
         ]}
         title={'温馨提示'}
         maskClosable={false}
         closable={false}
         transparent
-        onClose={() => {}}
-      >
+        onClose={() => {}}>
         <View>
           <Text
             style={{
               lineHeight: 28,
               fontSize: 16,
-            }}
-          >
+            }}>
             &emsp;&emsp;欢迎您使用张江国际脑库App！在您使用我们的服务前，请您阅读
             <TouchableWithoutFeedback
               onPress={() => {
                 setPermissionVisible(true);
-              }}
-            >
+              }}>
               <Text
                 style={{
                   color: 'blue',
-                }}
-              >
+                }}>
                 《知情同意书》
               </Text>
             </TouchableWithoutFeedback>
@@ -233,21 +217,18 @@ function Index (props) {
     );
   }
 
-  function renderPermissionModal () {
-
+  function renderPermissionModal() {
     return (
       <NativeModal
         transparent={false}
         animationType={'fade'}
-        visible={permissionVisible}
-      >
+        visible={permissionVisible}>
         <View
           style={{
             flex: 1,
             paddingTop: Platform.OS === 'ios' ? getStatusBarHeight(true) : 0,
             paddingBottom: Platform.OS === 'ios' ? getBottomSpace() : 0,
-          }}
-        >
+          }}>
           <WebView
             javaScriptEnabled={true}
             scalesPageToFit={false}
@@ -259,11 +240,14 @@ function Index (props) {
               const contentSizeHeight = e.nativeEvent.contentSize.height; //scrollView contentSize高度
               const oriageScrollHeight = e.nativeEvent.layoutMeasurement.height; //scrollView高度
 
-              if (parseInt(offsetY + oriageScrollHeight * 1.1) >= parseInt(contentSizeHeight)) {
+              if (
+                parseInt(offsetY + oriageScrollHeight * 1.1) >=
+                parseInt(contentSizeHeight)
+              ) {
                 setDisabled(false);
               }
             }}
-            source={{ html: htmlStr }}
+            source={{html: htmlStr}}
           />
           <Button
             title={'下一步'}
@@ -280,40 +264,36 @@ function Index (props) {
     );
   }
 
-  function showDialog () {
-    AntdModal.alert('', (
-        <View
-          style={{
-            flexDirection: 'row',
-          }}
-        >
-          <Text>请添加客服微信：</Text>
-          <TouchableWithoutFeedback
-            onLongPress={() => {
-              Clipboard.setString('ZIB-UNISTU');
-              showToast('已复制到剪切板~');
-            }}
-          >
-            <Text
-              style={{
-                color: '#4F97FD',
-              }}
-            >
-              ZIB-UNISTU
-            </Text>
-          </TouchableWithoutFeedback>
-        </View>
-      ), [
-        { text: '取消', onPress: () => {}, style: 'cancel' },
-      ],
+  function showDialog() {
+    AntdModal.alert(
+      '',
+      <View
+        style={{
+          flexDirection: 'row',
+        }}>
+        <Text>请添加客服微信：</Text>
+        <TouchableWithoutFeedback
+          onLongPress={() => {
+            Clipboard.setString('ZIB-UNISTU');
+            showToast('已复制到剪切板~');
+          }}>
+          <Text
+            style={{
+              color: '#4F97FD',
+            }}>
+            ZIB-UNISTU
+          </Text>
+        </TouchableWithoutFeedback>
+      </View>,
+      [{text: '取消', onPress: () => {}, style: 'cancel'}],
     );
   }
 
-  function onInput (value) {
+  function onInput(value) {
     setCode(value);
   }
 
-  function go () {
+  function go() {
     if (!code) {
       showToast('请输入登录码');
       return;
