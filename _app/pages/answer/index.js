@@ -30,7 +30,7 @@ function Index (props) {
 
   const { curIndex, info: { questionnaire }, isSuccessfully } = answerStore;
 
-  const { subjects } = questionnaire || {};
+  const { subjects, logicList } = questionnaire || {};
 
   // 当前的题目
   const curItem = _.isEmpty(subjects) ? {} : subjects[curIndex];
