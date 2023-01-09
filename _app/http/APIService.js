@@ -44,6 +44,13 @@ const ApiService = {
   readMsg: async (data = {}) => {
     return HTTP.post('app-user-message/read', { ...data, $skipLoading: true });
   },
+
+  preSubject: async (data = {}) => {
+    return HTTP.post('/app-feedback/prior-subject', {
+      ...data,
+      $skipLoading: true,
+    });
+  },
 };
 
 export { ApiService };

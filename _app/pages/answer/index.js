@@ -363,6 +363,45 @@ function Index (props) {
     }
   }
 
+  // 提交问卷
+  function submitQuestion() {
+    if (curItem.subjectType === SUBJECT_ENUM.GUIDE) {
+      // 引导题
+      ApiService.submit({userQuestionnaireId, questionnaireId}).then((res) => {
+        const [error] = res;
+        if (!error) {
+          // 直接跳转到成功页面
+          props.dispatch({
+            type: 'answer/updateSuccessfully',
+          });
+        }
+      });
+    } else {
+      // 其它题目
+      props
+        .dispatch({
+          type: 'answer/answer',
+          payload: {
+            curItem,
+            userQuestionnaireId,
+            questionnaireId,
+          },
+        })
+        .then(() => {
+          // 其它题目
+          ApiService.submit({userQuestionnaireId, questionnaireId}).then((res) => {
+            const [error] = res;
+            if (!error) {
+              // 直接跳转到成功页面
+              props.dispatch({
+                type: 'answer/updateSuccessfully',
+              });
+            }
+          });
+        }).catch(handleCatch);
+    }
+  }
+
   function renderFooter () {
     return (
       <View
@@ -442,19 +481,6 @@ function Index (props) {
                     );
 
                     if (curLogic) {
-                      // if (curLogic.logicType === 2) {
-                      //   // 选项关联
-
-                      //   // 查找对应题目的关联选项是否和答案是一致
-
-                      // } else if (curLogic.logicType === 3) {
-                      //   // 题目关联
-                      // } else if (curLogic.logicType === 4) {
-
-                      // } else {
-                      //   console.log("logicType illegal");
-                      // }
-
                       const [err, data] = await ApiService.preSubject({
                         questionnaireId,
                         subjectId: curItem.subjectId,
@@ -584,33 +610,7 @@ function Index (props) {
                     { text: '取消', onPress: () => {}, style: 'cancel' },
                     {
                       text: '确认', onPress: () => {
-                        if (curItem.subjectType === SUBJECT_ENUM.GUIDE) {
-                          // 引导题
-                          ApiService.submit({ userQuestionnaireId, questionnaireId }).then((res) => {
-                            const [error] = res;
-                            if (!error) {
-                              // 直接跳转到成功页面
-                              props.dispatch({
-                                type: 'answer/updateSuccessfully',
-                              });
-                            }
-                          });
-                        } else {
-                          // 其它题目
-                          answer()
-                            .then(() => {
-                              // 其它题目
-                              ApiService.submit({ userQuestionnaireId, questionnaireId }).then((res) => {
-                                const [error] = res;
-                                if (!error) {
-                                  // 直接跳转到成功页面
-                                  props.dispatch({
-                                    type: 'answer/updateSuccessfully',
-                                  });
-                                }
-                              });
-                            }).catch(handleCatch);
-                        }
+                        submitQuestion()
                       }, style: 'ok',
                     },
                   ]);
@@ -624,6 +624,31 @@ function Index (props) {
                     payload: curIndex + 1,
                   });
                   return;
+                }
+
+                // 判断是否是逻辑跳转题，是否设置了直接结束
+                if (
+                  curItem.subjectType === SUBJECT_ENUM.SINGLE_CHOICE ||
+                  curItem.subjectType === SUBJECT_ENUM.DROPDOWN_SINGLE_CHOICE
+                ) {
+                  const curLogic = logicList.find(
+                    item => item.subjectIdentifier === curItem.identifier,
+                  );
+                  if (curLogic) {
+                    // 选中的选项
+                    const selectOption = curItem.options.find(
+                      item => item._checked === true,
+                    );
+
+                    if (
+                      curLogic.logicType === 4 &&
+                      curLogic.optionIdentifier === selectOption.identifier
+                    ) {
+                      // 选中的该选项配置了直接结束，就直接提交问卷
+                      submitQuestion()
+                      return;
+                    }
+                  }
                 }
 
                 // 答题
@@ -654,6 +679,8 @@ function Index (props) {
           // 最后一题
         } else {
           // 下一题
+
+          let desIndex
 
           /**
            * 计算下一题的index
@@ -697,6 +724,8 @@ function Index (props) {
               ) {
                 // 选项跳转结束
                 desIndex = subjects.length - 1;
+              }  else {
+                desIndex = curIndex + 1;
               }
             } else {
               desIndex = curIndex + 1;
