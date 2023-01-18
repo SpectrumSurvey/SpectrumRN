@@ -98,7 +98,7 @@ function Index (props) {
             </View>
           );
         }}
-        data={appHomeQuestionnaire}
+        data={(appHomeQuestionnaire || []).filter((v) => v.userQuestionnaireStatus !== 2)}
         renderItem={renderItem}
         ItemSeparatorComponent={() => {
           return (

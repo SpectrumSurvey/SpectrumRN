@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { Image, Keyboard, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Image, Keyboard, ScrollView, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import Header from '../../components/header';
@@ -340,10 +340,12 @@ function Index (props) {
             style={{
               paddingHorizontal: 15,
               paddingTop: 30,
-              marginBottom: 15,
+              marginBottom: 15
             }}
           >
-            <Text
+            <TextInput
+              editable={false}
+              multiline
               style={{
                 fontSize: 15,
                 color: '#666666',
@@ -351,7 +353,7 @@ function Index (props) {
               }}
             >
               {curItem.guide}
-            </Text>
+            </TextInput>
           </View>
         );
       case SUBJECT_ENUM.SCALE:
