@@ -4,7 +4,7 @@
  * @Date: 2020/1/5 15:33
  * @Email: middle2021@gmail.com
  */
-import { Image, Keyboard, ScrollView, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import { FlatList, Image, Keyboard, ScrollView, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import Header from '../../components/header';
@@ -193,7 +193,7 @@ function Index (props) {
                     Keyboard.dismiss();
                   }}
                 >
-                  <View
+                  <ScrollView
                     style={{
                       flex: 1,
                     }}
@@ -207,7 +207,7 @@ function Index (props) {
                     {
                       curItem?.subjectType === SUBJECT_ENUM.GUIDE && renderImage()
                     }
-                  </View>
+                  </ScrollView>
                 </TouchableWithoutFeedback>
                 {
                   renderFooter()
@@ -340,12 +340,12 @@ function Index (props) {
             style={{
               paddingHorizontal: 15,
               paddingTop: 30,
-              marginBottom: 15
+              marginBottom: 15,
+              flex: 1,
+              height: '100%'
             }}
           >
-            <TextInput
-              editable={false}
-              multiline
+            <Text
               style={{
                 fontSize: 15,
                 color: '#666666',
@@ -353,7 +353,7 @@ function Index (props) {
               }}
             >
               {curItem.guide}
-            </TextInput>
+            </Text>
           </View>
         );
       case SUBJECT_ENUM.SCALE:

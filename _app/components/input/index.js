@@ -14,7 +14,7 @@ function AnswerInput (props) {
         borderWidth: 1,
         borderRadius: 2,
         borderColor: '#dfdfdf',
-        height: 44,
+        minHeight: 44,
         marginTop: 10,
         flexDirection: 'row',
         alignItems: 'center',
@@ -29,6 +29,7 @@ function AnswerInput (props) {
         }}
       />
       <TextInput
+        multiline
         style={{
           flex: 1,
           fontSize: 15,
