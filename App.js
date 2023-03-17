@@ -6,19 +6,29 @@
  * @flow
  */
 
-import React, { useEffect } from 'react';
-import { ActivityIndicator, Image, View, Text, Platform, AppState, Linking, PermissionsAndroid, NativeModules } from 'react-native';
-import { Provider } from 'react-redux';
+import React, {useEffect} from 'react';
+import {
+  ActivityIndicator,
+  Image,
+  View,
+  Text,
+  Platform,
+  AppState,
+  Linking,
+  PermissionsAndroid,
+  NativeModules,
+} from 'react-native';
+import {Provider} from 'react-redux';
 import models from './_app/models';
-import { navigationRef } from './_app/utils/NavigationService';
-import { Modal, Provider as AntdProvider } from '@ant-design/react-native';
-import { HTTP } from './_app/http';
+import {navigationRef} from './_app/utils/NavigationService';
+import {Modal, Provider as AntdProvider} from '@ant-design/react-native';
+import {HTTP} from './_app/http';
 
-import { DvaInstance } from './_app/utils/dva';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {DvaInstance} from './_app/utils/dva';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
@@ -29,14 +39,14 @@ import Login from './_app/pages/login';
 import Answer from './_app/pages/answer';
 import MyReport from './_app/pages/mine/report';
 import MyTask from './_app/pages/mine/task';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import JPush from 'jpush-react-native';
 import RNVersion from 'react-native-version-number';
 
 import * as Sentry from '@sentry/react-native';
-import { handleCatch } from './_app/utils/utils';
-import { getBottomSpace } from './_app/utils/iphonex.util';
-import { Badge } from 'react-native-elements';
+import {handleCatch} from './_app/utils/utils';
+import {getBottomSpace} from './_app/utils/iphonex.util';
+import {Badge} from 'react-native-elements';
 import ProcessUtil from './_app/utils/process.util';
 import WebViewPage from './_app/pages/webview';
 import Fitness from '@ovalmoney/react-native-fitness';
@@ -72,7 +82,7 @@ models.forEach(model => {
 
 const Tabs = createBottomTabNavigator();
 
-function renderBottomTab (props) {
+function renderBottomTab(props) {
   return (
     <Tabs.Navigator
       backBehavior={'none'}
@@ -95,16 +105,11 @@ function renderBottomTab (props) {
         component={Home}
         options={{
           tabBarLabel: '首页',
-          tabBarIcon: ({ focused, size }) => {
+          tabBarIcon: ({focused, size}) => {
             const icon = focused
               ? require('./_app/asset/images/tab_home_active.png')
               : require('./_app/asset/images/tab_home.png');
-            return (
-              <Image
-                style={styles.iconStyle}
-                source={icon}
-              />
-            );
+            return <Image style={styles.iconStyle} source={icon} />;
           },
         }}
       />
@@ -113,7 +118,7 @@ function renderBottomTab (props) {
         component={Msg}
         options={{
           tabBarLabel: '消息',
-          tabBarIcon: ({ focused, size }) => {
+          tabBarIcon: ({focused, size}) => {
             const icon = focused
               ? require('./_app/asset/images/tab_msg_active.png')
               : require('./_app/asset/images/tab_msg.png');
@@ -126,10 +131,7 @@ function renderBottomTab (props) {
                   width: 24,
                   height: 24,
                 }}>
-                <Image
-                  style={styles.iconStyle}
-                  source={icon}
-                />
+                <Image style={styles.iconStyle} source={icon} />
                 {badgeCount > 0 && (
                   <Badge
                     value={badgeCount}
@@ -151,16 +153,11 @@ function renderBottomTab (props) {
         component={Mine}
         options={{
           tabBarLabel: '我的',
-          tabBarIcon: ({ focused, size }) => {
+          tabBarIcon: ({focused, size}) => {
             const icon = focused
               ? require('./_app/asset/images/tab_mine_active.png')
               : require('./_app/asset/images/tab_mine.png');
-            return (
-              <Image
-                style={styles.iconStyle}
-                source={icon}
-              />
-            );
+            return <Image style={styles.iconStyle} source={icon} />;
           },
         }}
       />
@@ -168,13 +165,13 @@ function renderBottomTab (props) {
   );
 }
 
-const HomeBottomTab = connect(state => ({ msg: state.msg }))(renderBottomTab);
+const HomeBottomTab = connect(state => ({msg: state.msg}))(renderBottomTab);
 
 /**
  * @return {null}
  */
-function StackNavigator (props) {
-  const { authStore } = props;
+function StackNavigator(props) {
+  const {authStore} = props;
 
   if (!authStore?.init) {
     // 未初始化完成
@@ -184,8 +181,7 @@ function StackNavigator (props) {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-        }}
-      >
+        }}>
         <ActivityIndicator
           size={'large'}
           style={{
@@ -199,18 +195,16 @@ function StackNavigator (props) {
 
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator
-        headerMode="none"
-      >
+      <Stack.Navigator headerMode="none">
         {!authStore.token ? (
-          <Stack.Screen name="Login" component={Login}/>
+          <Stack.Screen name="Login" component={Login} />
         ) : (
           <React.Fragment>
-            <Stack.Screen name="Root" component={HomeBottomTab}/>
-            <Stack.Screen name="Answer" component={Answer}/>
-            <Stack.Screen name="task" component={MyTask}/>
-            <Stack.Screen name="report" component={MyReport}/>
-            <Stack.Screen name="webview" component={WebViewPage}/>
+            <Stack.Screen name="Root" component={HomeBottomTab} />
+            <Stack.Screen name="Answer" component={Answer} />
+            <Stack.Screen name="task" component={MyTask} />
+            <Stack.Screen name="report" component={MyReport} />
+            <Stack.Screen name="webview" component={WebViewPage} />
           </React.Fragment>
         )}
       </Stack.Navigator>
@@ -218,7 +212,7 @@ function StackNavigator (props) {
   );
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     authStore: state.auth,
   };
@@ -227,19 +221,16 @@ function mapStateToProps (state) {
 const ConnectStackNavigator = connect(mapStateToProps)(StackNavigator);
 
 const App: () => React$Node = () => {
-
-  function initJPush () {
-
+  function initJPush() {
     if (Platform.OS === 'android') {
       // 请求权限
       JPush.requestPermission();
-      PermissionsAndroid
-        .requestMultiple([
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE,
-          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        ])
+      PermissionsAndroid.requestMultiple([
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE,
+        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+      ])
         .then()
         .catch(handleCatch);
     }
@@ -255,16 +246,18 @@ const App: () => React$Node = () => {
       console.log(id);
     });
 
-    JPush.addTagAliasListener((res) => {
+    JPush.addTagAliasListener(res => {
       if (__DEV__) {
         console.log('addTagAliasListener  ', res);
       }
     });
 
     JPush.addNotificationListener(result => {
-      const { notificationEventType } = result;
-      if (notificationEventType === 'notificationArrived'
-        && AppState.currentState === 'active') {
+      const {notificationEventType} = result;
+      if (
+        notificationEventType === 'notificationArrived' &&
+        AppState.currentState === 'active'
+      ) {
         // 前台并且获取到通知消息
         DvaInstance.instance._store
           .dispatch({
@@ -280,8 +273,7 @@ const App: () => React$Node = () => {
 
     if (Platform.OS === 'android') {
       // 请求
-      ProcessUtil
-        .isPermission()
+      ProcessUtil.isPermission()
         .then(granted => {
           if (!granted) {
             // 弹窗
@@ -291,8 +283,12 @@ const App: () => React$Node = () => {
         .catch(() => {});
     } else {
       // ios 请求health 步数数据
-      Fitness
-        .requestPermissions([{ kind: Fitness.PermissionKind.Steps, access: Fitness.PermissionAccess.Read }])
+      Fitness.requestPermissions([
+        {
+          kind: Fitness.PermissionKind.Steps,
+          access: Fitness.PermissionAccess.Read,
+        },
+      ])
         .then(r => {})
         .catch(e => {});
     }
@@ -302,37 +298,36 @@ const App: () => React$Node = () => {
     });
 
     // checkUpdate
-    (
-      async () => {
-        try {
-          const [error, data] = await HTTP.get('app-version/latest', {
-            params: { appSystem: Platform.OS === 'android' ? 2 : 1 },
-          });
-          if (error) {
-            return;
-          }
-          const { appVersion, versionDescribe, versionUrl } = data || {};
-          if (appVersion && appVersion > RNVersion.buildVersion) {
-            // 有新版本
-            Modal.alert('更新提示', versionDescribe, [
-              { text: '取消', onPress: () => {}, style: 'cancel' },
-              {
-                text: '更新', onPress: () => {
-                  // 打开下载页面
-                  Linking.openURL(versionUrl);
-                },
-              }]);
-          }
-        } catch (e) {
+    (async () => {
+      try {
+        const [error, data] = await HTTP.get('app-version/latest', {
+          params: {appSystem: Platform.OS === 'android' ? 2 : 1},
+        });
+        if (error) {
+          return;
         }
-      }
-    )();
+        const {appVersion, versionDescribe, versionUrl} = data || {};
+        if (appVersion && appVersion > RNVersion.buildVersion) {
+          // 有新版本
+          Modal.alert('更新提示', versionDescribe, [
+            {text: '取消', onPress: () => {}, style: 'cancel'},
+            {
+              text: '更新',
+              onPress: () => {
+                // 打开下载页面
+                Linking.openURL(versionUrl);
+              },
+            },
+          ]);
+        }
+      } catch (e) {}
+    })();
   }, []);
 
   return (
     <Provider store={store}>
       <AntdProvider>
-        <ConnectStackNavigator/>
+        <ConnectStackNavigator />
       </AntdProvider>
     </Provider>
   );

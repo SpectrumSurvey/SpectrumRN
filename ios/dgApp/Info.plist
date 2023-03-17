@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2023031712185424</string>
+	<string>2023031718055630</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>24</string>
+	<string>30</string>
 	<key>JPushAppKey</key>
 	<string>cc2fdf4a24d153647de3fc7e</string>
 	<key>LSApplicationCategoryType</key>

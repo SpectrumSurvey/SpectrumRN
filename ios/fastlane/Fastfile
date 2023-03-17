@@ -31,13 +31,21 @@ platform :ios do
       silent: true,
       clean: false,
       scheme: "dgApp",
-      export_method: "ad-hoc",
-      output_directory: "build"
+      export_method: "ad-hoc"
     )
+  end
+
+  lane :deploy do
+    # capture_screenshots                  # generate new screenshots for the App Store
+    sync_code_signing(type: "appstore")  # see code signing guide for more information
+    build_app(scheme: "dgApp")
+    upload_to_app_store                  # upload your app to App Store Connect
+    slack(message: "Successfully uploaded a new App Store build")
   end
 
   lane :sync_devices do
     register_devices(devices_file: "./fastlane/devices.txt")
     match(type: "adhoc", force_for_new_devices: true)
+    match(type: "development", force_for_new_devices: true)
   end
 end

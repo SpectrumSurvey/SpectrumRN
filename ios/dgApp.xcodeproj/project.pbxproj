@@ -722,6 +722,7 @@
 				DEVELOPMENT_TEAM = M7TS3X7AL6;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FWCL97PJHA;
 				INFOPLIST_FILE = dgApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 13.0310;
 				OTHER_LDFLAGS = (
@@ -731,7 +732,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.questionnaire.app;
 				PRODUCT_NAME = "i点集";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.dg.wenjuan.app";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.dg.questionnaire.app";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.dg.questionnaire.app";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -754,6 +755,7 @@
 				DEVELOPMENT_TEAM = GVWBSMDMT2;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FWCL97PJHA;
 				INFOPLIST_FILE = dgApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 13.0310;
 				OTHER_LDFLAGS = (
@@ -763,7 +765,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.questionnaire.app;
 				PRODUCT_NAME = "i点集";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.dg.wenjuan.app";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.dg.questionnaire.app";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc com.dg.questionnaire.app";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
