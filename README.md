@@ -26,9 +26,12 @@
 *   **iOS**: 适用于iPhone和iPad
 
 ### 项目展示图
-![Simulator Screenshot - iPhone 11 - 2024-09-03 at 11 34 21](https://github.com/user-attachments/assets/a09d544a-7edb-4d83-99f1-d1e18ddde5a4)
-![Simulator Screenshot - iPhone 11 - 2024-09-03 at 11 32 50](https://github.com/user-attachments/assets/cc54fea9-a5b7-4931-8b6e-e0c05c1baab9)
-![Simulator Screenshot - iPhone 11 - 2024-09-03 at 11 32 23](https://github.com/user-attachments/assets/36a4e8b0-e6e5-4e5a-8e03-10eec25ccf15)
+<img src="https://github.com/user-attachments/assets/a09d544a-7edb-4d83-99f1-d1e18ddde5a4" height="750" width="345" /> 
+<img src="https://github.com/user-attachments/assets/cc54fea9-a5b7-4931-8b6e-e0c05c1baab9" height="750" width="345" />
+<img src="https://github.com/user-attachments/assets/3a846fa7-9ea2-473a-9460-36b33b76919a" height="750" width="345" />
+<img src="https://github.com/user-attachments/assets/9ff3e190-695f-472f-845a-f11e5bacdec8" height="750" width="345" />
+
+![Simulator Screenshot - iPhone 11 - 2024-09-03 at 11 34 21](https://github.com/user-attachments/assets/a09d544a-7edb-4d83-99f1-d1e18ddde5a4)![Simulator Screenshot - iPhone 11 - 2024-09-03 at 11 32 50](https://github.com/user-attachments/assets/cc54fea9-a5b7-4931-8b6e-e0c05c1baab9)![Simulator Screenshot - iPhone 11 - 2024-09-03 at 11 32 23](https://github.com/user-attachments/assets/36a4e8b0-e6e5-4e5a-8e03-10eec25ccf15)
 ![Simulator Screenshot - iPhone 11 - 2024-09-03 at 11 31 52](https://github.com/user-attachments/assets/3a846fa7-9ea2-473a-9460-36b33b76919a)
 ![Simulator Screenshot - iPhone 11 - 2024-09-03 at 11 16 03](https://github.com/user-attachments/assets/9ff3e190-695f-472f-845a-f11e5bacdec8)
 
