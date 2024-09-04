@@ -1,6 +1,5 @@
 
-# Spectral Survey Application ***[中文](README.md)***
-
+# Spectral Survey Application  <a href="./README.en.md">中文介绍</a>
 
 ## Overview
 

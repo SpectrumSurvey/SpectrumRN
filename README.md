@@ -1,4 +1,4 @@
-# 光谱调查应用  ***[English](README.en.md)***
+# 光谱调查应用  <a href="./README.en.md">English</a>
 
 ## 概述
 
