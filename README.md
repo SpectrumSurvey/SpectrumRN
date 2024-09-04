@@ -31,7 +31,7 @@
 <img src="https://github.com/user-attachments/assets/3a846fa7-9ea2-473a-9460-36b33b76919a" height="750" width="345" />
 <img src="https://github.com/user-attachments/assets/9ff3e190-695f-472f-845a-f11e5bacdec8" height="750" width="345" />
 <img src="https://github.com/user-attachments/assets/6638212d-a028-4895-a990-64d697d47488" height="750" width="345" />
-<img src="https://github.com/user-attachments/assets/60800720-462c-4037-ac85-002d7ddfefe8" height="750" width="345" />
+<img src="https://github.com/user-attachments/assets/9a991d54-e72a-4b74-87da-a93606bb4d3c" height="750" width="345" />
 
 ## 使用指南
 
