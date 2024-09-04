@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* dgAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* dgAppTests.m */; };
-		12041099EEBDF732962C251B /* libPods-dgApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B63A3059834CF8B5507194 /* libPods-dgApp-tvOSTests.a */; };
+		00E356F31AD99517003FC87E /* SpectrumSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SpectrumSurveyTests.m */; };
+		12041099EEBDF732962C251B /* libPods-SpectrumSurvey-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B63A3059834CF8B5507194 /* libPods-SpectrumSurvey-tvOSTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		23DE78B7B1A9987A4FF8419A /* libPods-dgApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1245FC3FE90E6EF63613C6E9 /* libPods-dgApp-tvOS.a */; };
+		23DE78B7B1A9987A4FF8419A /* libPods-SpectrumSurvey-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1245FC3FE90E6EF63613C6E9 /* libPods-SpectrumSurvey-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* dgAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* dgAppTests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* SpectrumSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SpectrumSurveyTests.m */; };
 		39204C4025CD4B3AA6298242 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F36795D47024E1593D0854C /* libz.tbd */; };
-		8B1F8C8D7B5635EC8923A247 /* libPods-dgAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 540E393ABFC462FFE5F850C2 /* libPods-dgAppTests.a */; };
+		8B1F8C8D7B5635EC8923A247 /* libPods-SpectrumSurveyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 540E393ABFC462FFE5F850C2 /* libPods-SpectrumSurveyTests.a */; };
 		A1AC357C23E1C6E900DA5687 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AC357B23E1C6E900DA5687 /* HealthKit.framework */; };
-		D881916785E7EBB73AE71629 /* libPods-dgApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B69559AA6358C1042869BB /* libPods-dgApp.a */; };
+		D881916785E7EBB73AE71629 /* libPods-SpectrumSurvey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B69559AA6358C1042869BB /* libPods-SpectrumSurvey.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,48 +30,48 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = dgApp;
+			remoteInfo = SpectrumSurvey;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "dgApp-tvOS";
+			remoteInfo = "SpectrumSurvey-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* dgAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dgAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* SpectrumSurveyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectrumSurveyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* dgAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dgAppTests.m; sourceTree = "<group>"; };
-		1013A11F896E51BDE5548175 /* Pods-dgApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-dgApp-tvOSTests/Pods-dgApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1245FC3FE90E6EF63613C6E9 /* libPods-dgApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* SpectrumSurveyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectrumSurveyTests.m; sourceTree = "<group>"; };
+		1013A11F896E51BDE5548175 /* Pods-SpectrumSurvey-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumSurvey-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-SpectrumSurvey-tvOSTests/Pods-SpectrumSurvey-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1245FC3FE90E6EF63613C6E9 /* libPods-SpectrumSurvey-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpectrumSurvey-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* i点集.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "i点集.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = dgApp/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = dgApp/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SpectrumSurvey/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SpectrumSurvey/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = dgApp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = dgApp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dgApp/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SpectrumSurvey/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SpectrumSurvey/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SpectrumSurvey/main.m; sourceTree = "<group>"; };
 		1F36795D47024E1593D0854C /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		212408C88C472E6F3374E412 /* Pods-dgApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp.debug.xcconfig"; path = "Target Support Files/Pods-dgApp/Pods-dgApp.debug.xcconfig"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* dgApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dgApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* dgApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dgApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4177767C7743F71BEB8B8D50 /* Pods-dgApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-dgApp-tvOSTests/Pods-dgApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		540E393ABFC462FFE5F850C2 /* libPods-dgAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B46838E8EBB7EFCE7E40714 /* Pods-dgAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgAppTests.debug.xcconfig"; path = "Target Support Files/Pods-dgAppTests/Pods-dgAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		64736D72DEC5910B0A75529D /* Pods-dgApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-dgApp-tvOS/Pods-dgApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		81DE87FB0419E7ED75DE6FF2 /* Pods-dgApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-dgApp-tvOS/Pods-dgApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		8498C2E09BC9C15000979769 /* Pods-dgApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgApp.release.xcconfig"; path = "Target Support Files/Pods-dgApp/Pods-dgApp.release.xcconfig"; sourceTree = "<group>"; };
-		9E092B07DDD95C506DEF7C0E /* Pods-dgAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dgAppTests.release.xcconfig"; path = "Target Support Files/Pods-dgAppTests/Pods-dgAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		A1AC357A23E1C6E900DA5687 /* dgApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = dgApp.entitlements; path = dgApp/dgApp.entitlements; sourceTree = "<group>"; };
+		212408C88C472E6F3374E412 /* Pods-SpectrumSurvey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumSurvey.debug.xcconfig"; path = "Target Support Files/Pods-SpectrumSurvey/Pods-SpectrumSurvey.debug.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* SpectrumSurvey-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpectrumSurvey-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* SpectrumSurvey-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpectrumSurvey-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4177767C7743F71BEB8B8D50 /* Pods-SpectrumSurvey-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumSurvey-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-SpectrumSurvey-tvOSTests/Pods-SpectrumSurvey-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		540E393ABFC462FFE5F850C2 /* libPods-SpectrumSurveyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpectrumSurveyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B46838E8EBB7EFCE7E40714 /* Pods-SpectrumSurveyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumSurveyTests.debug.xcconfig"; path = "Target Support Files/Pods-SpectrumSurveyTests/Pods-SpectrumSurveyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64736D72DEC5910B0A75529D /* Pods-SpectrumSurvey-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumSurvey-tvOS.release.xcconfig"; path = "Target Support Files/Pods-SpectrumSurvey-tvOS/Pods-SpectrumSurvey-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		81DE87FB0419E7ED75DE6FF2 /* Pods-SpectrumSurvey-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumSurvey-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-SpectrumSurvey-tvOS/Pods-SpectrumSurvey-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		8498C2E09BC9C15000979769 /* Pods-SpectrumSurvey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumSurvey.release.xcconfig"; path = "Target Support Files/Pods-SpectrumSurvey/Pods-SpectrumSurvey.release.xcconfig"; sourceTree = "<group>"; };
+		9E092B07DDD95C506DEF7C0E /* Pods-SpectrumSurveyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpectrumSurveyTests.release.xcconfig"; path = "Target Support Files/Pods-SpectrumSurveyTests/Pods-SpectrumSurveyTests.release.xcconfig"; sourceTree = "<group>"; };
+		A1AC357A23E1C6E900DA5687 /* SpectrumSurvey.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SpectrumSurvey.entitlements; path = SpectrumSurvey/SpectrumSurvey.entitlements; sourceTree = "<group>"; };
 		A1AC357B23E1C6E900DA5687 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		D5B63A3059834CF8B5507194 /* libPods-dgApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B63A3059834CF8B5507194 /* libPods-SpectrumSurvey-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpectrumSurvey-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F9B69559AA6358C1042869BB /* libPods-dgApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dgApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9B69559AA6358C1042869BB /* libPods-SpectrumSurvey.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpectrumSurvey.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B1F8C8D7B5635EC8923A247 /* libPods-dgAppTests.a in Frameworks */,
+				8B1F8C8D7B5635EC8923A247 /* libPods-SpectrumSurveyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +89,7 @@
 			files = (
 				A1AC357C23E1C6E900DA5687 /* HealthKit.framework in Frameworks */,
 				39204C4025CD4B3AA6298242 /* libz.tbd in Frameworks */,
-				D881916785E7EBB73AE71629 /* libPods-dgApp.a in Frameworks */,
+				D881916785E7EBB73AE71629 /* libPods-SpectrumSurvey.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23DE78B7B1A9987A4FF8419A /* libPods-dgApp-tvOS.a in Frameworks */,
+				23DE78B7B1A9987A4FF8419A /* libPods-SpectrumSurvey-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,20 +105,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12041099EEBDF732962C251B /* libPods-dgApp-tvOSTests.a in Frameworks */,
+				12041099EEBDF732962C251B /* libPods-SpectrumSurvey-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* dgAppTests */ = {
+		00E356EF1AD99517003FC87E /* SpectrumSurveyTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* dgAppTests.m */,
+				00E356F21AD99517003FC87E /* SpectrumSurveyTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = dgAppTests;
+			path = SpectrumSurveyTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -129,10 +129,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* dgApp */ = {
+		13B07FAE1A68108700A75B9A /* SpectrumSurvey */ = {
 			isa = PBXGroup;
 			children = (
-				A1AC357A23E1C6E900DA5687 /* dgApp.entitlements */,
+				A1AC357A23E1C6E900DA5687 /* SpectrumSurvey.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -141,7 +141,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = dgApp;
+			name = SpectrumSurvey;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -151,10 +151,10 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				1F36795D47024E1593D0854C /* libz.tbd */,
-				F9B69559AA6358C1042869BB /* libPods-dgApp.a */,
-				1245FC3FE90E6EF63613C6E9 /* libPods-dgApp-tvOS.a */,
-				D5B63A3059834CF8B5507194 /* libPods-dgApp-tvOSTests.a */,
-				540E393ABFC462FFE5F850C2 /* libPods-dgAppTests.a */,
+				F9B69559AA6358C1042869BB /* libPods-SpectrumSurvey.a */,
+				1245FC3FE90E6EF63613C6E9 /* libPods-SpectrumSurvey-tvOS.a */,
+				D5B63A3059834CF8B5507194 /* libPods-SpectrumSurvey-tvOSTests.a */,
+				540E393ABFC462FFE5F850C2 /* libPods-SpectrumSurveyTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,9 +169,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* dgApp */,
+				13B07FAE1A68108700A75B9A /* SpectrumSurvey */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* dgAppTests */,
+				00E356EF1AD99517003FC87E /* SpectrumSurveyTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				886EF39A1A4D3A7910C02B39 /* Pods */,
@@ -185,9 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* i点集.app */,
-				00E356EE1AD99517003FC87E /* dgAppTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* dgApp-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* dgApp-tvOSTests.xctest */,
+				00E356EE1AD99517003FC87E /* SpectrumSurveyTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* SpectrumSurvey-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* SpectrumSurvey-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,14 +195,14 @@
 		886EF39A1A4D3A7910C02B39 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				212408C88C472E6F3374E412 /* Pods-dgApp.debug.xcconfig */,
-				8498C2E09BC9C15000979769 /* Pods-dgApp.release.xcconfig */,
-				81DE87FB0419E7ED75DE6FF2 /* Pods-dgApp-tvOS.debug.xcconfig */,
-				64736D72DEC5910B0A75529D /* Pods-dgApp-tvOS.release.xcconfig */,
-				1013A11F896E51BDE5548175 /* Pods-dgApp-tvOSTests.debug.xcconfig */,
-				4177767C7743F71BEB8B8D50 /* Pods-dgApp-tvOSTests.release.xcconfig */,
-				5B46838E8EBB7EFCE7E40714 /* Pods-dgAppTests.debug.xcconfig */,
-				9E092B07DDD95C506DEF7C0E /* Pods-dgAppTests.release.xcconfig */,
+				212408C88C472E6F3374E412 /* Pods-SpectrumSurvey.debug.xcconfig */,
+				8498C2E09BC9C15000979769 /* Pods-SpectrumSurvey.release.xcconfig */,
+				81DE87FB0419E7ED75DE6FF2 /* Pods-SpectrumSurvey-tvOS.debug.xcconfig */,
+				64736D72DEC5910B0A75529D /* Pods-SpectrumSurvey-tvOS.release.xcconfig */,
+				1013A11F896E51BDE5548175 /* Pods-SpectrumSurvey-tvOSTests.debug.xcconfig */,
+				4177767C7743F71BEB8B8D50 /* Pods-SpectrumSurvey-tvOSTests.release.xcconfig */,
+				5B46838E8EBB7EFCE7E40714 /* Pods-SpectrumSurveyTests.debug.xcconfig */,
+				9E092B07DDD95C506DEF7C0E /* Pods-SpectrumSurveyTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* dgAppTests */ = {
+		00E356ED1AD99517003FC87E /* SpectrumSurveyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "dgAppTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SpectrumSurveyTests" */;
 			buildPhases = (
 				2B3F259A57B2556AD4695B0C /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -224,14 +224,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = dgAppTests;
-			productName = dgAppTests;
-			productReference = 00E356EE1AD99517003FC87E /* dgAppTests.xctest */;
+			name = SpectrumSurveyTests;
+			productName = SpectrumSurveyTests;
+			productReference = 00E356EE1AD99517003FC87E /* SpectrumSurveyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* dgApp */ = {
+		13B07F861A680F5B00A75B9A /* SpectrumSurvey */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dgApp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SpectrumSurvey" */;
 			buildPhases = (
 				1B63E23AD424F112C7B08D53 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -246,14 +246,14 @@
 			);
 			dependencies = (
 			);
-			name = dgApp;
-			productName = dgApp;
+			name = SpectrumSurvey;
+			productName = SpectrumSurvey;
 			productReference = 13B07F961A680F5B00A75B9A /* i点集.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* dgApp-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* SpectrumSurvey-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgApp-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "SpectrumSurvey-tvOS" */;
 			buildPhases = (
 				A176C653CFA884B5F9BBF982 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -266,14 +266,14 @@
 			);
 			dependencies = (
 			);
-			name = "dgApp-tvOS";
-			productName = "dgApp-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* dgApp-tvOS.app */;
+			name = "SpectrumSurvey-tvOS";
+			productName = "SpectrumSurvey-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* SpectrumSurvey-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* dgApp-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* SpectrumSurvey-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgApp-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "SpectrumSurvey-tvOSTests" */;
 			buildPhases = (
 				91EB1280EEA22AA02331DC1E /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -285,9 +285,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "dgApp-tvOSTests";
-			productName = "dgApp-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* dgApp-tvOSTests.xctest */;
+			name = "SpectrumSurvey-tvOSTests";
+			productName = "SpectrumSurvey-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* SpectrumSurvey-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -319,7 +319,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "dgApp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SpectrumSurvey" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -333,10 +333,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* dgApp */,
-				00E356ED1AD99517003FC87E /* dgAppTests */,
-				2D02E47A1E0B4A5D006451C7 /* dgApp-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* dgApp-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* SpectrumSurvey */,
+				00E356ED1AD99517003FC87E /* SpectrumSurveyTests */,
+				2D02E47A1E0B4A5D006451C7 /* SpectrumSurvey-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* SpectrumSurvey-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -405,7 +405,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dgApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SpectrumSurvey-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -427,7 +427,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dgAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SpectrumSurveyTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -463,7 +463,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dgApp-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SpectrumSurvey-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -499,7 +499,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dgApp-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SpectrumSurvey-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -512,7 +512,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dgApp/Pods-dgApp-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpectrumSurvey/Pods-SpectrumSurvey-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -551,7 +551,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dgApp/Pods-dgApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpectrumSurvey/Pods-SpectrumSurvey-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -599,7 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* dgAppTests.m in Sources */,
+				00E356F31AD99517003FC87E /* SpectrumSurveyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,7 +625,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* dgAppTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* SpectrumSurveyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,12 +634,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* dgApp */;
+			target = 13B07F861A680F5B00A75B9A /* SpectrumSurvey */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* dgApp-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* SpectrumSurvey-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -651,7 +651,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = dgApp;
+			path = SpectrumSurvey;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -659,7 +659,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B46838E8EBB7EFCE7E40714 /* Pods-dgAppTests.debug.xcconfig */;
+			baseConfigurationReference = 5B46838E8EBB7EFCE7E40714 /* Pods-SpectrumSurveyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -669,7 +669,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = dgAppTests/Info.plist;
+				INFOPLIST_FILE = SpectrumSurveyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -686,14 +686,14 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E092B07DDD95C506DEF7C0E /* Pods-dgAppTests.release.xcconfig */;
+			baseConfigurationReference = 9E092B07DDD95C506DEF7C0E /* Pods-SpectrumSurveyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = dgAppTests/Info.plist;
+				INFOPLIST_FILE = SpectrumSurveyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -710,10 +710,10 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 212408C88C472E6F3374E412 /* Pods-dgApp.debug.xcconfig */;
+			baseConfigurationReference = 212408C88C472E6F3374E412 /* Pods-SpectrumSurvey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = dgApp/dgApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SpectrumSurvey/SpectrumSurvey.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -721,7 +721,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = M7TS3X7AL6;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FWCL97PJHA;
-				INFOPLIST_FILE = dgApp/Info.plist;
+				INFOPLIST_FILE = SpectrumSurvey/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 13.0310;
@@ -744,17 +744,17 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8498C2E09BC9C15000979769 /* Pods-dgApp.release.xcconfig */;
+			baseConfigurationReference = 8498C2E09BC9C15000979769 /* Pods-SpectrumSurvey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = dgApp/dgApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SpectrumSurvey/SpectrumSurvey.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = GVWBSMDMT2;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FWCL97PJHA;
-				INFOPLIST_FILE = dgApp/Info.plist;
+				INFOPLIST_FILE = SpectrumSurvey/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 13.0310;
@@ -777,7 +777,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81DE87FB0419E7ED75DE6FF2 /* Pods-dgApp-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 81DE87FB0419E7ED75DE6FF2 /* Pods-SpectrumSurvey-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -790,14 +790,14 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "dgApp-tvOS/Info.plist";
+				INFOPLIST_FILE = "SpectrumSurvey-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgApp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SpectrumSurvey-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
@@ -808,7 +808,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64736D72DEC5910B0A75529D /* Pods-dgApp-tvOS.release.xcconfig */;
+			baseConfigurationReference = 64736D72DEC5910B0A75529D /* Pods-SpectrumSurvey-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -821,14 +821,14 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "dgApp-tvOS/Info.plist";
+				INFOPLIST_FILE = "SpectrumSurvey-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgApp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SpectrumSurvey-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
@@ -839,7 +839,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1013A11F896E51BDE5548175 /* Pods-dgApp-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 1013A11F896E51BDE5548175 /* Pods-SpectrumSurvey-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -851,25 +851,25 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "dgApp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "SpectrumSurvey-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgApp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SpectrumSurvey-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgApp-tvOS.app/dgApp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpectrumSurvey-tvOS.app/SpectrumSurvey-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4177767C7743F71BEB8B8D50 /* Pods-dgApp-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 4177767C7743F71BEB8B8D50 /* Pods-SpectrumSurvey-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -881,18 +881,18 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "dgApp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "SpectrumSurvey-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.dgApp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.SpectrumSurvey-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dgApp-tvOS.app/dgApp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpectrumSurvey-tvOS.app/SpectrumSurvey-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1001,7 +1001,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "dgAppTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SpectrumSurveyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1010,7 +1010,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dgApp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SpectrumSurvey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1019,7 +1019,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgApp-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "SpectrumSurvey-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1028,7 +1028,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "dgApp-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "SpectrumSurvey-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1037,7 +1037,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "dgApp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SpectrumSurvey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

@@ -1,8 +1,8 @@
 platform :ios, '11.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'dgApp' do
-  # Pods for dgApp
+target 'SpectrumSurvey' do
+  # Pods for SpectrumSurvey
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -36,7 +36,7 @@ target 'dgApp' do
   pod 'boost-for-react-native', :git => 'https://gitee.com/r4ggj/boost-for-react-native'
 
 
-  target 'dgAppTests' do
+  target 'SpectrumSurveyTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -44,10 +44,10 @@ target 'dgApp' do
   use_native_modules!
 end
 
-target 'dgApp-tvOS' do
-  # Pods for dgApp-tvOS
+target 'SpectrumSurvey-tvOS' do
+  # Pods for SpectrumSurvey-tvOS
 
-  target 'dgApp-tvOSTests' do
+  target 'SpectrumSurvey-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

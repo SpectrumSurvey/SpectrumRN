@@ -1,10 +1,10 @@
 {
-  "name": "dgApp",
-  "displayName": "dgApp",
+  "name": "SpectrumSurvey",
+  "displayName": "SpectrumSurvey",
   "env": "uat",
-  "url": "https://dev-api-dg.fortune-net.cn/",
-  "JPushAppKey": "cc2fdf4a24d153647de3fc7e",
-  "report_url": "https://dev-report-dg.fortune-net.cn/",
+  "url": "https://dev-api-dg.SpectrumSurvey.cn/",
+  "JPushAppKey": "SpectrumSurvey",
+  "report_url": "https://dev-report-dg.SpectrumSurvey.cn/",
   "appVersion": 30,
   "appVersionName": "2023031718055630"
 }

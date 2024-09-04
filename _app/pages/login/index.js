@@ -198,7 +198,7 @@ function Index(props) {
               lineHeight: 28,
               fontSize: 16,
             }}>
-            &emsp;&emsp;欢迎您使用张江国际脑库App！在您使用我们的服务前，请您阅读
+            &emsp;&emsp;欢迎您使用Spectrum Survey App！在您使用我们的服务前，请您阅读
             <TouchableWithoutFeedback
               onPress={() => {
                 setPermissionVisible(true);

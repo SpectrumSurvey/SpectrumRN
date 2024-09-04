@@ -14,11 +14,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface dgAppTests : XCTestCase
+@interface SpectrumSurveyTests : XCTestCase
 
 @end
 
-@implementation dgAppTests
+@implementation SpectrumSurveyTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

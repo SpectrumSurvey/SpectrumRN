@@ -30,8 +30,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "i&#x70b9;&#x96c6;.app"
-               BlueprintName = "dgApp"
-               ReferencedContainer = "container:dgApp.xcodeproj">
+               BlueprintName = "SpectrumSurvey"
+               ReferencedContainer = "container:SpectrumSurvey.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "dgAppTests.xctest"
-               BlueprintName = "dgAppTests"
-               ReferencedContainer = "container:dgApp.xcodeproj">
+               BuildableName = "SpectrumSurveyTests.xctest"
+               BlueprintName = "SpectrumSurveyTests"
+               ReferencedContainer = "container:SpectrumSurvey.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -60,8 +60,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "i&#x70b9;&#x96c6;.app"
-            BlueprintName = "dgApp"
-            ReferencedContainer = "container:dgApp.xcodeproj">
+            BlueprintName = "SpectrumSurvey"
+            ReferencedContainer = "container:SpectrumSurvey.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -70,9 +70,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "dgAppTests.xctest"
-               BlueprintName = "dgAppTests"
-               ReferencedContainer = "container:dgApp.xcodeproj">
+               BuildableName = "SpectrumSurveyTests.xctest"
+               BlueprintName = "SpectrumSurveyTests"
+               ReferencedContainer = "container:SpectrumSurvey.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -93,8 +93,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "i&#x70b9;&#x96c6;.app"
-            BlueprintName = "dgApp"
-            ReferencedContainer = "container:dgApp.xcodeproj">
+            BlueprintName = "SpectrumSurvey"
+            ReferencedContainer = "container:SpectrumSurvey.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -110,8 +110,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "i&#x70b9;&#x96c6;.app"
-            BlueprintName = "dgApp"
-            ReferencedContainer = "container:dgApp.xcodeproj">
+            BlueprintName = "SpectrumSurvey"
+            ReferencedContainer = "container:SpectrumSurvey.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

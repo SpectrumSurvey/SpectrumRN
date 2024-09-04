@@ -20,7 +20,7 @@ platform :ios do
 
   lane :development do
     build_app(
-      scheme: "dgApp",
+      scheme: "SpectrumSurvey",
       export_method: "development",
       output_directory: "build"
     )
@@ -30,7 +30,7 @@ platform :ios do
     build_app(
       silent: true,
       clean: false,
-      scheme: "dgApp",
+      scheme: "SpectrumSurvey",
       export_method: "ad-hoc"
     )
   end
@@ -38,7 +38,7 @@ platform :ios do
   lane :deploy do
     # capture_screenshots                  # generate new screenshots for the App Store
     sync_code_signing(type: "appstore")  # see code signing guide for more information
-    build_app(scheme: "dgApp")
+    build_app(scheme: "SpectrumSurvey")
     upload_to_app_store                  # upload your app to App Store Connect
     slack(message: "Successfully uploaded a new App Store build")
   end

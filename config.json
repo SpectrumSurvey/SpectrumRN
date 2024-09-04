@@ -1,17 +1,17 @@
 {
   "dev": {
-    "JPush": "cc2fdf4a24d153647de3fc7e",
+    "JPush": "SpectrumSurvey",
     "url": "http://47.98.216.5:9010/",
     "report_url": "http://app-distribute.weekly.gq/"
   },
   "uat": {
-    "JPush": "cc2fdf4a24d153647de3fc7e",
-    "url": "https://dev-api-dg.fortune-net.cn/",
-    "report_url": "https://dev-report-dg.fortune-net.cn/"
+    "JPush": "SpectrumSurvey",
+    "url": "https://dev-api-dg.SpectrumSurvey.cn/",
+    "report_url": "https://dev-report-dg.SpectrumSurvey.cn/"
   },
   "prod": {
-    "JPush": "cc2fdf4a24d153647de3fc7e",
-    "url": "https://api-dg.fortune-net.cn/",
-    "report_url": "https://report-dg.fortune-net.cn/"
+    "JPush": "SpectrumSurvey",
+    "url": "https://api-dg.SpectrumSurvey.cn/",
+    "report_url": "https://report-dg.SpectrumSurvey.cn/"
   }
 }
