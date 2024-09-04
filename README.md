@@ -1,28 +1,29 @@
-# 光谱调查应用  <a href="./README.en.md">English</a>
 
-## 概述
+# Spectral Survey Application  <a href="./README.cn.md">中文介绍</a>
 
-光谱调查是一款专为科学研究和持续性数据收集而设计的问卷调查应用程序。通过本应用，用户可以创建和管理周期性的问卷任务，分发给特定群体，从而进行持续的跟踪调查，获取详尽的原始数据。应用程序还提供了一个功能强大的管理后台，支持题目和问卷的创建、周期性任务的管理，以及不同样本群体的创建和管理。
+## Overview
 
-### 核心功能
+Spectral Survey is a questionnaire application designed for scientific research and continuous data collection. It allows users to create and manage periodic survey tasks, distribute them to specific groups, and conduct ongoing tracking to collect detailed raw data. The application also features a powerful admin backend that supports the creation of questions and surveys, management of periodic tasks, and handling of different sample groups.
 
-* **周期性问卷任务**: 创建周期性的问卷任务，并分发给指定的受众群体，以便进行长期的跟踪研究。
-* **原始数据收集**: 实时收集和存储问卷的原始数据，为后续的数据分析提供高质量的数据源。
-* **管理后台**: 通过管理后台，用户可以轻松创建和管理问卷、设计复杂的逻辑题型、设定跟踪周期，及管理受众群体。
-* **逻辑题型设计**: 提供灵活的逻辑题型设计，满足各种复杂的调查需求。
+### Core Features
 
-### 独特之处
+* **Periodic Survey Tasks**: Create periodic survey tasks and distribute them to designated audience groups for long-term tracking studies.
+* **Raw Data Collection**: Collect and store raw survey data in real-time, providing high-quality data sources for subsequent analysis.
+* **Admin Backend**: Use the admin backend to easily create and manage surveys, design complex logic questions, set tracking cycles, and manage audience groups.
+* **Logic Question Design**: Offers flexible logic question design to meet various complex survey needs.
 
-光谱调查的独特之处在于其强大的周期性问卷功能，能够适应不同的研究计划，提供持续、周期性的跟踪调查。此外，应用程序支持专业的逻辑题型设计，能够满足高度复杂的调查任务需求。
+### Unique Features
 
-## 安装
+The unique feature of Spectral Survey lies in its powerful periodic survey capabilities, which can adapt to different research plans and provide continuous, periodic tracking surveys. Additionally, the application supports professional logic question design to accommodate highly complex survey tasks.
 
-### 支持的平台
+## Installation
 
-* **Android**: 适用于Android设备
-* **iOS**: 适用于iPhone和iPad
+### Supported Platforms
 
-### 项目展示图
+* **Android**: Available for Android devices.
+* **iOS**: Available for iPhone and iPad.
+
+### Project Showcase
 
 <img src="https://github.com/user-attachments/assets/a09d544a-7edb-4d83-99f1-d1e18ddde5a4" height="750" width="345" />
 <img src="https://github.com/user-attachments/assets/cc54fea9-a5b7-4931-8b6e-e0c05c1baab9" height="750" width="345" />
@@ -31,42 +32,38 @@
 <img src="https://github.com/user-attachments/assets/6638212d-a028-4895-a990-64d697d47488" height="750" width="345" />
 <img src="https://github.com/user-attachments/assets/9a991d54-e72a-4b74-87da-a93606bb4d3c" height="750" width="345" />
 
-## 使用指南
+## User Guide
 
-### 1. 创建问卷
+### 1. Create a Survey
 
-* 进入管理后台，选择 "新建问卷"。
-* 添加问题，设计所需的逻辑题型。
-* 保存并分配给目标群体。
+* Go to the admin backend and select "Create New Survey."
+* Add questions and design the required logic types.
+* Save and assign to target groups.
 
-### 2. 设定周期性任务
+### 2. Set Up Periodic Tasks
 
-* 在管理后台，选择 "新建任务"。
-* 设定任务的跟踪周期（如每天、每周、每月）。
-* 选择目标问卷和目标群体，启动任务。
+* In the admin backend, select "Create New Task."
+* Set the tracking cycle for the task (e.g., daily, weekly, monthly).
+* Choose the target survey and target groups, and start the task.
 
-### 3. 收集数据
+### 3. Collect Data
 
-* 用户在指定周期内收到问卷通知，完成问卷后数据将自动上传至服务器。
-* 管理员可在后台查看实时数据，并导出数据进行分析。
+* Users receive survey notifications during the specified cycle, complete the survey, and data is automatically uploaded to the server.
+* Administrators can view real-time data in the backend and export it for analysis.
 
-## 贡献指南
+## Contribution Guide
 
-我们欢迎开发者为光谱调查项目做出贡献。请按照以下步骤进行贡献：
+We welcome developers to contribute to the Spectral Survey project. Please follow the steps below to contribute:
 
-### 5. 提交拉取请求 (Pull Request)
+### 5. Submit a Pull Request
 
-在 GitHub 上提交拉取请求，描述所做的更改。
+Submit a pull request on GitHub, describing the changes made.
 
-## 社区与支持
+## Community and Support
 
-* **沟通渠道**: 如有任何问题或建议，请发送邮件至 <dylan.may@qq.com>。
-* **问题反馈**: 在 [GitHub Issues](https://github.com/yourrepo/spectral-survey/issues) 页面提交问题。
+* **Communication Channel**: For any questions or suggestions, please email <dylan.may@qq.com>.
+* **Issue Reporting**: Submit issues on the [GitHub Issues](https://github.com/yourrepo/spectral-survey/issues) page.
 
-## 许可证
+## License
 
-本项目基于 [MIT 许可证](LICENSE) 进行分发和使用。有关更多详细信息，请参阅许可证文件。
-
-***
-
-这份README文件将帮助用户和贡献者快速理解光谱调查应用程序的功能，并为他们提供清晰的安装、使用和贡献指导。如果有其他信息或需要调整的内容，欢迎告知。
+This project is distributed under the [MIT License](LICENSE). For more details, please refer to the license file.
