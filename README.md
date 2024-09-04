@@ -1,4 +1,4 @@
-# 光谱调查应用  ***[English](README.md)***
+# 光谱调查应用  ***[English](README.en.md)***
 
 ## 概述
 
