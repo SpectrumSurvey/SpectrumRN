@@ -305,7 +305,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = GVWBSMDMT2;
+						DevelopmentTeam = FWCL97PJHA;
 						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -719,8 +719,8 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = GVWBSMDMT2;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GVWBSMDMT2;
+				DEVELOPMENT_TEAM = M7TS3X7AL6;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FWCL97PJHA;
 				INFOPLIST_FILE = dgApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 13.0310;
@@ -729,10 +729,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dg.wenjuan.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dg.questionnaire.app;
 				PRODUCT_NAME = "i点集";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.dg.wenjuan.app";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.dg.wenjuan.app";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.dg.questionnaire.app";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -752,7 +752,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = GVWBSMDMT2;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GVWBSMDMT2;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FWCL97PJHA;
 				INFOPLIST_FILE = dgApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 13.0310;
@@ -761,10 +761,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dg.wenjuan.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dg.questionnaire.app;
 				PRODUCT_NAME = "i点集";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.dg.wenjuan.app";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc com.dg.wenjuan.app";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc com.dg.questionnaire.app";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

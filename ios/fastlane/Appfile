@@ -1,5 +1,5 @@
-app_identifier "com.dg.wenjuan.app" # The bundle identifier of your app
-apple_id "670374839@qq.com"  # Your Apple email address
+app_identifier "com.dg.questionnaire.app" # The bundle identifier of your app
+apple_id "13501647181@139.com"  # Your Apple email address
 
 
 # For more information about the Appfile, see:

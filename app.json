@@ -3,8 +3,8 @@
   "displayName": "dgApp",
   "env": "uat",
   "url": "https://dev-api-dg.fortune-net.cn/",
-  "JPushAppKey": "fab53794aab9e1c30043f28a",
+  "JPushAppKey": "cc2fdf4a24d153647de3fc7e",
   "report_url": "https://dev-report-dg.fortune-net.cn/",
-  "appVersion": 19,
-  "appVersionName": "2022122310364919"
+  "appVersion": 24,
+  "appVersionName": "2023031712185424"
 }
