@@ -2,7 +2,7 @@
     <img alt="logo" src="https://github.com/user-attachments/assets/8c6be9f4-7dc0-4af6-89dc-a605ea3cecff" width="120" height="120" style="margin-bottom: 10px;">
 </p>
 
-# Spectral Survey Application  <a href="./README.cn.md">中文介绍</a>
+# Spectrum Survey Application  <a href="./README.cn.md">中文介绍</a>
 
 ## Overview
 
