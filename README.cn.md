@@ -19,7 +19,18 @@
 
 光谱调查的独特之处在于其强大的周期性问卷功能，能够适应不同的研究计划，提供持续、周期性的跟踪调查。此外，应用程序支持专业的逻辑题型设计，能够满足高度复杂的调查任务需求。
 
-## 安装
+## 启动
+```
+     yarn
+     yarn start  # Start Metro
+     yarn ios or yarn android 
+```
+
+## 构建
+```
+    fastlane android
+    fastlane ios
+```
 
 ### 支持的平台
 

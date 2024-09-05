@@ -1,4 +1,6 @@
-
+<p align="center">
+    <img alt="logo" src="https://github.com/user-attachments/assets/8c6be9f4-7dc0-4af6-89dc-a605ea3cecff" width="120" height="120" style="margin-bottom: 10px;">
+</p>
 # Spectral Survey Application  <a href="./README.cn.md">中文介绍</a>
 
 ## Overview
@@ -16,7 +18,20 @@ Spectral Survey is a questionnaire application designed for scientific research 
 
 The unique feature of Spectral Survey lies in its powerful periodic survey capabilities, which can adapt to different research plans and provide continuous, periodic tracking surveys. Additionally, the application supports professional logic question design to accommodate highly complex survey tasks.
 
-## Installation
+## How to start
+
+```
+     yarn
+     yarn start  # Start Metro
+     yarn ios or yarn android 
+```
+
+## Build
+
+```
+    fastlane android
+    fastlane ios
+```
 
 ### Supported Platforms
 
